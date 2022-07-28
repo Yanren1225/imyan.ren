@@ -1,0 +1,23 @@
+#hero {
+  margin-top: 4.5rem;
+}
+
+.block {
+  display: block;
+}
+
+.info {
+  margin-top: 24px;
+}
+
+h1 span {
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: bold;
+}
+
+.info p {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  margin-top: 0.5rem;
+}

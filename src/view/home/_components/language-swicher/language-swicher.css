@@ -1,0 +1,36 @@
+#language-switcher > .language-list {
+  display: flex;
+}
+
+.language-list > li {
+  margin-right: 20px;
+}
+
+.language-list > li:last-child {
+  margin-right: 0;
+}
+
+.language-list > li > p {
+  cursor: pointer;
+  color: #6060608e;
+  font-size: 1.25rem;
+  transition: 0.4s;
+}
+
+.language-list > li > p:hover {
+  color: #000000;
+}
+
+.language-list > li > .active {
+  color: #000000;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  .language-list > li > .active {
+    color: #fff;
+  }
+
+  .language-list > li > p:hover {
+    color: #fff;
+  }
+}
