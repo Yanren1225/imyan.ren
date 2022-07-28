@@ -1,0 +1,40 @@
+#language-switcher {
+  & .language-list {
+    display: flex;
+  }
+}
+
+.language-list {
+  & > li {
+    margin-right: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    & > p {
+      cursor: pointer;
+      color: #6060608e;
+      font-size: 1.25rem;
+      transition: 0.4s;
+
+      &:hover {
+        color: #000000;
+      }
+
+      &.active {
+        color: #000000;
+      }
+    }
+  }
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  .language-list > li > .active {
+    color: #fff;
+  }
+
+  .language-list > li > p:hover {
+    color: #fff;
+  }
+}
