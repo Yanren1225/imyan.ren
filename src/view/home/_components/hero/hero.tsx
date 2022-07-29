@@ -6,10 +6,12 @@ const Hero = () => {
 
   return (
     <div class="outfit" id={style.hero}>
-      <h1>
-        <span class={`${style.block}`}>{t('hey')},</span>
-        <span class={style.block}>{t('im')}</span>
-      </h1>
+      <div class={style.box}>
+        <p>
+          {t('hey')},<br />
+          {t('im')}
+        </p>
+      </div>
       <div class={style.info}>
         <p>{t('info.1')}</p>
         <p>{t('info.2')}</p>
