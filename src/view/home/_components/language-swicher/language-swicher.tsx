@@ -1,4 +1,4 @@
-import './language-swicher.postcss'
+import './language-swicher.pcss'
 import { useI18n } from '@solid-primitives/i18n'
 import { createEffect } from 'solid-js'
 
