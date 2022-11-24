@@ -7,7 +7,7 @@ const dict = {
     yanren: 'Yanren',
     info: {
       1: 'Front-end & Android developer.',
-      2: 'Currently working at Metaplasia.',
+      2: 'Currently still looking for a job.',
       3: 'I like making interesting projects.',
     },
   },
@@ -17,7 +17,7 @@ const dict = {
     yanren: '炎忍',
     info: {
       1: '前端与安卓开发者。',
-      2: '目前在 Metaplasia 工作。',
+      2: '目前还在求职中。',
       3: '我喜欢做有趣的项目。',
     },
   },
