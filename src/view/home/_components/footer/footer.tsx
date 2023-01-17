@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
     <footer style={style.footer}>
-      <p>{t('yanren')} © 2022</p>
+      <p>{t('yanren')} © 2023</p>
     </footer>
   )
 }
