@@ -1,36 +1,31 @@
 import { Index, Show } from 'solid-js'
-import style from './socials.module.css'
-import './hover.css'
+import './socials.less'
+import './hover.less'
 
 interface SocialProps {
-  data: {
-    icon: string
-    link: string
-    class?: string
-    text?: string
-  }
+  icon: string
+  link: string
+  class?: string
+  text?: string
 }
 
 const SocialItem = (props: SocialProps) => {
-  const { data } = props
+  const { icon, link, class: className, text } = props
+
   return (
-    <a
-      class={`${style.link} outfit ${data.class}`}
-      href={data.link}
-      target="_blank"
-    >
+    <a class={`link outfit ${className}`} href={link} target="_blank">
       <div>
-        <div class={data.icon} />
+        <div class={icon} />
       </div>
-      <Show when={data.text}>
-        <div class={style.text}>{data.text}</div>
+      <Show when={text}>
+        <div class="text">{text}</div>
       </Show>
     </a>
   )
 }
 
 const Socials = () => {
-  const socialLists = [
+  const socialLists: SocialProps[] = [
     {
       text: 'Github',
       link: 'https://github.com/EndureBlaze',
@@ -43,7 +38,7 @@ const Socials = () => {
     },
     {
       text: '',
-      link: 'https://twitter.com/EndureBlaze',
+      link: 'https://twitter.com/realYanren',
       icon: 'fab fa-twitter',
       class: 'hover-twitter',
     },
@@ -60,14 +55,23 @@ const Socials = () => {
     },
     {
       text: '',
-      link: 'https://t.me/EndureBlaze',
+      link: 'https://t.me/realYanren',
       icon: 'fa-brands fa-telegram',
     },
   ]
 
   return (
-    <div id={style.socials}>
-      <Index each={socialLists}>{(item) => <SocialItem data={item()} />}</Index>
+    <div id="socials">
+      <Index each={socialLists}>
+        {(item) => (
+          <SocialItem
+            icon={item().icon}
+            link={item().link}
+            class={item().class}
+            text={item().text}
+          />
+        )}
+      </Index>
     </div>
   )
 }

@@ -5,6 +5,10 @@ const dict = {
     hey: 'Hey',
     im: "I'm Yanren",
     yanren: 'Yanren',
+    nav: {
+      home: 'Home',
+      friend: 'Friend',
+    },
     info: {
       1: 'Front-end & Android developer.',
       2: 'Currently working at Cosmic Star Global Limited.',
@@ -15,6 +19,10 @@ const dict = {
     hey: '嗨',
     im: '我是炎忍',
     yanren: '炎忍',
+    nav: {
+      home: '主页',
+      friend: '友链',
+    },
     info: {
       1: '前端与安卓开发者。',
       2: '目前在星宇网络有限公司工作。',

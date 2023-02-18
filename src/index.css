@@ -1,7 +1,11 @@
 :root {
   --c-bg: #ffffff;
+  --c-card-bg: rgba(112, 112, 112, 0.1);
+  --c-card-bg-hover: rgba(112, 112, 112, 0.2);
   --c-scroll: #d9d9d9;
   --c-scroll-hover: #bbbbbb;
+  --c-text: rgb(76, 73, 72);
+  --c-text-hover: rgb(0, 0, 0);
   scrollbar-color: var(--c-scrollbar) var(--c-bg);
   color-scheme: light dark;
 }
@@ -9,8 +13,12 @@
 @media screen and (prefers-color-scheme: dark) {
   :root {
     --c-bg: #212121;
+    --c-card-bg: rgba(255, 255, 255, 0.1);
+    --c-card-bg-hover: rgba(255, 255, 255, 0.2);
     --c-scroll: #333333;
     --c-scroll-hover: #555555;
+    --c-text: rgba(232, 230, 227, 0.7);
+    --c-text-hover: rgba(232, 230, 227, 1);
   }
 }
 
@@ -38,4 +46,11 @@ body {
 
 .outfit {
   font-family: 'Outfit', sans-serif;
+}
+
+#root {
+  padding: 8vh 1.5rem;
+  max-width: 90ch;
+  margin-left: auto;
+  margin-right: auto;
 }

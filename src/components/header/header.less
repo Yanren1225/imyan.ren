@@ -1,0 +1,26 @@
+header {
+  display: flex;
+
+  .back {
+    cursor: pointer;
+  }
+
+  .nav {
+    display: flex;
+    gap: 20px;
+  }
+
+  #language-switcher {
+    margin-left: auto;
+  }
+
+  .nav a {
+    color: var(--c-text);
+    text-decoration: none;
+    transition: all 0.3s;
+
+    &:hover {
+      color: var(--c-text-hover);
+    }
+  }
+}
