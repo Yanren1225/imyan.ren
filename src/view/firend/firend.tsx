@@ -1,5 +1,5 @@
 import Layout from '@/layout/layout'
-import { createEffect, createSignal, For } from 'solid-js'
+import { Component, createEffect, createSignal, For, onMount } from 'solid-js'
 import yaml from 'js-yaml'
 import './firend.less'
 
@@ -16,10 +16,10 @@ interface IFirendItem {
   descr?: string
 }
 
-const Firend = () => {
+const Firend: Component = () => {
   const [friendData, setFriendData] = createSignal<IFirendData[]>([])
 
-  createEffect(async () => {
+  onMount(async () => {
     const friendDataSoure = await fetch('./link.yml')
     setFriendData(yaml.load(await friendDataSoure.text()) as IFirendData[])
   })

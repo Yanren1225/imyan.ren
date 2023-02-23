@@ -1,4 +1,4 @@
-import { Index, Show } from 'solid-js'
+import { Component, Index, Show } from 'solid-js'
 import './socials.less'
 import './hover.less'
 
@@ -9,16 +9,14 @@ interface SocialProps {
   text?: string
 }
 
-const SocialItem = (props: SocialProps) => {
-  const { icon, link, class: className, text } = props
-
+const SocialItem: Component<SocialProps> = (props: SocialProps) => {
   return (
-    <a class={`link outfit ${className}`} href={link} target="_blank">
+    <a class={`link outfit ${props.class}`} href={props.link} target="_blank">
       <div>
-        <div class={icon} />
+        <div class={props.icon} />
       </div>
-      <Show when={text}>
-        <div class="text">{text}</div>
+      <Show when={props.text}>
+        <div class="text">{props.text}</div>
       </Show>
     </a>
   )

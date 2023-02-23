@@ -1,7 +1,8 @@
 import './footer.less'
 import { useI18n } from '@solid-primitives/i18n'
+import { Component } from 'solid-js'
 
-const Footer = () => {
+const Footer: Component = () => {
   const [t] = useI18n()
 
   return (
