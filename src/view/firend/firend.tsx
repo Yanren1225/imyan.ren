@@ -1,6 +1,6 @@
 import Layout from '@/layout/layout'
+import { get } from '@/net'
 import { Component, createEffect, createSignal, For, onMount } from 'solid-js'
-import yaml from 'js-yaml'
 import './firend.less'
 
 interface IFirendData {
@@ -20,8 +20,8 @@ const Firend: Component = () => {
   const [friendData, setFriendData] = createSignal<IFirendData[]>([])
 
   onMount(async () => {
-    const friendDataSoure = await fetch('./link.yml')
-    setFriendData(yaml.load(await friendDataSoure.text()) as IFirendData[])
+    const friendData = await get<Array<IFirendData>>('./link.json')
+    setFriendData(friendData)
   })
 
   createEffect(() => {
@@ -60,8 +60,7 @@ const FirendItem = (props: IFirendItem) => {
           alt={props.name}
           onError={(e) => {
             if (e.target instanceof HTMLImageElement) {
-              e.target.src =
-                'https://avatars.githubusercontent.com/u/2106987?v=4'
+              e.target.src = `https://api.multiavatar.com/${props.name}.png`
             }
           }}
         />
@@ -75,8 +74,7 @@ const FirendItem = (props: IFirendItem) => {
           alt={props.name}
           onError={(e) => {
             if (e.target instanceof HTMLImageElement) {
-              e.target.src =
-                'https://avatars.githubusercontent.com/u/2106987?v=4'
+              e.target.src = `https://api.multiavatar.com/${props.name}.png`
             }
           }}
         />

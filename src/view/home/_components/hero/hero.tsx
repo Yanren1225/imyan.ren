@@ -1,7 +1,8 @@
 import './hero.less'
 import { useI18n } from '@solid-primitives/i18n'
+import { Component } from 'solid-js'
 
-const Hero = () => {
+const Hero: Component = () => {
   const [t] = useI18n()
 
   return (

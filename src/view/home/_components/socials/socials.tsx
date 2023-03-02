@@ -9,11 +9,11 @@ interface SocialProps {
   text?: string
 }
 
-const SocialItem: Component<SocialProps> = (props: SocialProps) => {
+const SocialItem: Component<SocialProps> = (props) => {
   return (
     <a class={`link outfit ${props.class}`} href={props.link} target="_blank">
       <div>
-        <div class={props.icon} />
+        <i class={props.icon} />
       </div>
       <Show when={props.text}>
         <div class="text">{props.text}</div>
@@ -35,24 +35,20 @@ const Socials = () => {
       icon: 'fa-solid fa-blog',
     },
     {
-      text: '',
       link: 'https://twitter.com/realYanren',
       icon: 'fab fa-twitter',
       class: 'hover-twitter',
     },
     {
-      text: '',
       link: 'mailto:nihaocun@outlook.com',
       icon: 'fa-solid fa-at',
     },
     {
-      text: '',
       link: 'https://space.bilibili.com/21696748',
       icon: 'fa-brands fa-bilibili',
       class: 'hover-bilibili',
     },
     {
-      text: '',
       link: 'https://t.me/realYanren',
       icon: 'fa-brands fa-telegram',
     },
@@ -60,16 +56,7 @@ const Socials = () => {
 
   return (
     <div id="socials">
-      <Index each={socialLists}>
-        {(item) => (
-          <SocialItem
-            icon={item().icon}
-            link={item().link}
-            class={item().class}
-            text={item().text}
-          />
-        )}
-      </Index>
+      <Index each={socialLists}>{(item) => <SocialItem {...item()} />}</Index>
     </div>
   )
 }
