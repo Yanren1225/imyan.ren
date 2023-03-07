@@ -26,7 +26,7 @@ const Socials = () => {
   const socialLists: SocialProps[] = [
     {
       text: 'Github',
-      link: 'https://github.com/EndureBlaze',
+      link: 'https://github.com/Yanren1225',
       icon: 'fa-brands fa-github',
     },
     {
