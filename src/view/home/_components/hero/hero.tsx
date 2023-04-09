@@ -1,4 +1,5 @@
 import './hero.less'
+
 import { useI18n } from '@solid-primitives/i18n'
 import { Component } from 'solid-js'
 

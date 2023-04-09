@@ -1,8 +1,11 @@
-import { Hero } from './_components/hero'
 import './home.css'
-import { Socials } from './_components/socials'
-import Layout from '@/layout/layout'
+
 import { Component } from 'solid-js'
+
+import Layout from '@/layout/layout'
+
+import { Hero } from './_components/hero'
+import { Socials } from './_components/socials'
 
 const Home: Component = () => {
   return (

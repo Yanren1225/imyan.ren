@@ -1,7 +1,9 @@
+import './firend.less'
+
+import { Component, createEffect, createSignal, For, onMount } from 'solid-js'
+
 import Layout from '@/layout/layout'
 import { get } from '@/net'
-import { Component, createEffect, createSignal, For, onMount } from 'solid-js'
-import './firend.less'
 
 interface IFirendData {
   classname?: string

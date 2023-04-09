@@ -1,6 +1,6 @@
-import { Component, Index, Show } from 'solid-js'
 import './socials.less'
-import './hover.less'
+
+import { Component, Index, Show } from 'solid-js'
 
 interface SocialProps {
   icon: string
@@ -11,10 +11,8 @@ interface SocialProps {
 
 const SocialItem: Component<SocialProps> = (props) => {
   return (
-    <a class={`link outfit ${props.class}`} href={props.link} target="_blank">
-      <div>
-        <i class={props.icon} />
-      </div>
+    <a class={`outfit ${props.class} link`} href={props.link} target="_blank">
+      <i class={`icon ${props.icon}`} />
       <Show when={props.text}>
         <div class="text">{props.text}</div>
       </Show>
@@ -25,32 +23,36 @@ const SocialItem: Component<SocialProps> = (props) => {
 const Socials = () => {
   const socialLists: SocialProps[] = [
     {
-      text: 'Github',
+      text: 'GitHub',
       link: 'https://github.com/Yanren1225',
-      icon: 'fa-brands fa-github',
+      icon: 'i-simple-icons-github',
+      class: 'hover:bg-gray-700 dark:hover:bg-white dark:hover:text-gray-900',
     },
     {
       text: 'Blog',
       link: 'https://blog.imyan.ren',
-      icon: 'fa-solid fa-blog',
+      icon: 'i-simple-icons-blogger',
+      class: 'hover:bg-gray-700 dark:hover:bg-white dark:hover:text-gray-900',
     },
     {
       link: 'https://twitter.com/realYanren',
-      icon: 'fab fa-twitter',
-      class: 'hover-twitter',
+      icon: 'i-simple-icons-twitter',
+      class: 'hover:bg-[#00acee]',
     },
     {
       link: 'mailto:nihaocun@outlook.com',
-      icon: 'fa-solid fa-at',
+      icon: 'i-simple-icons-maildotru',
+      class: 'hover:bg-gray-700 dark:hover:bg-white dark:hover:text-gray-900',
     },
     {
       link: 'https://space.bilibili.com/21696748',
-      icon: 'fa-brands fa-bilibili',
-      class: 'hover-bilibili',
+      icon: 'i-simple-icons-bilibili',
+      class: 'hover:bg-[#fb7299]',
     },
     {
       link: 'https://t.me/realYanren',
-      icon: 'fa-brands fa-telegram',
+      icon: 'i-simple-icons-telegram',
+      class: 'hover:bg-gray-700 dark:hover:bg-white dark:hover:text-gray-900',
     },
   ]
 

@@ -1,4 +1,5 @@
 import './language-swicher.pcss'
+
 import { useI18n } from '@solid-primitives/i18n'
 import { Component, createEffect, For } from 'solid-js'
 

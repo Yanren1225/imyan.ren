@@ -1,8 +1,10 @@
-import { useI18n } from '@solid-primitives/i18n'
 import './header.less'
+
+import { useI18n } from '@solid-primitives/i18n'
 import { Link } from '@solidjs/router'
-import { LanguageSwitcher } from '../language-swicher'
 import { Component } from 'solid-js'
+
+import { LanguageSwitcher } from '../language-swicher'
 
 const Header: Component = () => {
   const [t] = useI18n()

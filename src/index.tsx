@@ -1,11 +1,12 @@
 /* @refresh reload */
-import { render } from 'solid-js/web'
-import { I18nContext } from '@solid-primitives/i18n'
-import i18nValue from './locales'
-
 import './index.less'
-import './assets/font/font.css'
+import 'virtual:uno.css'
+
+import { I18nContext } from '@solid-primitives/i18n'
+import { render } from 'solid-js/web'
+
 import App from './App'
+import i18nValue from './locales'
 
 render(
   () => (

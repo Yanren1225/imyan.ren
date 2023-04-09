@@ -1,4 +1,5 @@
 import { mergeProps, ParentComponent, Show } from 'solid-js'
+
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
 
