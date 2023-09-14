@@ -1,24 +1,20 @@
-import type * as en from './en'
 import * as i18n from '@solid-primitives/i18n'
-import { createResource, createSignal } from 'solid-js'
+import { createMemo, createSignal } from 'solid-js'
+
+import * as en from './en'
+import * as zhCN from './zh-cn'
 
 type Locale = 'zh-cn' | 'en'
 
-type RawDictionary = typeof en.dict
-type Dictionary = i18n.Flatten<RawDictionary>
-
-async function fetchDictionary(locale: Locale): Promise<Dictionary> {
-  // await new Promise((r) => setTimeout(r, 600))
-
-  const dict: RawDictionary = (
-    await import(/* @vite-ignore */ `./${locale}.ts`)
-  ).dict
-  return i18n.flatten(dict)
+const dictionaries = {
+  en: en.dict,
+  'zh-cn': zhCN.dict,
 }
 
 const [locale, setLocale] = createSignal<Locale>('en')
-const [dict] = createResource(locale, fetchDictionary)
-const t = i18n.translator(dict, i18n.resolveTemplate)
+const dict = createMemo(() => i18n.flatten(dictionaries[locale()]))
+// eslint-disable-next-line solid/reactivity
+const t = i18n.translator(dict)
 
 export { locale, setLocale, t }
 export type { Locale }

@@ -1,7 +1,8 @@
 import './footer.less'
 
-import { t } from '@/i18n'
 import { Component } from 'solid-js'
+
+import { t } from '@/i18n'
 
 const Footer: Component = () => {
   return (
