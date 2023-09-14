@@ -1,21 +1,19 @@
 import './language-swicher.pcss'
 
-import { useI18n } from '@solid-primitives/i18n'
+import { setLocale, locale, Locale } from '@/i18n'
 import { Component, createEffect, For } from 'solid-js'
 
 const LanguageSwitcher: Component = () => {
-  const languageList = [
+  const languageList: { text: string; lan: Locale }[] = [
     {
       text: 'EN',
       lan: 'en',
     },
     {
       text: '简',
-      lan: 'zhCN',
+      lan: 'zh-cn',
     },
   ]
-
-  const [, { locale }] = useI18n()
 
   createEffect(() => {
     if (locale() === 'en') {
@@ -34,7 +32,7 @@ const LanguageSwitcher: Component = () => {
               <li>
                 <p
                   classList={{ active: locale() === item.lan }}
-                  onClick={() => locale(item.lan)}
+                  onClick={() => setLocale(item.lan)}
                   class="outfit"
                 >
                   {item.text}

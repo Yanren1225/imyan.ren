@@ -1,11 +1,9 @@
 import './hero.less'
 
-import { useI18n } from '@solid-primitives/i18n'
+import { t } from '@/i18n'
 import { Component } from 'solid-js'
 
 const Hero: Component = () => {
-  const [t] = useI18n()
-
   return (
     <div class="outfit" id="hero">
       <div class="box">

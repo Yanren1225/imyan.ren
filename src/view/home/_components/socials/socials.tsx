@@ -26,33 +26,37 @@ const Socials = () => {
       text: 'GitHub',
       link: 'https://github.com/Yanren1225',
       icon: 'i-simple-icons-github',
-      class: 'hover:bg-gray-700 dark:hover:bg-white dark:hover:text-gray-900',
+      class:
+        '!hover:bg-gray-700 !dark:hover:bg-white !dark:hover:text-gray-900',
     },
     {
       text: 'Blog',
       link: 'https://blog.imyan.ren',
       icon: 'i-simple-icons-blogger',
-      class: 'hover:bg-gray-700 dark:hover:bg-white dark:hover:text-gray-900',
+      class:
+        '!hover:bg-gray-700 !dark:hover:bg-white !dark:hover:text-gray-900',
     },
     {
       link: 'https://twitter.com/realYanren',
       icon: 'i-simple-icons-twitter',
-      class: 'hover:bg-[#00acee]',
+      class: '!hover:bg-[#00acee]',
     },
     {
       link: 'mailto:nihaocun@outlook.com',
       icon: 'i-simple-icons-maildotru',
-      class: 'hover:bg-gray-700 dark:hover:bg-white dark:hover:text-gray-900',
+      class:
+        '!hover:bg-gray-700 !dark:hover:bg-white !dark:hover:text-gray-900',
     },
     {
       link: 'https://space.bilibili.com/21696748',
       icon: 'i-simple-icons-bilibili',
-      class: 'hover:bg-[#fb7299]',
+      class: '!hover:bg-[#fb7299]',
     },
     {
       link: 'https://t.me/realYanren',
       icon: 'i-simple-icons-telegram',
-      class: 'hover:bg-gray-700 dark:hover:bg-white dark:hover:text-gray-900',
+      class:
+        '!hover:bg-gray-700 !dark:hover:bg-white !dark:hover:text-gray-900',
     },
   ]
 
