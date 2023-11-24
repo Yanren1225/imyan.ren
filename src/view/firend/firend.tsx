@@ -1,6 +1,6 @@
 import './firend.less'
 
-import { Component, createEffect, createSignal, For, onMount } from 'solid-js'
+import { Component, createResource, For } from 'solid-js'
 
 import Layout from '@/layout/layout'
 import { get } from '@/net'
@@ -19,16 +19,9 @@ interface IFirendItem {
 }
 
 const Firend: Component = () => {
-  const [friendData, setFriendData] = createSignal<IFirendData[]>([])
-
-  onMount(async () => {
-    const friendData = await get<Array<IFirendData>>('./link.json')
-    setFriendData(friendData)
-  })
-
-  createEffect(() => {
-    console.log(friendData())
-  })
+  const [friendData] = createResource(() =>
+    get<Array<IFirendData>>('./link.json')
+  )
 
   return (
     <>
