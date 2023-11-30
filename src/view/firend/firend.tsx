@@ -5,18 +5,7 @@ import { Component, createResource, For } from 'solid-js'
 import Layout from '@/layout/layout'
 import { get } from '@/net'
 
-interface IFirendData {
-  classname?: string
-  class_desc?: string
-  link_list: IFirendItem[]
-}
-
-interface IFirendItem {
-  name: string
-  link: string
-  avatar?: string
-  descr?: string
-}
+import { FirendItem } from './_components/firend-item/firend-item'
 
 const Firend: Component = () => {
   const [friendData] = createResource(() =>
@@ -41,39 +30,6 @@ const Firend: Component = () => {
           </For>
         </div>
       </Layout>
-    </>
-  )
-}
-
-const FirendItem = (props: IFirendItem) => {
-  return (
-    <>
-      <div class="friend-item">
-        <img
-          class="avatar"
-          src={props.avatar ?? ''}
-          alt={props.name}
-          onError={(e) => {
-            if (e.target instanceof HTMLImageElement) {
-              e.target.src = `https://api.multiavatar.com/${props.name}.png`
-            }
-          }}
-        />
-        <a href={props.link} target="_blank">
-          <p class="name">{props.name}</p>
-          <p class="desc">{props.descr}</p>
-        </a>
-        <img
-          class="back-avatar"
-          src={props.avatar ?? ''}
-          alt={props.name}
-          onError={(e) => {
-            if (e.target instanceof HTMLImageElement) {
-              e.target.src = `https://api.multiavatar.com/${props.name}.png`
-            }
-          }}
-        />
-      </div>
     </>
   )
 }
