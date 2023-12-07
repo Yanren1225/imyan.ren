@@ -1,0 +1,9 @@
+{
+  "files.autoSave": "onFocusChange",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "i18n-ally.localesPaths": ["src/i18n/locale"],
+  "i18n-ally.enabledParsers": ["json", "ts"],
+  "i18n-ally.keystyle": "nested"
+}

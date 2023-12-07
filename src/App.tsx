@@ -1,5 +1,6 @@
 import { Route, Router, Routes } from '@solidjs/router'
 import { Component } from 'solid-js'
+
 import { Firend } from './view/firend/firend'
 import { Home } from './view/home/home'
 

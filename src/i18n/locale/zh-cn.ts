@@ -1,4 +1,4 @@
-export const dict = {
+export default {
   hey: '嗨',
   im: '我是炎忍',
   yanren: '炎忍',
