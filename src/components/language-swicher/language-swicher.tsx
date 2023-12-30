@@ -1,7 +1,8 @@
 import './language-swicher.pcss'
 
-import { setLocale, locale, Locale } from '@/i18n'
 import { Component, createEffect, For } from 'solid-js'
+
+import { Locale, locale, setLocale } from '@/i18n'
 
 const LanguageSwitcher: Component = () => {
   const languageList: { text: string; lan: Locale }[] = [

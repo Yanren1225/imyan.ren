@@ -21,7 +21,7 @@ const SocialItem: Component<SocialProps> = (props) => {
 }
 
 const Socials = () => {
-  const socialLists: SocialProps[] = [
+  const socialList: SocialProps[] = [
     {
       text: 'GitHub',
       link: 'https://github.com/Yanren1225',
@@ -42,7 +42,7 @@ const Socials = () => {
       class: '!hover:bg-[#00acee]',
     },
     {
-      link: 'mailto:nihaocun@outlook.com',
+      link: 'mailto:hi@imyan.ren',
       icon: 'i-simple-icons-maildotru',
       class:
         '!hover:bg-gray-700 !dark:hover:bg-white !dark:hover:text-gray-900',
@@ -62,7 +62,7 @@ const Socials = () => {
 
   return (
     <div id="socials">
-      <Index each={socialLists}>{(item) => <SocialItem {...item()} />}</Index>
+      <Index each={socialList}>{(item) => <SocialItem {...item()} />}</Index>
     </div>
   )
 }

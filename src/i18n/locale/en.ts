@@ -5,10 +5,11 @@ export default {
   nav: {
     home: 'Home',
     friend: 'Friend',
+    comment: 'Comment',
   },
-  info: {
-    1: 'Front-end & Android developer.',
-    2: 'Currently still looking for a job.',
-    3: 'I like making interesting projects.',
-  },
+  info: [
+    'Front-end & Android developer.',
+    'TypeScript lover.',
+    'I like making interesting projects.',
+  ],
 }

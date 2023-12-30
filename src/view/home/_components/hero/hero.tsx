@@ -14,9 +14,9 @@ const Hero: Component = () => {
         </p>
       </div>
       <div class="info">
+        <p>{t('info.0')}</p>
         <p>{t('info.1')}</p>
         <p>{t('info.2')}</p>
-        <p>{t('info.3')}</p>
       </div>
     </div>
   )

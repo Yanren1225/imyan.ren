@@ -1,8 +1,9 @@
 import './header.less'
 
-import { t } from '@/i18n'
-import { Link } from '@solidjs/router'
+import { Link, useMatch } from '@solidjs/router'
 import { Component } from 'solid-js'
+
+import { t } from '@/i18n'
 
 import { LanguageSwitcher } from '../language-swicher'
 
@@ -12,10 +13,28 @@ const Header: Component = () => {
       <header>
         <ul class="nav">
           <li>
-            <Link href="/">{t('nav.home')}</Link>
+            <Link
+              classList={{ active: Boolean(useMatch(() => '/')()) }}
+              href="/"
+            >
+              {t('nav.home')}
+            </Link>
           </li>
           <li>
-            <Link href="/firend">{t('nav.friend')}</Link>
+            <Link
+              classList={{ active: Boolean(useMatch(() => '/firend')()) }}
+              href="/firend"
+            >
+              {t('nav.friend')}
+            </Link>
+          </li>
+          <li>
+            <Link
+              classList={{ active: Boolean(useMatch(() => '/comment')()) }}
+              href="/comment"
+            >
+              {t('nav.comment')}
+            </Link>
           </li>
         </ul>
         <LanguageSwitcher />

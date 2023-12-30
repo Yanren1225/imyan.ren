@@ -1,14 +1,14 @@
 import * as i18n from '@solid-primitives/i18n'
 import { createMemo, createSignal } from 'solid-js'
 
-import * as en from './locale/en'
-import * as zhCN from './locale/zh-cn'
+import en from './locale/en'
+import zhCN from './locale/zh-cn'
 
 type Locale = 'zh-cn' | 'en'
 
 const dictionaries = {
-  en: en.default,
-  'zh-cn': zhCN.default,
+  en: en,
+  'zh-cn': zhCN,
 }
 
 const [locale, setLocale] = createSignal<Locale>('en')
