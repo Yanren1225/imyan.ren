@@ -2,6 +2,7 @@ export default {
   hey: 'Hey',
   im: "I'm Yanren",
   yanren: 'Yanren',
+  'access-denied': 'Access denied',
   nav: {
     home: 'Home',
     friend: 'Friend',

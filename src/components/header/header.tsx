@@ -1,6 +1,6 @@
 import './header.less'
 
-import { Link, useMatch } from '@solidjs/router'
+import { A, useMatch } from '@solidjs/router'
 import { Component } from 'solid-js'
 
 import { t } from '@/i18n'
@@ -13,28 +13,25 @@ const Header: Component = () => {
       <header>
         <ul class="nav">
           <li>
-            <Link
-              classList={{ active: Boolean(useMatch(() => '/')()) }}
-              href="/"
-            >
+            <A classList={{ active: Boolean(useMatch(() => '/')()) }} href="/">
               {t('nav.home')}
-            </Link>
+            </A>
           </li>
           <li>
-            <Link
+            <A
               classList={{ active: Boolean(useMatch(() => '/firend')()) }}
               href="/firend"
             >
               {t('nav.friend')}
-            </Link>
+            </A>
           </li>
           <li>
-            <Link
+            <A
               classList={{ active: Boolean(useMatch(() => '/comment')()) }}
               href="/comment"
             >
               {t('nav.comment')}
-            </Link>
+            </A>
           </li>
         </ul>
         <LanguageSwitcher />

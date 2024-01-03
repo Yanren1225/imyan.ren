@@ -9,6 +9,7 @@ interface IFirendItem {
   link: string
   avatar?: string
   descr?: string
+  isAccessDenied?: boolean
 }
 
 interface FirendAvatarProps {

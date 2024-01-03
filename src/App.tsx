@@ -1,4 +1,4 @@
-import { Route, Router, Routes } from '@solidjs/router'
+import { Route, Router } from '@solidjs/router'
 import { Component } from 'solid-js'
 
 import { Comment } from './view/comment/comment'
@@ -7,11 +7,11 @@ import { Home } from './view/home/home'
 
 const AppRouter = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="firend" element={<Firend />} />
-      <Route path="comment" element={<Comment />} />
-    </Routes>
+    <>
+      <Route path="/" component={Home} />
+      <Route path="firend" component={Firend} />
+      <Route path="comment" component={Comment} />
+    </>
   )
 }
 

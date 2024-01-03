@@ -2,6 +2,7 @@ export default {
   hey: '嗨',
   im: '我是炎忍',
   yanren: '炎忍',
+  'access-denied': '已无法访问',
   nav: {
     home: '主页',
     friend: '友链',

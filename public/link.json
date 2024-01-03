@@ -36,10 +36,9 @@
         "descr": "一身转战三千里，一剑曾当百万师。"
       },
       {
-        "name": "扶摇直上九万里",
-        "link": "https://fuyaoskyrocket.ing/",
-        "avatar": "https://fuyaoskyrocket.ing/img/icon.png",
-        "descr": "Undergraduate, Communist, programmer."
+        "name": "扶摇 skyrocketing 的主页",
+        "link": "https://fuyaorocket.ing/",
+        "avatar": "https://fuyaorocket.ing/img/icon.png"
       },
       {
         "name": "戊成的 BLOG",
@@ -135,12 +134,18 @@
         "link": "https://blog.rinki.top/",
         "avatar": "https://blog.rinki.top/img/avatarnew.png",
         "descr": "一个感觉自己好像还不是大学生的大学生。"
+      },
+      {
+        "name": "Kroxitine",
+        "link": "https://kroxitine.com/",
+        "avatar": "https://q1.qlogo.cn/g?b=qq&nk=2657124519&s=640",
+        "descr": "克罗西丁数字轨迹"
       }
     ]
   },
   {
     "class_name": "",
-    "class_desc": "已无法访问",
+    "class_desc": "isAccessDenied",
     "link_list": [
       {
         "name": "xcstar - xc's blog",
@@ -152,12 +157,6 @@
         "link": "https://b.dopi.cc",
         "avatar": "https://cdn.dopi.cc/halo/QQ%E5%9B%BE%E7%89%8720211007170836_1633601967057.jpg-imgzip",
         "descr": "一个励志做全栈的小白"
-      },
-      {
-        "name": "Epors 的个人博客",
-        "link": "http://epors.cn",
-        "avatar": "https://secure.gravatar.com/avatar/3c622ef95f28da892afe86114e7de48d?s=80&r=G&d=",
-        "descr": "我喜欢音乐，却学了很多计算机知识"
       },
       {
         "name": "Kevin's Blog",
