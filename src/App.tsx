@@ -9,8 +9,8 @@ const AppRouter = () => {
   return (
     <>
       <Route path="/" component={Home} />
-      <Route path="firend" component={Firend} />
-      <Route path="comment" component={Comment} />
+      <Route path="/firend" component={Firend} />
+      <Route path="/comment" component={Comment} />
     </>
   )
 }

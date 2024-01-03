@@ -19,4 +19,7 @@ export default defineConfig({
       plugins: [postCssPresetEnv({ stage: 0 })],
     },
   },
+  define: {
+    __VUE_PROD_DEVTOOLS__: true,
+  },
 })
