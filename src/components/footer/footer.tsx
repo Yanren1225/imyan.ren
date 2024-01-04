@@ -7,7 +7,7 @@ import { t } from '@/i18n'
 const Footer: Component = () => {
   return (
     <footer>
-      <p>{t('yanren')} © 2023</p>
+      <p>{t('yanren')} © 2024</p>
     </footer>
   )
 }
