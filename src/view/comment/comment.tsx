@@ -8,7 +8,7 @@ export const Comment: Component = () => {
   return (
     <Layout>
       <Waline
-        style={{ margin: '40px 0' }}
+        class="my-12"
         serverURL="https://comment.imyan.ren/"
         path="comment"
         lang={locale()}

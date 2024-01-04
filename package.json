@@ -34,7 +34,7 @@
   "dependencies": {
     "@solid-primitives/i18n": "^2.0.0",
     "@solidjs/router": "^0.10.5",
-    "@waline/client": "3.0.0-alpha.9",
+    "sodesu-comment": "^0.0.3",
     "solid-js": "^1.8.7"
   }
 }

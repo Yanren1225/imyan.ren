@@ -1,14 +1,16 @@
+import presetSodesu from 'sodesu-comment/dist/preset'
+import safeList from 'sodesu-comment/dist/safeList'
 import {
   defineConfig,
   presetIcons,
-  presetMini,
+  presetUno,
   presetWebFonts,
   transformerDirectives,
 } from 'unocss'
 
 export default defineConfig({
   presets: [
-    presetMini({
+    presetUno({
       dark: 'media',
     }),
     presetWebFonts({
@@ -26,6 +28,8 @@ export default defineConfig({
         height: '24px',
       },
     }),
+    presetSodesu(),
   ],
   transformers: [transformerDirectives()],
+  safelist: safeList,
 })
