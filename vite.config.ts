@@ -8,6 +8,15 @@ export default defineConfig({
   plugins: [solidPlugin(), UnoCSS()],
   build: {
     target: 'esnext',
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('vue') || id.includes('waline')) {
+            return 'waline'
+          }
+        },
+      },
+    },
   },
   resolve: {
     alias: {
@@ -19,6 +28,7 @@ export default defineConfig({
       plugins: [postCssPresetEnv({ stage: 0 })],
     },
   },
+
   define: {
     __VUE_PROD_DEVTOOLS__: true,
   },

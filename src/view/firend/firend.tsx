@@ -2,11 +2,11 @@ import './firend.less'
 
 import { Component, createResource, For } from 'solid-js'
 
+import { t } from '@/i18n'
 import Layout from '@/layout/layout'
 import { get } from '@/net'
 
 import { FirendItem } from './_components/firend-item/firend-item'
-import { t } from '@/i18n'
 
 const Firend: Component = () => {
   const [friendData] = createResource(() =>

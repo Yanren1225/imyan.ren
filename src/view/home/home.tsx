@@ -5,6 +5,7 @@ import { Component } from 'solid-js'
 import Layout from '@/layout/layout'
 
 import { Hero } from './_components/hero'
+import { Project } from './_components/project/project'
 import { Socials } from './_components/socials'
 
 const Home: Component = () => {
@@ -13,6 +14,7 @@ const Home: Component = () => {
       <div id="home">
         <Hero />
         <Socials />
+        <Project />
       </div>
     </Layout>
   )

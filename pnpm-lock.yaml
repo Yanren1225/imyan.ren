@@ -19,6 +19,9 @@ dependencies:
     version: 1.8.7
 
 devDependencies:
+  '@iconify-json/material-symbols':
+    specifier: ^1.1.68
+    version: 1.1.68
   '@iconify-json/simple-icons':
     specifier: ^1.1.86
     version: 1.1.86
@@ -1064,6 +1067,12 @@ packages:
 
   /@humanwhocodes/object-schema@2.0.1:
     resolution: {integrity: sha512-dvuCeX5fC9dXgJn9t+X5atfmgQAzUOWqS1254Gh0m6i8wKd10ebXkfNKiRK+1GWi/yTvvLDHpoxLr0xxxeslWw==}
+    dev: true
+
+  /@iconify-json/material-symbols@1.1.68:
+    resolution: {integrity: sha512-fFMMbdr3DJiQRvi6fKefJMLkrvKnW4x6a0lJwDKeRqgyVpxr1NGP3DCz4q7wWBXTpSTcBSPg4Mbfrdyg8J6R0Q==}
+    dependencies:
+      '@iconify/types': 2.0.0
     dev: true
 
   /@iconify-json/simple-icons@1.1.86:

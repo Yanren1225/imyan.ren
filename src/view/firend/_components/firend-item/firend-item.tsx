@@ -12,7 +12,6 @@ const FirendItem: Component<IFirendItem> = (props) => {
         <FirendAvatar class="avatar" {...props} />
         <a href={props.link} target="_blank">
           <p class="name">{props.name}</p>
-          <p class="desc">{props.descr}</p>
           <FirendAvatar class="back-avatar" {...props} />
         </a>
       </div>
