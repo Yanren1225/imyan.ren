@@ -2,8 +2,15 @@ import './project.less'
 
 import { Component, For } from 'solid-js'
 
+import DenoIcon from '@/assets/deno.svg'
+
 const Project: Component = () => {
   const projects: ProjectItemProps[] = [
+    {
+      title: 'Yanren Deno API',
+      icon: DenoIcon,
+      link: 'https://doc.deno-api.imyan.ren/',
+    },
     {
       title: 'Kirby Assistant',
       icon: 'https://raw.githubusercontent.com/KirbyAssistant/Kirby-Assistant/master/logo.png',
