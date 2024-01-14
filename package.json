@@ -12,6 +12,7 @@
   "devDependencies": {
     "@iconify-json/material-symbols": "^1.1.68",
     "@iconify-json/simple-icons": "^1.1.86",
+    "@types/multiavatar__multiavatar": "^1.0.3",
     "@types/node": "^20.10.6",
     "@typescript-eslint/eslint-plugin": "^6.17.0",
     "@typescript-eslint/parser": "^6.17.0",
@@ -32,6 +33,7 @@
     "vite-plugin-solid": "^2.8.0"
   },
   "dependencies": {
+    "@multiavatar/multiavatar": "^1.0.7",
     "@solid-primitives/i18n": "^2.0.0",
     "@solidjs/router": "^0.10.5",
     "sodesu-comment": "^0.0.3",

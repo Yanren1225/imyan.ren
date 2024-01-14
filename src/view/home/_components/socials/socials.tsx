@@ -30,13 +30,6 @@ const Socials = () => {
         '!hover:bg-gray-700 !dark:hover:bg-white !dark:hover:text-gray-900',
     },
     {
-      text: 'Blog',
-      link: 'https://blog.imyan.ren',
-      icon: 'i-simple-icons-blogger',
-      class:
-        '!hover:bg-gray-700 !dark:hover:bg-white !dark:hover:text-gray-900',
-    },
-    {
       link: 'https://twitter.com/realYanren',
       icon: 'i-simple-icons-twitter',
       class: '!hover:bg-[#00acee]',
@@ -55,6 +48,12 @@ const Socials = () => {
     {
       link: 'https://t.me/realYanren',
       icon: 'i-simple-icons-telegram',
+      class:
+        '!hover:bg-gray-700 !dark:hover:bg-white !dark:hover:text-gray-900',
+    },
+    {
+      link: 'https://blog.imyan.ren',
+      icon: 'i-simple-icons-blogger',
       class:
         '!hover:bg-gray-700 !dark:hover:bg-white !dark:hover:text-gray-900',
     },

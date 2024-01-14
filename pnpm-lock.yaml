@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@multiavatar/multiavatar':
+    specifier: ^1.0.7
+    version: 1.0.7
   '@solid-primitives/i18n':
     specifier: ^2.0.0
     version: 2.0.0(solid-js@1.8.7)
@@ -25,6 +28,9 @@ devDependencies:
   '@iconify-json/simple-icons':
     specifier: ^1.1.86
     version: 1.1.86
+  '@types/multiavatar__multiavatar':
+    specifier: ^1.0.3
+    version: 1.0.3
   '@types/node':
     specifier: ^20.10.6
     version: 20.10.6
@@ -1127,6 +1133,10 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
+  /@multiavatar/multiavatar@1.0.7:
+    resolution: {integrity: sha512-Yg9Uw57bmlErsWL0CSv4d6D4ZqVBE00OZmYr9MRgygoXZdboNtsEI6FbBRw1AY8l88Sm1ARcyojtlm2uwUn0Zg==}
+    dev: false
+
   /@nodelib/fs.scandir@2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
     engines: {node: '>= 8'}
@@ -1321,6 +1331,10 @@ packages:
 
   /@types/json-schema@7.0.15:
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
+    dev: true
+
+  /@types/multiavatar__multiavatar@1.0.3:
+    resolution: {integrity: sha512-ulVKHLyW9J5dibJfEaHGMuLwLFJSdk5swpwQ3lD+uPqXSynKeJEIPG85Q8tjANg4G3xMoqbfveKiZjQO2K7EJw==}
     dev: true
 
   /@types/node@20.10.6:

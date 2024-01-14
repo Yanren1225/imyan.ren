@@ -1,3 +1,4 @@
+import multiavatar from '@multiavatar/multiavatar'
 import { Component } from 'solid-js'
 
 const FirendAvatar: Component<FirendAvatarProps> = (props) => {
@@ -8,7 +9,9 @@ const FirendAvatar: Component<FirendAvatarProps> = (props) => {
       alt={props.name}
       onError={(e) => {
         if (e.target instanceof HTMLImageElement) {
-          e.target.src = `https://api.multiavatar.com/${props.name}.png`
+          e.target.src = `data:image/svg+xml;base64,${window.btoa(
+            multiavatar(props.name)
+          )}`
         }
       }}
     />
