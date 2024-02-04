@@ -8,7 +8,7 @@
         "avatar": "https://blog.xhhold.com/images/avatar.jpg"
       },
       {
-        "name": "何言的杂货店",
+        "name": "heyanle",
         "link": "http://heyanle.com",
         "avatar": "https://s1.ax1x.com/2020/07/22/UHvGGR.jpg"
       },
@@ -140,6 +140,15 @@
         "link": "https://kroxitine.com/",
         "avatar": "https://q1.qlogo.cn/g?b=qq&nk=2657124519&s=640",
         "descr": "克罗西丁数字轨迹"
+      },
+      {
+        "name": "行云小站",
+        "link": "https://w568w.eu.org/",
+        "avatar": "https://www.w568w.eu.org/images/avatar_full.gif"
+      },
+      {
+        "name": "纸莫的博客",
+        "link": "https://www.papernote.cn"
       }
     ]
   },

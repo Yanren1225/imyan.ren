@@ -2,7 +2,7 @@ import './hero.less'
 
 import { Component } from 'solid-js'
 
-import { t } from '@/i18n'
+import { locale, t } from '@/i18n'
 
 const Hero: Component = () => {
   return (
@@ -11,6 +11,8 @@ const Hero: Component = () => {
         <p>
           {t('hey')},<br />
           {t('im')}
+          {locale() === 'en' ? ' ' : ''}
+          <span class="font-bold">{t('yanren')}</span>.
         </p>
       </div>
       <div class="info">

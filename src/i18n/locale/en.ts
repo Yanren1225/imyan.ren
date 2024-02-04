@@ -1,6 +1,6 @@
 export default {
   hey: 'Hey',
-  im: "I'm Yanren",
+  im: "I'm",
   yanren: 'Yanren',
   'access-denied': 'Access denied',
   nav: {

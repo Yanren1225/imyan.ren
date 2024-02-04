@@ -1,6 +1,6 @@
 export default {
   hey: '嗨',
-  im: '我是炎忍',
+  im: '我是',
   yanren: '炎忍',
   'access-denied': '已无法访问',
   nav: {

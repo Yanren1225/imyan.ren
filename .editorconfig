@@ -2,7 +2,6 @@ root = true
 [*.{js.jsx,ts,tsx,css,json,less}]
 quote_type = single
 indent_size = 2
-end_of_line = lf 
 trim_trailing_whitespace = false
 spaces_around_operators = true
 charset = utf-8
