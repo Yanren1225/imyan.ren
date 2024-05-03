@@ -48,6 +48,7 @@ const ProjectItem: Component<ProjectItemProps> = (props) => {
         <img class="icon" src={props.icon} />
         <span class="title">{props.title}</span>
         <span class="arrow i-material-symbols-arrow-outward-rounded" />
+        <span class="arrow2 i-material-symbols-arrow-outward-rounded" />
       </a>
     </>
   )

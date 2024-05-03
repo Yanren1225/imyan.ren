@@ -27,6 +27,7 @@
     transition: all 0.3s;
     text-decoration: none;
     position: relative;
+    overflow: hidden;
 
     @media (max-width: 600px) {
       gap: 20px;
@@ -34,11 +35,22 @@
 
     &:hover {
       background-color: var(--c-card-bg-hover);
+
+      .arrow {
+        top: -20px;
+        right: -20px;
+      }
+
+      .arrow2 {
+        bottom: -100px;
+        right: 0;
+      }
     }
 
     .icon {
       width: 50px;
       height: 50px;
+      border-radius: 50%;
     }
 
     .title {
@@ -46,12 +58,23 @@
       color: var(--c-text);
     }
 
-    .arrow {
-      font-size: 16px;
+    .arrow,
+    .arrow2 {
       color: var(--c-text);
       position: absolute;
       top: 20px;
       right: 20px;
+      transition: all 0.3s;
+    }
+
+    .arrow2 {
+      width: 200px;
+      height: 200px;
+      opacity: 0.1;
+      top: inherit;
+      right: 200px;
+      bottom: -200px;
+      transition: all 0.3s;
     }
   }
 }
