@@ -35,6 +35,11 @@ const Socials = () => {
       class: '!hover:bg-[#00acee]',
     },
     {
+      link: 'https://m.cmx.im/@yanren',
+      icon: 'i-simple-icons-mastodon',
+      class: '!hover:bg-[#5c4de3]',
+    },
+    {
       link: 'mailto:hi@imyan.ren',
       icon: 'i-simple-icons-maildotru',
       class:
