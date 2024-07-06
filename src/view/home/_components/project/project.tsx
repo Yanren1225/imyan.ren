@@ -3,6 +3,7 @@ import './project.less'
 import { Component, For } from 'solid-js'
 
 import DenoIcon from '@/assets/deno.svg'
+import FlixIcon from '@/assets/flix.png'
 
 const Project: Component = () => {
   const projects: ProjectItemProps[] = [
@@ -10,6 +11,11 @@ const Project: Component = () => {
       title: 'Yanren Deno API',
       icon: DenoIcon,
       link: 'https://doc.deno-api.imyan.ren/',
+    },
+    {
+      title: 'Flix',
+      icon: FlixIcon,
+      link: 'https://flix.center/',
     },
     {
       title: 'Kirby Assistant',
