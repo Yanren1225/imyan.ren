@@ -40,6 +40,11 @@ const Socials = () => {
       class: '!hover:bg-[#5c4de3]',
     },
     {
+      link: 'https://bsky.app/profile/yanren.bsky.social',
+      icon: 'i-simple-icons-bluesky',
+      class: '!hover:bg-[#0085ff]',
+    },
+    {
       link: 'mailto:hi@imyan.ren',
       icon: 'i-simple-icons-maildotru',
       class:
@@ -53,15 +58,14 @@ const Socials = () => {
     {
       link: 'https://t.me/realYanren',
       icon: 'i-simple-icons-telegram',
-      class:
-        '!hover:bg-gray-700 !dark:hover:bg-white !dark:hover:text-gray-900',
+      class: '!hover:bg-[#28a8e9]',
     },
-    {
-      link: 'https://blog.imyan.ren',
-      icon: 'i-simple-icons-blogger',
-      class:
-        '!hover:bg-gray-700 !dark:hover:bg-white !dark:hover:text-gray-900',
-    },
+    // {
+    //   link: 'https://blog.imyan.ren',
+    //   icon: 'i-simple-icons-blogger',
+    //   class:
+    //     '!hover:bg-gray-700 !dark:hover:bg-white !dark:hover:text-gray-900',
+    // },
   ]
 
   return (
