@@ -19,8 +19,8 @@ const Header: Component = () => {
           </li>
           <li>
             <A
-              classList={{ active: Boolean(useMatch(() => '/firend')()) }}
-              href="/firend"
+              classList={{ active: Boolean(useMatch(() => '/friend')()) }}
+              href="/friend"
             >
               {t('nav.friend')}
             </A>

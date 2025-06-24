@@ -1,4 +1,4 @@
-import './firend.less'
+import './friend.less'
 
 import { Component, createResource, For } from 'solid-js'
 
@@ -6,11 +6,11 @@ import { t } from '@/i18n'
 import Layout from '@/layout/layout'
 import { get } from '@/net'
 
-import { FirendItem } from './_components/firend-item/firend-item'
+import { FriendItem } from './_components/friend-item/friend-item'
 
-const Firend: Component = () => {
+const Friend: Component = () => {
   const [friendData] = createResource(() =>
-    get<Array<IFirendData>>('./link.json')
+    get<Array<IFriendData>>('./link.json')
   )
 
   const description = (key?: string) => {
@@ -25,15 +25,15 @@ const Firend: Component = () => {
   return (
     <>
       <Layout>
-        <div id="firend">
+        <div id="friend">
           <For each={friendData()}>
             {(item) => (
-              <div class="firend-part">
-                <p class="firend-desc">{description(item.class_desc)}</p>
-                <div class="firends-box">
+              <div class="friend-part">
+                <p class="friend-desc">{description(item.class_desc)}</p>
+                <div class="friends-box">
                   <For each={item.link_list}>
                     {(friend) => (
-                      <FirendItem
+                      <FriendItem
                         {...friend}
                         isAccessDenied={item.class_desc === 'isAccessDenied'}
                       />
@@ -49,4 +49,4 @@ const Firend: Component = () => {
   )
 }
 
-export { Firend }
+export { Friend }

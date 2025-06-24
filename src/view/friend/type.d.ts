@@ -1,18 +1,18 @@
-interface IFirendData {
+interface IFriendData {
   classname?: string
   class_desc?: string
-  link_list: IFirendItem[]
+  link_list: IFriendItem[]
 }
 
-interface IFirendItem {
+interface IFriendItem {
   name: string
   link: string
   avatar?: string
-  descr?: string
+  desc?: string
   isAccessDenied?: boolean
 }
 
-interface FirendAvatarProps {
+interface FriendAvatarProps {
   class: string
   name: string
   avatar?: string

@@ -1,22 +1,22 @@
 import { Component } from 'solid-js'
 
-import { FirendAvatar } from '../firend-avatar/firend-avatar'
+import { FriendAvatar } from '../friend-avatar/friend-avatar'
 
-const FirendItem: Component<IFirendItem> = (props) => {
+const FriendItem: Component<IFriendItem> = (props) => {
   return (
     <>
       <div
         class="friend-item"
         classList={{ 'is-access-denied': props.isAccessDenied }}
       >
-        <FirendAvatar class="avatar" {...props} />
+        <FriendAvatar class="avatar" {...props} />
         <a href={props.link} target="_blank">
           <p class="name">{props.name}</p>
-          <FirendAvatar class="back-avatar" {...props} />
+          <FriendAvatar class="back-avatar" {...props} />
         </a>
       </div>
     </>
   )
 }
 
-export { FirendItem }
+export { FriendItem }
