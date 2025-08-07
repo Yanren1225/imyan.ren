@@ -9,8 +9,7 @@ export default {
     comment: 'Comment',
   },
   info: [
-    'Front-end & Android developer.',
-    'TypeScript lover.',
-    'I like making interesting projects.',
+    'Frontend, Flutter & Android developer with some backend skills.',
+    'Passionate about creating interesting projects.',
   ],
 }

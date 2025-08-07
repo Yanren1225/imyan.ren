@@ -5,9 +5,12 @@ import { Component } from 'solid-js'
 import { t } from '@/i18n'
 
 const Footer: Component = () => {
+  const currentYear = new Date().getFullYear()
   return (
     <footer>
-      <p>{t('yanren')} © 2024</p>
+      <p>
+        © 2018 - {currentYear} {t('yanren')}
+      </p>
     </footer>
   )
 }

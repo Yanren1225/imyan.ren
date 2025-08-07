@@ -8,9 +8,5 @@ export default {
     friend: '友链',
     comment: '评论',
   },
-  info: [
-    '前端与安卓开发者。',
-    '业余 TypeScript 玩家。',
-    '我喜欢做有趣的项目。',
-  ],
+  info: ['前端、Flutter 与 Android 开发者，略懂后端。', '热爱创造有趣的项目。'],
 }
