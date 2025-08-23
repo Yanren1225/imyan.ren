@@ -33,6 +33,11 @@ const Header: Component = () => {
               {t('nav.comment')}
             </A>
           </li>
+          <li>
+            <A target="_blank" href="https://www.travellings.cn/go.html">
+              {t('nav.travelling')}
+            </A>
+          </li>
         </ul>
         <LanguageSwitcher />
       </header>

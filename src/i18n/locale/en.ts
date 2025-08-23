@@ -7,6 +7,7 @@ export default {
     home: 'Home',
     friend: 'Friend',
     comment: 'Comment',
+    travelling: 'Travelling',
   },
   info: [
     'Frontend, Flutter & Android developer with some backend skills.',
