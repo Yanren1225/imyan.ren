@@ -2,15 +2,14 @@ import './project.less'
 
 import { Component, For } from 'solid-js'
 
-import DenoIcon from '@/assets/deno.svg'
 import FlixIcon from '@/assets/flix.png'
 
 const Project: Component = () => {
   const projects: ProjectItemProps[] = [
     {
-      title: 'Yanren Deno API',
-      icon: DenoIcon,
-      link: 'https://doc.deno-api.imyan.ren/',
+      title: 'Yanren API',
+      icon: 'https://api.dicebear.com/9.x/icons/svg?seed=Brian&backgroundType=gradientLinear',
+      link: 'https://doc.api.imyan.ren/',
     },
     {
       title: 'Flix',
