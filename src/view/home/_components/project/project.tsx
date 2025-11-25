@@ -1,4 +1,4 @@
-import './project.less'
+import './project.css'
 
 import { Component, For } from 'solid-js'
 

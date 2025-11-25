@@ -1,4 +1,4 @@
-import './friend.less'
+import './friend.css'
 
 import { Component, createResource, For } from 'solid-js'
 

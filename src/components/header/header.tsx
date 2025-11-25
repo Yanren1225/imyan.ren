@@ -1,11 +1,11 @@
-import './header.less'
+import './header.css'
 
 import { A, useMatch } from '@solidjs/router'
 import { Component } from 'solid-js'
 
 import { t } from '@/i18n'
 
-import { LanguageSwitcher } from '../language-swicher'
+import { LanguageSwitcher } from '../language-switcher'
 
 const Header: Component = () => {
   return (

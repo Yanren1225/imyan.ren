@@ -1,4 +1,4 @@
-import './socials.less'
+import './socials.css'
 
 import { Component, Index, Show } from 'solid-js'
 

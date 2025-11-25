@@ -1,4 +1,4 @@
-import './hero.less'
+import './hero.css'
 
 import { Component } from 'solid-js'
 

@@ -1,4 +1,4 @@
-import './language-swicher.pcss'
+import './language-switcher.css'
 
 import { Component, createEffect, For } from 'solid-js'
 

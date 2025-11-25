@@ -1,5 +1,5 @@
 /* @refresh reload */
-import './index.less'
+import './index.css'
 import 'virtual:uno.css'
 
 import { render } from 'solid-js/web'

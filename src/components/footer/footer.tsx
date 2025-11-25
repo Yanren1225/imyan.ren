@@ -1,4 +1,4 @@
-import './footer.less'
+import './footer.css'
 
 import { Component } from 'solid-js'
 
