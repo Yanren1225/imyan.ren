@@ -52,8 +52,9 @@
     line-height: 1.75rem;
     margin-top: 0.5rem;
   }
+}
 
-  @keyframes movement {
+@keyframes movement {
     0%,
     100% {
       background-size: 130vmax 130vmax, 80vmax 80vmax, 90vmax 90vmax,
@@ -82,5 +83,4 @@
       background-position: -50vmax -40vmax, 50vmax -30vmax, 20vmax 0vmax,
         -10vmax 10vmax, 40vmax 60vmax;
     }
-  }
 }
