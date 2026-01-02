@@ -3,24 +3,18 @@
     "strict": true,
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "types": [
-      "vite/client"
-    ],
-    "typeRoots": [
-      "./node_modules"
-    ],
+    "types": ["vite/client"],
+    "typeRoots": ["./node_modules"],
     "noEmit": true,
     "isolatedModules": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"]
     }
   }
 }

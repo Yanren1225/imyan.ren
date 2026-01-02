@@ -10,7 +10,7 @@ export const Comment: Component = () => {
       <Waline
         class="my-12"
         serverURL="https://comment.imyan.ren/"
-        path="comment"
+        path="imyan.ren"
         lang={locale()}
         dark={true}
       />

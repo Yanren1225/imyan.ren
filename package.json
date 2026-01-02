@@ -37,7 +37,7 @@
     "@multiavatar/multiavatar": "^1.0.7",
     "@solid-primitives/i18n": "^2.1.1",
     "@solidjs/router": "^0.15.2",
-    "sodesu-comment": "^0.2.1",
+    "sodesu-comment": "^0.5.2",
     "solid-js": "^1.9.3"
   }
 }
