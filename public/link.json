@@ -3,11 +3,6 @@
     "class_name": "",
     "link_list": [
       {
-        "name": "CasecoRI",
-        "link": "https://cystee.github.io/",
-        "avatar": "https://cystee.github.io/avatar.png"
-      },
-      {
         "name": "CherikoM",
         "link": "https://cheriko.fun/",
         "avatar": "https://cheriko.fun/img/avatar.jpg"
@@ -46,6 +41,12 @@
         "name": "扶摇 skyrocketing 的主页",
         "link": "https://fuyaorocket.ing/",
         "avatar": "https://fuyaorocket.ing/img/icon.png"
+      },
+      {
+        "name": "golb",
+        "link": "https://blog.5252025.xyz/",
+        "avatar": "blog.5252025.xyz/img/icon-256.png",
+        "descr": "what is a blog?"
       },
       {
         "name": "GZTime",
