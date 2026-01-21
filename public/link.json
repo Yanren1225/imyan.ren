@@ -70,6 +70,12 @@
         "avatar": "https://blog.xhhold.com/images/avatar.jpg"
       },
       {
+        "name": "胡斯凯的足迹",
+        "link": "https://hooskai.top/",
+        "avatar": "https://pj.hooskai.top/assets/images/avatar.jpg",
+        "descr": "用无数设计，留下我的足迹"
+      },
+      {
         "name": "Indusy's Site",
         "link": "https://blog.indusy.site/"
       },
@@ -90,6 +96,10 @@
         "link": "https://blog.itliujia.cn/",
         "avatar": "https://blog.itliujia.cn/favicon.png",
         "descr": "那南风吹来清凉"
+      },
+      {
+        "name": "米来吉的个人站",
+        "link": "https://miraged.fun/"
       },
       {
         "name": "启之站",
