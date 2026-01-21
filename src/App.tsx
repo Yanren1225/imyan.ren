@@ -1,9 +1,15 @@
 import { Route, Router } from '@solidjs/router'
-import { Component } from 'solid-js'
+import { Component, lazy, ErrorBoundary } from 'solid-js'
 
-import { Comment } from './view/comment/comment'
-import { Friend } from './view/friend/friend'
-import { Home } from './view/home/home'
+const Home = lazy(() =>
+  import('./view/home/home').then((m) => ({ default: m.Home })),
+)
+const Friend = lazy(() =>
+  import('./view/friend/friend').then((m) => ({ default: m.Friend })),
+)
+const Comment = lazy(() =>
+  import('./view/comment/comment').then((m) => ({ default: m.Comment })),
+)
 
 const AppRouter = () => {
   return (

@@ -1,5 +1,21 @@
 header {
   display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 20px 0;
+  margin-bottom: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.scrolled {
+    background-color: var(--c-bg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 12px 0;
+
+    @media (prefers-color-scheme: dark) {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+  }
 
   .back {
     cursor: pointer;

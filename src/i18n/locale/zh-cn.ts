@@ -3,6 +3,8 @@ export default {
   im: '我是',
   yanren: '炎忍',
   'access-denied': '已无法访问',
+  'error-loading': '加载失败',
+  'no-friends': '暂无友链',
   nav: {
     home: '主页',
     friend: '友链',

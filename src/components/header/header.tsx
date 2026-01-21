@@ -1,16 +1,27 @@
 import './header.css'
 
 import { A, useMatch } from '@solidjs/router'
-import { Component } from 'solid-js'
+import { Component, createSignal, onMount, onCleanup } from 'solid-js'
 
 import { t } from '@/i18n'
 
 import { LanguageSwitcher } from '../language-switcher'
 
 const Header: Component = () => {
+  const [isScrolled, setIsScrolled] = createSignal(false)
+
+  onMount(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    onCleanup(() => window.removeEventListener('scroll', handleScroll))
+  })
+
   return (
     <>
-      <header>
+      <header classList={{ scrolled: isScrolled() }}>
         <ul class="nav">
           <li>
             <A classList={{ active: Boolean(useMatch(() => '/')()) }} href="/">

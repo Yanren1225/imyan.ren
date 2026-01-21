@@ -14,13 +14,15 @@ const Footer: Component = () => {
       <a
         href="https://www.travellings.cn/go.html"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
         title="开往-友链接力"
       >
         <img
           src="https://www.travellings.cn/assets/w.png"
           alt="开往-友链接力"
           width="100"
+          loading="lazy"
+          decoding="async"
         />
       </a>
     </footer>

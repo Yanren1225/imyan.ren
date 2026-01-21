@@ -1,36 +1,34 @@
 import './socials.css'
 
-import { Component, Index, Show } from 'solid-js'
+import { Component, Index } from 'solid-js'
 
-interface SocialProps {
-  icon: string
-  link: string
+interface SocialConfig {
   name: string
+  link: string
+  icon: string
   class?: string
   hideName?: boolean
 }
 
-const SocialItem: Component<SocialProps> = (props) => {
+const SocialItem: Component<SocialConfig> = (props) => {
   return (
     <a
       class={`outfit ${props.class} link`}
       classList={{ 'hide-name': props.hideName }}
       href={props.link}
       target="_blank"
+      rel="noopener noreferrer"
     >
       <i class={`icon ${props.icon}`} />
       <div class="text">
         <span>{props.name}</span>
       </div>
-      {/* <Show when={!props.hideName}>
-        <div class="text">{props.name}</div>
-      </Show> */}
     </a>
   )
 }
 
 const Socials = () => {
-  const socialList: SocialProps[] = [
+  const socialList: SocialConfig[] = [
     {
       name: 'GitHub',
       link: 'https://github.com/Yanren1225',
@@ -81,12 +79,6 @@ const Socials = () => {
       class: '!hover:bg-[#28a8e9]',
       hideName: true,
     },
-    // {
-    //   link: 'https://blog.imyan.ren',
-    //   icon: 'i-simple-icons-blogger',
-    //   class:
-    //     '!hover:bg-gray-700 !dark:hover:bg-white !dark:hover:text-gray-900',
-    // },
   ]
 
   return (

@@ -1,11 +1,19 @@
 import './project.css'
 
-import { Component, For } from 'solid-js'
+import { Component, For, Index } from 'solid-js'
 
-import FlixIcon from '@/assets/flix.png'
+import { MouseFollow } from '@/components/mouse-follow'
+import { MouseLight } from '@/components/mouse-light'
+import { ScrollReveal } from '@/components/scroll-reveal'
+
+interface ProjectConfig {
+  title: string
+  icon: string
+  link: string
+}
 
 const Project: Component = () => {
-  const projects: ProjectItemProps[] = [
+  const projects: ProjectConfig[] = [
     {
       title: 'Yanren API',
       icon: 'https://api.dicebear.com/9.x/icons/svg?seed=Brian&backgroundType=gradientLinear',
@@ -13,7 +21,7 @@ const Project: Component = () => {
     },
     {
       title: 'Flix',
-      icon: FlixIcon,
+      icon: '/src/assets/flix.png',
       link: 'https://flix.center/',
     },
     {
@@ -33,29 +41,40 @@ const Project: Component = () => {
       <div id="project">
         <span class="title">Project</span>
         <div class="projects">
-          <For each={projects}>{(item) => <ProjectItem {...item} />}</For>
+          <Index each={projects}>
+            {(item, index) => (
+              <ScrollReveal delay={Math.min(index * 50, 150)}>
+                <ProjectItem {...item()} />
+              </ScrollReveal>
+            )}
+          </Index>
         </div>
       </div>
     </>
   )
 }
 
-interface ProjectItemProps {
-  title: string
-  icon: string
-  link: string
-}
-
-const ProjectItem: Component<ProjectItemProps> = (props) => {
+const ProjectItem: Component<ProjectConfig> = (props) => {
   return (
-    <>
-      <a class="project-item" href={props.link} target="_blank">
-        <img class="icon" src={props.icon} />
+    <MouseFollow intensity={3}>
+      <MouseLight
+        as="a"
+        class="project-item"
+        href={props.link}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          class="icon"
+          src={props.icon}
+          alt={props.title}
+          loading="lazy"
+          decoding="async"
+        />
         <span class="title">{props.title}</span>
         <span class="arrow i-material-symbols-arrow-outward-rounded" />
-        <span class="arrow2 i-material-symbols-arrow-outward-rounded" />
-      </a>
-    </>
+      </MouseLight>
+    </MouseFollow>
   )
 }
 

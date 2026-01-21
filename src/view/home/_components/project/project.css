@@ -24,10 +24,9 @@
     border-radius: 10px;
     gap: 40px;
     background-color: var(--c-card-bg);
-    transition: all 0.3s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-decoration: none;
-    position: relative;
-    overflow: hidden;
+    border: 1px solid transparent;
 
     @media (max-width: 600px) {
       gap: 20px;
@@ -35,15 +34,21 @@
 
     &:hover {
       background-color: var(--c-card-bg-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      border-color: var(--c-card-bg-hover);
 
-      .arrow {
-        top: -20px;
-        right: -20px;
+      .icon {
+        transform: scale(1.1) rotate(5deg);
       }
 
-      .arrow2 {
-        bottom: -100px;
-        right: 0;
+      .arrow {
+        transform: translate(4px, -4px);
+        opacity: 1;
+      }
+
+      .title {
+        transform: translateX(4px);
       }
     }
 
@@ -51,30 +56,22 @@
       width: 50px;
       height: 50px;
       border-radius: 50%;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .title {
       font-size: 24px;
       color: var(--c-text);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .arrow,
-    .arrow2 {
+    .arrow {
       color: var(--c-text);
       position: absolute;
       top: 20px;
       right: 20px;
-      transition: all 0.3s;
-    }
-
-    .arrow2 {
-      width: 200px;
-      height: 200px;
-      opacity: 0.1;
-      top: inherit;
-      right: 200px;
-      bottom: -200px;
-      transition: all 0.3s;
+      opacity: 0.6;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
 }

@@ -12,6 +12,9 @@
     "typeRoots": ["./node_modules"],
     "noEmit": true,
     "isolatedModules": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]

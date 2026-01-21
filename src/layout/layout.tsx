@@ -2,6 +2,7 @@ import { mergeProps, ParentComponent, Show } from 'solid-js'
 
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
+import { PageTransition } from '@/components/page-transition'
 
 type LayoutProps = {
   hasHeader?: boolean
@@ -16,7 +17,7 @@ const Layout: ParentComponent<LayoutProps> = (props) => {
       <Show when={_props.hasHeader}>
         <Header />
       </Show>
-      <>{_props.children}</>
+      <PageTransition>{_props.children}</PageTransition>
       <Show when={_props.hasFooter}>
         <Footer />
       </Show>

@@ -32,4 +32,12 @@ export default defineConfig({
   ],
   transformers: [transformerDirectives()],
   safelist: safeList,
+  theme: {
+    breakpoints: {
+      sm: '600px',
+      md: '768px',
+      lg: '1000px',
+      xl: '1280px',
+    },
+  },
 })

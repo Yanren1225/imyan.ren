@@ -7,6 +7,18 @@
     filter: grayscale(100%);
   }
 
+  .error-message,
+  .empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--c-text);
+    font-size: 18px;
+  }
+
+  .error-message {
+    color: #ff6b81;
+  }
+
   .friends-box {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -42,21 +54,25 @@
     align-items: center;
     gap: 20px;
     height: 60px;
-    overflow: hidden;
-    transition: all 0.3s;
-    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
 
     &:hover {
       background-color: var(--c-card-bg-hover);
-      gap: 0;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-color: var(--c-card-bg-hover);
 
       .avatar {
-        visibility: hidden;
-        transform: translateX(-100px);
+        transform: scale(1.1) rotate(5deg);
       }
 
-      .back-avatar {
-        transform: translateX(0);
+      .name {
+        transform: translateX(4px);
+      }
+
+      a {
+        transform: translateX(2px);
       }
     }
 
@@ -64,16 +80,7 @@
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      transition: all 0.3s;
-    }
-
-    .back-avatar {
-      position: absolute;
-      right: 0;
-      transform: translateX(100%);
-      scale: 3;
-      opacity: 0.2;
-      border-radius: 40%;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     a {
@@ -86,7 +93,7 @@
       flex-direction: column;
       height: 50px;
       justify-content: center;
-      transition: all 0.3s;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .name {
@@ -94,6 +101,7 @@
       font-size: 18px;
       overflow: hidden;
       text-overflow: ellipsis;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
 }

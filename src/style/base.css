@@ -18,3 +18,16 @@ body {
 .outfit {
   font-family: 'Outfit', sans-serif;
 }
+
+/* 按钮微交互 */
+button,
+a[role='button'],
+.clickable {
+  transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:active,
+a[role='button']:active,
+.clickable:active {
+  transform: scale(0.95);
+}
