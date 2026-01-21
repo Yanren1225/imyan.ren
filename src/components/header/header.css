@@ -9,12 +9,7 @@ header {
 
   &.scrolled {
     background-color: var(--c-bg);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     padding: 12px 0;
-
-    @media (prefers-color-scheme: dark) {
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    }
   }
 
   .back {
