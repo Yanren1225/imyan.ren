@@ -9,13 +9,15 @@ const FriendItem: Component<IFriendItem> = (props) => {
   return (
     <MouseFollow>
       <MouseLight
+        as="a"
+        href={props.link}
+        target="_blank"
+        rel="noopener noreferrer"
         class="friend-item"
         classList={{ 'is-access-denied': props.isAccessDenied }}
       >
         <FriendAvatar class="avatar" {...props} />
-        <a href={props.link} target="_blank" rel="noopener noreferrer">
-          <p class="name">{props.name}</p>
-        </a>
+        <p class="name">{props.name}</p>
       </MouseLight>
     </MouseFollow>
   )
