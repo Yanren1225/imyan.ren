@@ -2,11 +2,8 @@
   margin-top: 1rem;
 
   .link {
-    --at-apply: inline-flex px-3 py-2 mt-2 mr-2 rounded-md gap-2 text-inherit
-      bg-gray-50 transition-all transition-duration-300 decoration-none
-      hover: text-white dark: bg-gray-50/10;
+    --at-apply: 'inline-flex px-3 py-2 mt-2 mr-2 rounded-md gap-2 text-inherit bg-gray-50 transition-all transition-duration-300 decoration-none hover:text-white dark:bg-gray-50/10';
     transform: translateY(0);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     will-change: transform, box-shadow;
   }
 
