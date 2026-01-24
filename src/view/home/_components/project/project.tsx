@@ -5,6 +5,9 @@ import { Component, For, Index } from 'solid-js'
 import { MouseFollow } from '@/components/mouse-follow'
 import { MouseLight } from '@/components/mouse-light'
 import { ScrollReveal } from '@/components/scroll-reveal'
+import { t } from '@/i18n'
+
+import FlixIcon from '@/assets/flix.png'
 
 interface ProjectConfig {
   title: string
@@ -12,7 +15,7 @@ interface ProjectConfig {
   link: string
 }
 
-const Project: Component = () => {
+export const Project: Component = () => {
   const projects: ProjectConfig[] = [
     {
       title: 'Yanren API',
@@ -21,7 +24,7 @@ const Project: Component = () => {
     },
     {
       title: 'Flix',
-      icon: '/src/assets/flix.png',
+      icon: FlixIcon,
       link: 'https://flix.center/',
     },
     {
@@ -39,7 +42,7 @@ const Project: Component = () => {
   return (
     <>
       <div id="project">
-        <span class="title">Project</span>
+        <span class="title">{t('project')}</span>
         <div class="projects">
           <Index each={projects}>
             {(item, index) => (
@@ -77,5 +80,3 @@ const ProjectItem: Component<ProjectConfig> = (props) => {
     </MouseFollow>
   )
 }
-
-export { Project }

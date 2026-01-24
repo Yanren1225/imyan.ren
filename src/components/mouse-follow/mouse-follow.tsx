@@ -7,7 +7,7 @@ interface MouseFollowProps {
   intensity?: number
 }
 
-const MouseFollow: Component<MouseFollowProps> = (props) => {
+export const MouseFollow: Component<MouseFollowProps> = (props) => {
   let wrapperRef: HTMLDivElement | undefined
   const moveIntensity = props.intensity ?? 3
 
@@ -43,5 +43,3 @@ const MouseFollow: Component<MouseFollowProps> = (props) => {
     </div>
   )
 }
-
-export { MouseFollow }

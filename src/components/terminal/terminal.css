@@ -1,0 +1,53 @@
+.terminal-box {
+    background: var(--c-card-bg);
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border: 1px solid var(--c-border);
+    font-family: 'Consolas', 'Monaco', 'Andale Mono', monospace;
+    color: var(--c-text);
+}
+
+.terminal-header {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    opacity: 0.7;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.red {
+    background-color: #ff5f56;
+}
+
+.yellow {
+    background-color: #ffbd2e;
+}
+
+.green {
+    background-color: #27c93f;
+}
+
+.terminal-content {
+    font-size: 16px;
+    line-height: 1.6;
+    word-break: break-all;
+    white-space: pre-wrap;
+}
+
+@media (max-width: 600px) {
+    .terminal-box {
+        padding: 20px;
+    }
+
+    .terminal-content {
+        font-size: 14px;
+    }
+}

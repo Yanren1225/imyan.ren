@@ -1,7 +1,7 @@
 import multiavatar from '@multiavatar/multiavatar'
 import { Component } from 'solid-js'
 
-const FriendAvatar: Component<FriendAvatarProps> = (props) => {
+export const FriendAvatar: Component<FriendAvatarProps> = (props) => {
   return (
     <img
       class={props.class}
@@ -19,5 +19,3 @@ const FriendAvatar: Component<FriendAvatarProps> = (props) => {
     />
   )
 }
-
-export { FriendAvatar }

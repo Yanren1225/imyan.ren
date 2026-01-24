@@ -8,7 +8,7 @@ import { Hero } from './_components/hero'
 import { Project } from './_components/project/project'
 import { Socials } from './_components/socials'
 
-const Home: Component = () => {
+export const Home: Component = () => {
   return (
     <Layout>
       <div id="home">
@@ -19,5 +19,3 @@ const Home: Component = () => {
     </Layout>
   )
 }
-
-export { Home }

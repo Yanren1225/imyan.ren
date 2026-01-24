@@ -4,7 +4,7 @@ import { Component } from 'solid-js'
 
 import { t } from '@/i18n'
 
-const Footer: Component = () => {
+export const Footer: Component = () => {
   const currentYear = new Date().getFullYear()
   return (
     <footer>
@@ -28,5 +28,3 @@ const Footer: Component = () => {
     </footer>
   )
 }
-
-export { Footer }

@@ -4,7 +4,7 @@ import { Component, createEffect, For } from 'solid-js'
 
 import { Locale, locale, setLocale } from '@/i18n'
 
-const LanguageSwitcher: Component = () => {
+export const LanguageSwitcher: Component = () => {
   const languageList: { text: string; lan: Locale }[] = [
     {
       text: 'EN',
@@ -46,5 +46,3 @@ const LanguageSwitcher: Component = () => {
     </div>
   )
 }
-
-export { LanguageSwitcher }

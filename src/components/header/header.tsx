@@ -7,7 +7,7 @@ import { t } from '@/i18n'
 
 import { LanguageSwitcher } from '../language-switcher'
 
-const Header: Component = () => {
+export const Header: Component = () => {
   const [isScrolled, setIsScrolled] = createSignal(false)
 
   onMount(() => {
@@ -38,6 +38,14 @@ const Header: Component = () => {
           </li>
           <li>
             <A
+              classList={{ active: Boolean(useMatch(() => '/about')()) }}
+              href="/about"
+            >
+              {t('nav.about')}
+            </A>
+          </li>
+          <li>
+            <A
               classList={{ active: Boolean(useMatch(() => '/comment')()) }}
               href="/comment"
             >
@@ -55,5 +63,3 @@ const Header: Component = () => {
     </>
   )
 }
-
-export { Header }

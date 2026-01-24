@@ -4,7 +4,7 @@ import { Component } from 'solid-js'
 
 import { locale, t } from '@/i18n'
 
-const Hero: Component = () => {
+export const Hero: Component = () => {
   return (
     <div class="outfit" id="hero">
       <div class="box">
@@ -22,5 +22,3 @@ const Hero: Component = () => {
     </div>
   )
 }
-
-export { Hero }

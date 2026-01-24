@@ -11,10 +11,9 @@ const dictionaries = {
 
 type Locale = keyof typeof dictionaries
 
-const [locale, setLocale] = createSignal<Locale>('en')
+export const [locale, setLocale] = createSignal<Locale>('en')
 const dict = createMemo(() => i18n.flatten(dictionaries[locale()]))
 // eslint-disable-next-line solid/reactivity
-const t = i18n.translator(dict)
+export const t = i18n.translator(dict)
 
-export { locale, setLocale, t }
 export type { Locale }

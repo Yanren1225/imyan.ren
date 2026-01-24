@@ -27,7 +27,7 @@ const SocialItem: Component<SocialConfig> = (props) => {
   )
 }
 
-const Socials = () => {
+export const Socials = () => {
   const socialList: SocialConfig[] = [
     {
       name: 'GitHub',
@@ -87,5 +87,3 @@ const Socials = () => {
     </div>
   )
 }
-
-export { Socials }

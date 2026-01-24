@@ -11,49 +11,49 @@
         "name": "DDC の Blog",
         "link": "https://blog.heimao.icu/",
         "avatar": "https://avatars.githubusercontent.com/u/58734081?v=4",
-        "descr": "一个一个前端"
+        "desc": "一个一个前端"
       },
       {
         "name": "丁丁の店",
         "link": "https://blog.butanediol.me",
         "avatar": "https://blog.butanediol.me/media/avatar.png",
-        "descr": "丁二的日常在售"
+        "desc": "丁二的日常在售"
       },
       {
         "name": "ERHE.GROUP",
         "link": "https://erhe.group/",
         "avatar": "https://erhe.group/images/1icon.png",
-        "descr": "宇宙工作组"
+        "desc": "宇宙工作组"
       },
       {
         "name": "FANTASY 博客",
         "link": "https://blog.tigerxly.com",
         "avatar": "https://img.sunxiaochuan258.com/avatar/himari_256.jpg",
-        "descr": "记录学习、生活的小站"
+        "desc": "记录学习、生活的小站"
       },
       {
         "name": "Freesia Blog",
         "link": "https://blog.freesia.dev",
         "avatar": "https://blog.freesia.dev/assets/images/me.jpg",
-        "descr": "前端菜只因"
+        "desc": "前端菜只因"
       },
       {
         "name": "扶摇 skyrocketing 的主页",
         "link": "https://fuyaoskyrocket.ing",
         "avatar": "https://github.com/skyrocketinghong.png",
-        "descr": "尝试在互联网上留下一些属于自己的痕迹"
+        "desc": "尝试在互联网上留下一些属于自己的痕迹尝试在互联网上留下一些属于自己的痕迹"
       },
       {
         "name": "golb",
         "link": "https://blog.5252025.xyz/",
         "avatar": "blog.5252025.xyz/img/icon-256.png",
-        "descr": "what is a blog?"
+        "desc": "what is a blog?"
       },
       {
         "name": "GZTime",
         "link": "https://blog.gztime.cc/",
         "avatar": "https://cdn.gztime.cc/avatar/GZTime_2021.png",
-        "descr": "Walking on the Time Axis."
+        "desc": "Walking on the Time Axis."
       },
       {
         "name": "行云小站",
@@ -74,7 +74,7 @@
         "name": "胡斯凯的足迹",
         "link": "https://hooskai.top/",
         "avatar": "https://pj.hooskai.top/assets/images/avatar.jpg",
-        "descr": "用无数设计，留下我的足迹"
+        "desc": "用无数设计，留下我的足迹"
       },
       {
         "name": "Indusy's Site",
@@ -84,19 +84,19 @@
         "name": "可爱怪的窝",
         "link": "https://bytedance.host/",
         "avatar": "https://cdn.jsdelivr.net/gh/zsqw123/cdn@master/img/custom/icon.webp",
-        "descr": "这是一只可爱怪"
+        "desc": "这是一只可爱怪"
       },
       {
         "name": "Kroxitine",
         "link": "https://kroxitine.com/",
         "avatar": "https://q1.qlogo.cn/g?b=qq&nk=2657124519&s=640",
-        "descr": "克罗西丁数字轨迹"
+        "desc": "克罗西丁数字轨迹"
       },
       {
         "name": "刘童鞋的部落阁",
         "link": "https://blog.itliujia.cn/",
         "avatar": "https://blog.itliujia.cn/favicon.png",
-        "descr": "那南风吹来清凉"
+        "desc": "那南风吹来清凉"
       },
       {
         "name": "米来吉的个人站",
@@ -106,13 +106,13 @@
         "name": "启之站",
         "link": "https://blog.rinki.top/",
         "avatar": "https://blog.rinki.top/img/avatarnew.png",
-        "descr": "一个感觉自己好像还不是大学生的大学生。"
+        "desc": "一个感觉自己好像还不是大学生的大学生。"
       },
       {
         "name": "ReaJason",
         "link": "https://www.reajason.eu.org/",
         "avatar": "https://cdn.jsdelivr.net/gh/ReaJason/blog_imgs/default/avatar.jpg",
-        "descr": "Love Yourself"
+        "desc": "Love Yourself"
       },
       {
         "name": "RenzukaCtone",
@@ -122,7 +122,7 @@
         "name": "Shan San",
         "link": "https://shansan.top",
         "avatar": "https://cdn.jsdelivr.net/gh/ssmath/images-assets-cdn/try20200311205451.jpg",
-        "descr": "云原生技术爱好者"
+        "desc": "云原生技术爱好者"
       },
       {
         "name": "天真的小窝",
@@ -133,37 +133,37 @@
         "name": "调皮豆干",
         "link": "https://blog.catrol.cn/",
         "avatar": "https://img.catrol.cn/avatar/avatar-head-only.jpg",
-        "descr": "就在这里发电"
+        "desc": "就在这里发电"
       },
       {
         "name": "戊成的 BLOG",
         "link": "https://www.wucheng.work",
         "avatar": "https://www.wucheng.work/images/avatar.png",
-        "descr": "怀念过去，珍惜眼前，着手未来"
+        "desc": "怀念过去，珍惜眼前，着手未来"
       },
       {
         "name": "小林卡比的技术分享",
         "link": "https://blog.zerokirby.cn",
         "avatar": "https://blog.zerokirby.cn/img/avatar.jpg",
-        "descr": "分享我软件工程的学习历程"
+        "desc": "分享我软件工程的学习历程"
       },
       {
         "name": "Ying",
         "link": "https://blog.luvying.com",
         "avatar": "https://cdn.jsdelivr.net/gh/luvying/ying-blog-cdn/files/static/images/avatar.jpg",
-        "descr": "⎛⎝喵~⎠⎞"
+        "desc": "⎛⎝喵~⎠⎞"
       },
       {
         "name": "阴天",
         "link": "https://zhykirby.github.io",
         "avatar": "https://zhykirby.github.io/img/avatar_m.jpg",
-        "descr": "一身转战三千里，一剑曾当百万师。"
+        "desc": "一身转战三千里，一剑曾当百万师。"
       },
       {
         "name": "郑洪志博客",
         "link": "https://blog.zmzhz.com",
         "avatar": "http://blog.zmzhz.com/usr/uploads/images/logo.png",
-        "descr": "一个喜欢看电影的 PHPer"
+        "desc": "一个喜欢看电影的 PHPer"
       },
       {
         "name": "纸莫的博客",
@@ -173,7 +173,7 @@
         "name": "ZhouZhou's Blog",
         "link": "https://blog.zzzero.site/",
         "avatar": "https://s1.imagehub.cc/images/2025/08/22/5aeabd5d7868bc9bc70af208609c7b50.jpg",
-        "descr": "记录技术、日常"
+        "desc": "记录技术、日常"
       }
     ]
   },
@@ -185,19 +185,19 @@
         "name": "北极熊的窝",
         "link": "https://maoookai.cn",
         "avatar": "https://maoookai.cn/usr/uploads/2020/10/846309449.jpg",
-        "descr": "命は、遠い船の如き…"
+        "desc": "命は、遠い船の如き…"
       },
       {
         "name": "DragonJay",
         "link": "https://blog.furrysp.top",
         "avatar": "https://i.postimg.cc/Pr0ryGtV/g.jpg",
-        "descr": "My web3 blog"
+        "desc": "My web3 blog"
       },
       {
         "name": "飞翔企鹅的博客",
         "link": "https://32bit.cn",
         "avatar": "https://icon.qiantucdn.com/20200312/fbd0147a349dfe93557dc69de42d5c4a2",
-        "descr": "程序猿日常摸鱼笔记"
+        "desc": "程序猿日常摸鱼笔记"
       },
       {
         "name": "九伏工作室的任饭聚集地",
@@ -208,37 +208,37 @@
         "name": "Kevin's Blog",
         "link": "https://www.moekevin.com",
         "avatar": "https://cdn.v2ex.com/gravatar/82139e4535f29f5643866d116b81b9cd?s=160&d=mm&r=g",
-        "descr": "我们是不足以称为奇迹的微光"
+        "desc": "我们是不足以称为奇迹的微光"
       },
       {
         "name": "leanderlee's blog",
         "link": "http://www.leanderlee.com/blog",
         "avatar": "http://www.leanderlee.com/blog/upload/2021/04/developer_logo-aeea3fb96c71463ea897136182964d49.jpg",
-        "descr": "正经人的博客"
+        "desc": "正经人的博客"
       },
       {
         "name": "O3E Network",
         "link": "https://www.o3e.net",
         "avatar": null,
-        "descr": "一个神奇的页面"
+        "desc": "一个神奇的页面"
       },
       {
         "name": "Pi",
         "link": "https://b.dopi.cc",
         "avatar": "https://cdn.dopi.cc/halo/QQ%E5%9B%BE%E7%89%8720211007170836_1633601967057.jpg-imgzip",
-        "descr": "一个励志做全栈的小白"
+        "desc": "一个励志做全栈的小白"
       },
       {
         "name": "青行三の个人博客",
         "link": "https://blog.jiehua1995.xyz",
         "avatar": "https://blog.jiehua1995.xyz/img/avatar.jpeg",
-        "descr": "业余学习前端的生物狗"
+        "desc": "业余学习前端的生物狗"
       },
       {
         "name": "谭先生的塘",
         "link": "https://tandongtao.com",
         "avatar": "https://cdn.tandongtao.com/touxiang.jpg",
-        "descr": "爱犯懒的谭先生"
+        "desc": "爱犯懒的谭先生"
       },
       {
         "name": "web1n",
@@ -254,7 +254,7 @@
         "name": "银弹的个人博客",
         "link": "https://yd.imyan.ren",
         "avatar": "https://yd.imyan.ren/img/avatar.png",
-        "descr": null
+        "desc": null
       },
       {
         "name": "逐梦影音",
