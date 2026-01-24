@@ -18,6 +18,7 @@ export default defineConfig({
       fonts: {
         Outfit: 'Outfit',
         Satoshi: 'Satoshi',
+        mono: 'Fira Code',
       },
     }),
     presetIcons({

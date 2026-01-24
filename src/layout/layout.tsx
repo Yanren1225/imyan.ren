@@ -1,6 +1,8 @@
 import { mergeProps, ParentComponent, Show } from 'solid-js'
 
 import { Footer } from '@/components/footer'
+import { GeekCursor } from '@/components/geek-cursor/geek-cursor'
+import { GeekDecorations } from '@/components/geek-decorations/geek-decorations'
 import { Header } from '@/components/header'
 import { PageTransition } from '@/components/page-transition'
 
@@ -14,6 +16,8 @@ const Layout: ParentComponent<LayoutProps> = (props) => {
 
   return (
     <>
+      <GeekCursor />
+      <GeekDecorations />
       <Show when={_props.hasHeader}>
         <Header />
       </Show>

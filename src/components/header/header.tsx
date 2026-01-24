@@ -22,7 +22,7 @@ export const Header: Component = () => {
   return (
     <>
       <header classList={{ scrolled: isScrolled() }}>
-        <ul class="nav">
+        <ul class="nav font-mono">
           <li>
             <A classList={{ active: Boolean(useMatch(() => '/')()) }} href="/">
               {t('nav.home')}

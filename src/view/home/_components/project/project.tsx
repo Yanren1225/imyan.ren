@@ -42,7 +42,7 @@ export const Project: Component = () => {
   return (
     <>
       <div id="project">
-        <span class="title">{t('project')}</span>
+        <span class="title font-mono">{t('project')}</span>
         <div class="projects">
           <Index each={projects}>
             {(item, index) => (

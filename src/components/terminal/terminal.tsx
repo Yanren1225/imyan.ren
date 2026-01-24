@@ -16,9 +16,12 @@ export const Terminal: Component<TerminalProps> = (props) => {
             {...others}
         >
             <div class="terminal-header">
-                <div class="dot red"></div>
-                <div class="dot yellow"></div>
-                <div class="dot green"></div>
+                <div class="tui-controls">
+                    <span class="control">[-]</span>
+                    <span class="control">[□]</span>
+                    <span class="control close">[×]</span>
+                </div>
+                <div class="tui-title">yanren@term:~</div>
             </div>
             <div class="terminal-content">{local.children}</div>
         </div>

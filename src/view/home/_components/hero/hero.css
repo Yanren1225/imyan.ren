@@ -12,40 +12,47 @@
   .box p {
     font-size: 3rem;
     line-height: 1;
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-    background-image:
-      radial-gradient(closest-side, rgba(0, 255, 242, 1), rgba(0, 255, 242, 0)),
-      radial-gradient(closest-side, rgba(255, 0, 128, 1), rgba(255, 0, 128, 0)),
-      radial-gradient(closest-side, rgba(0, 110, 255, 1), rgba(0, 110, 255, 0)),
-      linear-gradient(
-        to bottom right,
-        rgba(0, 100, 255, 0.4),
-        rgba(255, 0, 128, 0.4),
-        rgba(0, 255, 242, 0.4)
-      );
-    background-size:
-      120vmax 120vmax,
-      100vmax 100vmax,
-      110vmax 110vmax,
-      100% 100%;
-    background-position:
-      -30vmax -30vmax,
-      40vmax -20vmax,
-      10vmax 40vmax,
-      center center;
-    background-repeat: no-repeat;
-    animation: 7s movement ease-in-out infinite alternate;
-    will-change: background-position, background-size;
-    contain: paint;
+    color: var(--c-text);
+
+    & .font-bold {
+      color: var(--c-text-hover);
+
+      @media (prefers-color-scheme: dark) {
+        text-shadow:
+          0 0 5px var(--c-neon),
+          0 0 15px var(--c-neon),
+          0 0 30px var(--c-neon);
+        animation: neon-flicker 15s linear infinite;
+      }
+    }
   }
+
+
 
   .info p {
     font-size: 1.125rem;
     line-height: 1.75rem;
     margin-top: 0.5rem;
   }
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+  color: var(--c-text-hover);
 }
 
 @keyframes movement {
@@ -63,5 +70,146 @@
       20vmax 0vmax,
       30vmax 20vmax,
       center center;
+  }
+}
+
+@keyframes neon-flicker {
+
+  /* Steady On (0-40%) - 6 seconds */
+  0%,
+  39.9% {
+    opacity: 1;
+    text-shadow: 0 0 5px var(--c-neon), 0 0 15px var(--c-neon), 0 0 30px var(--c-neon), 0 0 60px var(--c-neon);
+  }
+
+  /* Start Animation (Dim State) */
+  40%,
+  40.9% {
+    opacity: 0.3;
+    text-shadow: 0 0 2px var(--c-neon);
+  }
+
+  /* S: ... */
+  41%,
+  42% {
+    opacity: 1;
+    text-shadow: 0 0 5px var(--c-neon), 0 0 15px var(--c-neon), 0 0 30px var(--c-neon), 0 0 60px var(--c-neon);
+  }
+
+  42.1%,
+  42.9% {
+    opacity: 0.3;
+    text-shadow: 0 0 2px var(--c-neon);
+  }
+
+  43%,
+  44% {
+    opacity: 1;
+    text-shadow: 0 0 5px var(--c-neon), 0 0 15px var(--c-neon), 0 0 30px var(--c-neon), 0 0 60px var(--c-neon);
+  }
+
+  44.1%,
+  44.9% {
+    opacity: 0.3;
+    text-shadow: 0 0 2px var(--c-neon);
+  }
+
+  45%,
+  46% {
+    opacity: 1;
+    text-shadow: 0 0 5px var(--c-neon), 0 0 15px var(--c-neon), 0 0 30px var(--c-neon), 0 0 60px var(--c-neon);
+  }
+
+  46.1%,
+  49.9% {
+    opacity: 0.3;
+    text-shadow: 0 0 2px var(--c-neon);
+  }
+
+  /* Gap */
+
+  /* O: --- */
+  50%,
+  54% {
+    opacity: 1;
+    text-shadow: 0 0 5px var(--c-neon), 0 0 15px var(--c-neon), 0 0 30px var(--c-neon), 0 0 60px var(--c-neon);
+  }
+
+  54.1%,
+  55.9% {
+    opacity: 0.3;
+    text-shadow: 0 0 2px var(--c-neon);
+  }
+
+  56%,
+  60% {
+    opacity: 1;
+    text-shadow: 0 0 5px var(--c-neon), 0 0 15px var(--c-neon), 0 0 30px var(--c-neon), 0 0 60px var(--c-neon);
+  }
+
+  60.1%,
+  61.9% {
+    opacity: 0.3;
+    text-shadow: 0 0 2px var(--c-neon);
+  }
+
+  62%,
+  66% {
+    opacity: 1;
+    text-shadow: 0 0 5px var(--c-neon), 0 0 15px var(--c-neon), 0 0 30px var(--c-neon), 0 0 60px var(--c-neon);
+  }
+
+  66.1%,
+  69.9% {
+    opacity: 0.3;
+    text-shadow: 0 0 2px var(--c-neon);
+  }
+
+  /* Gap */
+
+  /* S: ... */
+  70%,
+  71% {
+    opacity: 1;
+    text-shadow: 0 0 5px var(--c-neon), 0 0 15px var(--c-neon), 0 0 30px var(--c-neon), 0 0 60px var(--c-neon);
+  }
+
+  71.1%,
+  72.9% {
+    opacity: 0.3;
+    text-shadow: 0 0 2px var(--c-neon);
+  }
+
+  73%,
+  74% {
+    opacity: 1;
+    text-shadow: 0 0 5px var(--c-neon), 0 0 15px var(--c-neon), 0 0 30px var(--c-neon), 0 0 60px var(--c-neon);
+  }
+
+  74.1%,
+  75.9% {
+    opacity: 0.3;
+    text-shadow: 0 0 2px var(--c-neon);
+  }
+
+  76%,
+  77% {
+    opacity: 1;
+    text-shadow: 0 0 5px var(--c-neon), 0 0 15px var(--c-neon), 0 0 30px var(--c-neon), 0 0 60px var(--c-neon);
+  }
+
+  77.1%,
+  79.9% {
+    opacity: 0.3;
+    text-shadow: 0 0 2px var(--c-neon);
+  }
+
+  /* Final Gap to loop */
+
+  /* Steady On (80-100%) */
+  80%,
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 5px var(--c-neon), 0 0 15px var(--c-neon), 0 0 30px var(--c-neon), 0 0 60px var(--c-neon);
   }
 }

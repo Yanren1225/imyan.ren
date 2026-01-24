@@ -7,11 +7,11 @@ import { Locale, locale, setLocale } from '@/i18n'
 export const LanguageSwitcher: Component = () => {
   const languageList: { text: string; lan: Locale }[] = [
     {
-      text: 'EN',
+      text: 'en_US',
       lan: 'en',
     },
     {
-      text: '简',
+      text: 'zh_CN',
       lan: 'zh-cn',
     },
   ]
@@ -34,9 +34,9 @@ export const LanguageSwitcher: Component = () => {
                 <p
                   classList={{ active: locale() === item.lan }}
                   onClick={() => setLocale(item.lan)}
-                  class="outfit"
+                  class="font-mono clickable"
                 >
-                  {item.text}
+                  {locale() === item.lan ? `[ ${item.text} ]` : item.text}
                 </p>
               </li>
             )

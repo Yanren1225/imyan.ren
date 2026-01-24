@@ -2,37 +2,49 @@
     background: var(--c-card-bg);
     padding: 30px;
     box-sizing: border-box;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    box-shadow: none;
     width: 100%;
-    border: 1px solid var(--c-border);
-    font-family: 'Consolas', 'Monaco', 'Andale Mono', monospace;
+    border: 1px solid var(--c-grid);
+    font-family: 'Fira Code', 'Consolas', monospace;
     color: var(--c-text);
+    position: relative;
 }
 
 .terminal-header {
     display: flex;
-    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
-    opacity: 0.7;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--c-grid);
+    font-family: 'Fira Code', monospace;
 }
 
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
+.tui-controls {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--c-text);
+    opacity: 0.5;
 }
 
-.red {
-    background-color: #ff5f56;
+.tui-controls .control {
+    cursor: pointer;
+    transition: color 0.2s;
 }
 
-.yellow {
-    background-color: #ffbd2e;
+.tui-controls .control:hover {
+    color: var(--c-neon);
 }
 
-.green {
-    background-color: #27c93f;
+.tui-controls .close:hover {
+    color: #ff3c3c;
+}
+
+.tui-title {
+    font-size: 12px;
+    opacity: 0.5;
 }
 
 .terminal-content {

@@ -11,6 +11,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
+    counter-reset: project-counter;
 
     @media (max-width: 600px) {
       grid-template-columns: 1fr;
@@ -18,15 +19,42 @@
   }
 
   .project-item {
+    counter-increment: project-counter;
     display: flex;
     align-items: center;
-    padding: 20px;
-    border-radius: 10px;
-    gap: 40px;
+    padding: 24px;
+    border-radius: 0;
+    gap: 32px;
     background-color: var(--c-card-bg);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s ease-out;
     text-decoration: none;
-    border: 1px solid transparent;
+    border: 1px solid var(--c-grid);
+    position: relative;
+    overflow: hidden;
+
+    /* Tech Deco Corner */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--c-neon);
+      transition: width 0.3s ease;
+    }
+
+    /* ID number deco */
+    &::after {
+      content: 'PROJ_ID_00' counter(project-counter);
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+      font-family: 'Fira Code', monospace;
+      font-size: 10px;
+      opacity: 0.1;
+      pointer-events: none;
+    }
 
     @media (max-width: 600px) {
       gap: 20px;
@@ -35,34 +63,47 @@
     &:hover {
       background-color: var(--c-card-bg-hover);
       transform: translateY(-2px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-      border-color: var(--c-card-bg-hover);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-color: var(--c-neon);
+
+      /* Glow progress bar */
+      &::before {
+        width: 100%;
+      }
 
       .icon {
-        transform: scale(1.1) rotate(5deg);
+        transform: scale(1.1);
+        filter: grayscale(0%);
       }
 
       .arrow {
-        transform: translate(4px, -4px);
+        transform: translate(6px, -6px);
         opacity: 1;
+        color: var(--c-neon);
       }
 
       .title {
-        transform: translateX(4px);
+        color: var(--c-neon);
+        text-shadow: 0 0 5px var(--c-neon);
       }
     }
 
     .icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 60px;
+      height: 60px;
+      border-radius: 0;
+      /* Square Icons */
+      transition: all 0.3s ease;
+      /* Monochrome default */
+      border: 1px solid var(--c-grid);
     }
 
     .title {
-      font-size: 24px;
+      font-size: 20px;
+      font-weight: bold;
       color: var(--c-text);
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s ease;
+      font-family: 'Fira Code', monospace;
     }
 
     .arrow {
@@ -70,7 +111,7 @@
       position: absolute;
       top: 20px;
       right: 20px;
-      opacity: 0.6;
+      opacity: 0.3;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
