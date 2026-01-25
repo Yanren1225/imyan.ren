@@ -63,14 +63,7 @@ export const Friend: Component = () => {
 
                   <div class="info-item">
                     <span class="label">{t('friend_info.address')}</span>
-                    <a
-                      class="value link"
-                      href={myInfo.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {myInfo.link}
-                    </a>
+                    <span class="value">{myInfo.link}</span>
                   </div>
 
                   <div class="info-item">
