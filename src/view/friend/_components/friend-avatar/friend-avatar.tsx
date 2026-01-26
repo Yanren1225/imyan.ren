@@ -1,31 +1,25 @@
-import multiavatar from '@multiavatar/multiavatar'
-import { Component, createSignal, Show } from 'solid-js'
-import './friend-avatar.css'
+import { createAvatar } from '@dicebear/core'
+import { pixelArt } from '@dicebear/collection'
+import { Component } from 'solid-js'
+
+import { ImageWithPlaceholder } from '@/components/image-with-placeholder/image-with-placeholder'
 
 export const FriendAvatar: Component<FriendAvatarProps> = (props) => {
-  const [loading, setLoading] = createSignal(true)
-
   return (
-    <div class={`friend-avatar-container ${props.class || ''}`}>
-      <Show when={loading()}>
-        <div class="friend-avatar-placeholder" />
-      </Show>
-      <img
-        class={`friend-avatar-img ${loading() ? 'is-loading' : ''}`}
-        src={props.avatar ?? ''}
-        alt={props.name}
-        loading="lazy"
-        decoding="async"
-        onLoad={() => setLoading(false)}
-        onError={(e) => {
-          setLoading(false)
-          if (e.target instanceof HTMLImageElement) {
-            e.target.src = `data:image/svg+xml;base64,${window.btoa(
-              multiavatar(props.name),
-            )}`
-          }
-        }}
-      />
-    </div>
+    <ImageWithPlaceholder
+      src={props.avatar ?? ''}
+      alt={props.name}
+      class={props.class}
+      imgClass="friend-avatar-img"
+      handleError={(e) => {
+        if (e.target instanceof HTMLImageElement) {
+          const avatar = createAvatar(pixelArt, {
+            seed: props.name,
+            scale: 85,
+          })
+          e.target.src = avatar.toDataUri()
+        }
+      }}
+    />
   )
 }

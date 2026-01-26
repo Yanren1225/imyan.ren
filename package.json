@@ -35,7 +35,8 @@
     "vite-plugin-solid": "^2.11.0"
   },
   "dependencies": {
-    "@multiavatar/multiavatar": "^1.0.7",
+    "@dicebear/collection": "^9.3.1",
+    "@dicebear/core": "^9.3.1",
     "@solid-primitives/i18n": "^2.1.1",
     "@solidjs/router": "^0.15.2",
     "sodesu-comment": "^0.5.2",

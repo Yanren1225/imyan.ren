@@ -9,6 +9,8 @@ import { t } from '@/i18n'
 
 import FlixIcon from '@/assets/flix.png'
 
+import { ImageWithPlaceholder } from '@/components/image-with-placeholder/image-with-placeholder'
+
 interface ProjectConfig {
   title: string
   icon: string
@@ -42,7 +44,7 @@ export const Project: Component = () => {
   return (
     <>
       <div id="project">
-        <span class="title font-mono">{t('project')}</span>
+        <span class="title">{t('project')}</span>
         <div class="projects">
           <Index each={projects}>
             {(item, index) => (
@@ -67,12 +69,11 @@ const ProjectItem: Component<ProjectConfig> = (props) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img
-          class="icon"
+        <ImageWithPlaceholder
           src={props.icon}
           alt={props.title}
-          loading="lazy"
-          decoding="async"
+          class="icon"
+          imgClass="project-icon"
         />
         <span class="title">{props.title}</span>
         <span class="arrow i-material-symbols-arrow-outward-rounded" />
