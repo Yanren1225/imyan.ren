@@ -5,7 +5,7 @@ import { defineConfig } from 'vite'
 import solidPlugin from 'vite-plugin-solid'
 
 export default defineConfig({
-  plugins: [solidPlugin(), UnoCSS()],
+  plugins: [UnoCSS(), solidPlugin()],
   build: {
     target: 'esnext',
     rollupOptions: {

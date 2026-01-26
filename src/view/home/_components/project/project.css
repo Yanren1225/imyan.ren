@@ -50,7 +50,6 @@
       position: absolute;
       bottom: 5px;
       right: 10px;
-      font-family: 'Fira Code', monospace;
       font-size: 10px;
       opacity: 0.1;
       pointer-events: none;
@@ -103,7 +102,7 @@
       font-weight: bold;
       color: var(--c-text);
       transition: all 0.3s ease;
-      font-family: 'Fira Code', monospace;
+
     }
 
     .arrow {

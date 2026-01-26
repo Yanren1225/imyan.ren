@@ -14,11 +14,11 @@ export default defineConfig({
       dark: 'media',
     }),
     presetWebFonts({
-      provider: 'fontshare',
+      provider: 'bunny',
       fonts: {
-        Outfit: 'Outfit',
-        Satoshi: 'Satoshi',
-        mono: 'Fira Code',
+        outfit: ['Outfit', 'sans-serif'],
+        sans: ['Rubik', 'PingFang SC', 'Microsoft YaHei', 'sans-serif'],
+        mono: ['Fira Code', 'monospace'],
       },
     }),
     presetIcons({

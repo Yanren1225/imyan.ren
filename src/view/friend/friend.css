@@ -141,8 +141,6 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      font-family: 'Fira Code', monospace;
-      /* Monospace font */
       transition: all 0.3s ease;
     }
 
@@ -153,7 +151,6 @@
       line-height: 1.4;
       overflow: hidden;
       text-overflow: ellipsis;
-      font-family: 'Fira Code', monospace;
     }
   }
 

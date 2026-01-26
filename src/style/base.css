@@ -9,7 +9,7 @@
 
 html {
   background-color: var(--c-bg);
-  font-family: 'Satoshi', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   scroll-behavior: smooth;
   background-image: linear-gradient(var(--c-grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--c-grid) 1px, transparent 1px);
@@ -27,11 +27,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.outfit {
-  font-family: 'Outfit', sans-serif;
-}
-
-/* 按钮微交互 */
 button,
 a[role='button'],
 .clickable {

@@ -65,7 +65,7 @@ export const Hero: Component = () => {
   })
 
   return (
-    <div class="outfit" id="hero">
+    <div class="font-outfit" id="hero">
       <div class="box">
         <p style={{ 'white-space': 'pre-line' }}>
           <span>{part1()}</span>
