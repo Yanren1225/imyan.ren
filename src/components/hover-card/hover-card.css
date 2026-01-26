@@ -1,0 +1,44 @@
+.hover-card-container {
+    display: flex;
+    background-color: var(--c-card-bg);
+    /* Default padding can be overridden by class */
+    border-radius: 0;
+    transition: all 0.2s ease-out;
+    border: 1px solid var(--c-grid);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--c-text);
+
+    /* Reset link styles if it's an <a> tag */
+    &:hover {
+        color: var(--c-text);
+    }
+}
+
+/* --- Top Bar (Tech Deco Corner) --- */
+.hover-card-container.has-top-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--c-neon);
+    transition: width 0.3s ease;
+}
+
+.hover-card-container.has-top-bar:hover::before {
+    width: 100%;
+}
+
+/* --- Hover Effects --- */
+.hover-card-container:hover {
+    background-color: var(--c-card-bg-hover);
+    border-color: var(--c-neon);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hover-card-container.has-lift:hover {
+    transform: translateY(-2px);
+}

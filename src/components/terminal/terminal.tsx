@@ -17,9 +17,9 @@ export const Terminal: Component<TerminalProps> = (props) => {
         >
             <div class="terminal-header">
                 <div class="tui-controls">
-                    <span class="control">[-]</span>
-                    <span class="control">[□]</span>
-                    <span class="control close">[×]</span>
+                    <span class="control clickable">[-]</span>
+                    <span class="control clickable">[□]</span>
+                    <span class="control clickable close">[×]</span>
                 </div>
                 <div class="tui-title">yanren@term:~</div>
             </div>

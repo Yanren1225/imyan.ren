@@ -2,8 +2,7 @@ import './project.css'
 
 import { Component, For, Index } from 'solid-js'
 
-import { MouseFollow } from '@/components/mouse-follow'
-import { MouseLight } from '@/components/mouse-light'
+import { HoverCard } from '@/components/hover-card/hover-card'
 import { ScrollReveal } from '@/components/scroll-reveal'
 import { t } from '@/i18n'
 
@@ -61,23 +60,22 @@ export const Project: Component = () => {
 
 const ProjectItem: Component<ProjectConfig> = (props) => {
   return (
-    <MouseFollow intensity={3}>
-      <MouseLight
-        as="a"
-        class="project-item"
-        href={props.link}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <ImageWithPlaceholder
-          src={props.icon}
-          alt={props.title}
-          class="icon"
-          imgClass="project-icon"
-        />
-        <span class="title">{props.title}</span>
-        <span class="arrow i-material-symbols-arrow-outward-rounded" />
-      </MouseLight>
-    </MouseFollow>
+    <HoverCard
+      as="a"
+      intensity={3}
+      class="project-item"
+      href={props.link}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <ImageWithPlaceholder
+        src={props.icon}
+        alt={props.title}
+        class="icon"
+        imgClass="project-icon"
+      />
+      <span class="title">{props.title}</span>
+      <span class="arrow i-material-symbols-arrow-outward-rounded" />
+    </HoverCard>
   )
 }

@@ -20,29 +20,9 @@
 
   .project-item {
     counter-increment: project-counter;
-    display: flex;
     align-items: center;
     padding: 24px;
-    border-radius: 0;
     gap: 32px;
-    background-color: var(--c-card-bg);
-    transition: all 0.2s ease-out;
-    text-decoration: none;
-    border: 1px solid var(--c-grid);
-    position: relative;
-    overflow: hidden;
-
-    /* Tech Deco Corner */
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: var(--c-neon);
-      transition: width 0.3s ease;
-    }
 
     /* ID number deco */
     &::after {
@@ -60,15 +40,7 @@
     }
 
     &:hover {
-      background-color: var(--c-card-bg-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      border-color: var(--c-neon);
-
-      /* Glow progress bar */
-      &::before {
-        width: 100%;
-      }
+      /* Glow progress bar -> HANDLED BY HOVER CARD */
 
       .img-placeholder-container {
         transform: scale(1.1);

@@ -16,6 +16,7 @@ import { t } from '@/i18n'
 import Layout from '@/layout/layout'
 import { get } from '@/net'
 
+import { HoverCard } from '@/components/hover-card/hover-card'
 import { FriendItem } from './_components/friend-item/friend-item'
 import { FriendAvatar } from './_components/friend-avatar/friend-avatar'
 
@@ -48,7 +49,13 @@ export const Friend: Component = () => {
           <div class="friend-part">
             <p class="friend-desc">{t('my-friend')}</p>
 
-            <div class="my-friend-card">
+            <HoverCard
+              class="my-friend-card"
+              enableTopBar={false}
+              enableLift={false}
+              intensity={0}
+              enableLight={false}
+            >
               <div class="meta">
                 <div class="info-list">
                   <div class="info-item">
@@ -77,7 +84,7 @@ export const Friend: Component = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </HoverCard>
           </div>
           <For each={friendData()}>
             {(item) => (
