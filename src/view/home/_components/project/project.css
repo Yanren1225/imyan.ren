@@ -39,23 +39,25 @@
       gap: 20px;
     }
 
-    &:hover {
-      /* Glow progress bar -> HANDLED BY HOVER CARD */
+    @media (hover: hover) {
+      &:hover {
+        /* Glow progress bar -> HANDLED BY HOVER CARD */
 
-      .img-placeholder-container {
-        transform: scale(1.1);
-        filter: grayscale(0%);
-      }
+        .img-placeholder-container {
+          transform: scale(1.1);
+          filter: grayscale(0%);
+        }
 
-      .arrow {
-        transform: translate(6px, -6px);
-        opacity: 1;
-        color: var(--c-neon);
-      }
+        .arrow {
+          transform: translate(6px, -6px);
+          opacity: 1;
+          color: var(--c-neon);
+        }
 
-      .title {
-        color: var(--c-neon);
-        text-shadow: 0 0 5px var(--c-neon);
+        .title {
+          color: var(--c-neon);
+          text-shadow: 0 0 5px var(--c-neon);
+        }
       }
     }
 
@@ -80,7 +82,6 @@
       font-weight: bold;
       color: var(--c-text);
       transition: all 0.3s ease;
-
     }
 
     .arrow {
