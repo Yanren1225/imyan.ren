@@ -1,40 +1,40 @@
 @media (hover: hover) and (pointer: fine) {
 
-  html,
-  body,
-  * {
-    cursor: none !important;
-  }
+    html,
+    body,
+    * {
+        cursor: none !important;
+    }
 }
 
 html {
-  background-color: var(--c-bg);
-  font-family: 'DM Sans', sans-serif;
-  scroll-behavior: smooth;
-  background-image: linear-gradient(var(--c-grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--c-grid) 1px, transparent 1px);
-  background-size: 30px 30px;
+    background-color: var(--c-bg);
+    font-family: 'DM Sans', sans-serif;
+    scroll-behavior: smooth;
+    background-image: linear-gradient(var(--c-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--c-grid) 1px, transparent 1px);
+    background-size: 30px 30px;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 button,
 a[role='button'],
 .clickable {
-  transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 button:active,
 a[role='button']:active,
 .clickable:active {
-  transform: scale(0.95);
+    transform: scale(0.95);
 }
