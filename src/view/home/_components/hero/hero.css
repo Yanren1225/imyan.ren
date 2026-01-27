@@ -24,10 +24,13 @@
           0 0 30px var(--c-neon);
         animation: neon-flicker 15s linear infinite;
       }
+
+      @media (prefers-color-scheme: light) {
+        position: relative;
+        animation: glitch-anim 4s infinite;
+      }
     }
   }
-
-
 
   .info p {
     font-size: 1.125rem;
@@ -37,7 +40,6 @@
 }
 
 @keyframes blink {
-
   0%,
   100% {
     opacity: 1;
@@ -74,12 +76,15 @@
 }
 
 @keyframes neon-flicker {
-
   /* Steady On (0-40%) - 6 seconds */
   0%,
   39.9% {
     opacity: 1;
-    text-shadow: 0 0 5px var(--c-neon), 0 0 15px var(--c-neon), 0 0 30px var(--c-neon), 0 0 60px var(--c-neon);
+    text-shadow:
+      0 0 5px var(--c-neon),
+      0 0 15px var(--c-neon),
+      0 0 30px var(--c-neon),
+      0 0 60px var(--c-neon);
   }
 
   /* Start Animation (Dim State) */
@@ -93,7 +98,11 @@
   41%,
   42% {
     opacity: 1;
-    text-shadow: 0 0 5px var(--c-neon), 0 0 15px var(--c-neon), 0 0 30px var(--c-neon), 0 0 60px var(--c-neon);
+    text-shadow:
+      0 0 5px var(--c-neon),
+      0 0 15px var(--c-neon),
+      0 0 30px var(--c-neon),
+      0 0 60px var(--c-neon);
   }
 
   42.1%,
@@ -105,7 +114,11 @@
   43%,
   44% {
     opacity: 1;
-    text-shadow: 0 0 5px var(--c-neon), 0 0 15px var(--c-neon), 0 0 30px var(--c-neon), 0 0 60px var(--c-neon);
+    text-shadow:
+      0 0 5px var(--c-neon),
+      0 0 15px var(--c-neon),
+      0 0 30px var(--c-neon),
+      0 0 60px var(--c-neon);
   }
 
   44.1%,
@@ -117,7 +130,11 @@
   45%,
   46% {
     opacity: 1;
-    text-shadow: 0 0 5px var(--c-neon), 0 0 15px var(--c-neon), 0 0 30px var(--c-neon), 0 0 60px var(--c-neon);
+    text-shadow:
+      0 0 5px var(--c-neon),
+      0 0 15px var(--c-neon),
+      0 0 30px var(--c-neon),
+      0 0 60px var(--c-neon);
   }
 
   46.1%,
@@ -132,7 +149,11 @@
   50%,
   54% {
     opacity: 1;
-    text-shadow: 0 0 5px var(--c-neon), 0 0 15px var(--c-neon), 0 0 30px var(--c-neon), 0 0 60px var(--c-neon);
+    text-shadow:
+      0 0 5px var(--c-neon),
+      0 0 15px var(--c-neon),
+      0 0 30px var(--c-neon),
+      0 0 60px var(--c-neon);
   }
 
   54.1%,
@@ -144,7 +165,11 @@
   56%,
   60% {
     opacity: 1;
-    text-shadow: 0 0 5px var(--c-neon), 0 0 15px var(--c-neon), 0 0 30px var(--c-neon), 0 0 60px var(--c-neon);
+    text-shadow:
+      0 0 5px var(--c-neon),
+      0 0 15px var(--c-neon),
+      0 0 30px var(--c-neon),
+      0 0 60px var(--c-neon);
   }
 
   60.1%,
@@ -156,7 +181,11 @@
   62%,
   66% {
     opacity: 1;
-    text-shadow: 0 0 5px var(--c-neon), 0 0 15px var(--c-neon), 0 0 30px var(--c-neon), 0 0 60px var(--c-neon);
+    text-shadow:
+      0 0 5px var(--c-neon),
+      0 0 15px var(--c-neon),
+      0 0 30px var(--c-neon),
+      0 0 60px var(--c-neon);
   }
 
   66.1%,
@@ -171,7 +200,11 @@
   70%,
   71% {
     opacity: 1;
-    text-shadow: 0 0 5px var(--c-neon), 0 0 15px var(--c-neon), 0 0 30px var(--c-neon), 0 0 60px var(--c-neon);
+    text-shadow:
+      0 0 5px var(--c-neon),
+      0 0 15px var(--c-neon),
+      0 0 30px var(--c-neon),
+      0 0 60px var(--c-neon);
   }
 
   71.1%,
@@ -183,7 +216,11 @@
   73%,
   74% {
     opacity: 1;
-    text-shadow: 0 0 5px var(--c-neon), 0 0 15px var(--c-neon), 0 0 30px var(--c-neon), 0 0 60px var(--c-neon);
+    text-shadow:
+      0 0 5px var(--c-neon),
+      0 0 15px var(--c-neon),
+      0 0 30px var(--c-neon),
+      0 0 60px var(--c-neon);
   }
 
   74.1%,
@@ -195,7 +232,11 @@
   76%,
   77% {
     opacity: 1;
-    text-shadow: 0 0 5px var(--c-neon), 0 0 15px var(--c-neon), 0 0 30px var(--c-neon), 0 0 60px var(--c-neon);
+    text-shadow:
+      0 0 5px var(--c-neon),
+      0 0 15px var(--c-neon),
+      0 0 30px var(--c-neon),
+      0 0 60px var(--c-neon);
   }
 
   77.1%,
@@ -210,6 +251,88 @@
   80%,
   100% {
     opacity: 1;
-    text-shadow: 0 0 5px var(--c-neon), 0 0 15px var(--c-neon), 0 0 30px var(--c-neon), 0 0 60px var(--c-neon);
+    text-shadow:
+      0 0 5px var(--c-neon),
+      0 0 15px var(--c-neon),
+      0 0 30px var(--c-neon),
+      0 0 60px var(--c-neon);
+  }
+}
+
+@keyframes glitch-anim {
+  0% {
+    text-shadow: none;
+    transform: none;
+  }
+  /* First glitch (earlier and stronger) */
+  20% {
+    text-shadow: none;
+    transform: none;
+  }
+  21% {
+    text-shadow:
+      3px 0 #ff3c3c,
+      -3px 0 #00d2ff;
+    transform: skewX(15deg);
+  }
+  22% {
+    text-shadow:
+      -3px 0 #ff3c3c,
+      3px 0 #00d2ff;
+    transform: skewX(-15deg);
+  }
+  23% {
+    text-shadow:
+      2px 2px #ff3c3c,
+      -2px -2px #00d2ff;
+    transform: translate(-2px, 2px);
+  }
+  24% {
+    text-shadow: none;
+    transform: none;
+  }
+
+  /* Second glitch */
+  60% {
+    text-shadow: none;
+    transform: none;
+  }
+  61% {
+    text-shadow:
+      2px 0 #ff3c3c,
+      -2px 0 #00d2ff;
+    transform: skewX(10deg);
+  }
+  62% {
+    text-shadow:
+      -2px 0 #ff3c3c,
+      2px 0 #00d2ff;
+    transform: skewX(-10deg);
+  }
+  63% {
+    text-shadow: none;
+    transform: none;
+  }
+
+  /* Third glitch (end loop) */
+  90% {
+    text-shadow: none;
+    transform: none;
+  }
+  91% {
+    text-shadow:
+      4px 0 #ff3c3c,
+      -4px 0 #00d2ff;
+    transform: skewX(20deg);
+  }
+  92% {
+    text-shadow:
+      -4px 0 #ff3c3c,
+      4px 0 #00d2ff;
+    transform: skewX(-20deg);
+  }
+  93% {
+    text-shadow: none;
+    transform: none;
   }
 }
