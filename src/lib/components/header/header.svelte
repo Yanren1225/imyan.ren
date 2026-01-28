@@ -57,7 +57,10 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     &.scrolled {
-      background-color: var(--c-bg);
+      background-color: color-mix(in srgb, var(--c-bg), transparent 20%);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--c-grid);
       padding: 12px 0;
     }
 
