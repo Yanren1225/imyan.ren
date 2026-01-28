@@ -3,14 +3,11 @@
   import { page } from '$app/state'
   import LanguageSwitcher from '../language-switcher/language-switcher.svelte'
 
-  let isScrolled = $state(false)
-
-  const onScroll = () => {
-    isScrolled = window.scrollY > 20
-  }
+  let y = $state(0)
+  let isScrolled = $derived(y > 20)
 </script>
 
-<svelte:window onscroll={onScroll} />
+<svelte:window bind:scrollY={y} />
 
 <header class:scrolled={isScrolled}>
   <div class="inner">
@@ -59,12 +56,13 @@
     top: 0;
     z-index: 100;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: 1px solid transparent;
 
     &.scrolled {
       background-color: color-mix(in srgb, var(--c-bg), transparent 20%);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--c-grid);
+      border-bottom-color: color-mix(in srgb, var(--c-text), transparent 80%);
     }
 
     .inner {

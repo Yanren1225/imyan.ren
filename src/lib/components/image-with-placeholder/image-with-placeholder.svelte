@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { fade } from 'svelte/transition'
+
   interface Props {
     src: string
     alt: string
@@ -32,12 +34,11 @@
   style:--size={size + 'px'}
 >
   {#if isLoading}
-    <div class="img-placeholder-shim"></div>
+    <div class="img-placeholder-shim" out:fade={{ duration: 300 }}></div>
   {/if}
 
   <img
     class="img-with-placeholder {imgClass || ''}"
-    class:is-loading={isLoading}
     {src}
     {alt}
     {loading}
@@ -56,7 +57,6 @@
     overflow: hidden;
     display: block;
     background-color: var(--c-bg-soft);
-    transition: all 0.3s ease;
     font-size: 0;
     width: var(--size);
     height: var(--size);
@@ -68,11 +68,6 @@
     height: 100%;
     object-fit: cover;
     border-radius: 0;
-    transition: all 0.3s ease;
-  }
-
-  .img-with-placeholder.is-loading {
-    opacity: 0;
   }
 
   .img-placeholder-shim {
@@ -83,6 +78,7 @@
     height: 100%;
     background-color: var(--c-bg-soft);
     z-index: 1;
+    pointer-events: none;
   }
 
   /* HUD Corners */

@@ -1,74 +1,45 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
+  import { Spring } from 'svelte/motion'
 
-  let cursorRef: HTMLDivElement | undefined = $state()
   let isClicking = $state(false)
   let isHovering = $state(false)
   let isVisible = $state(false)
 
-  onMount(() => {
-    let mouseX = 0
-    let mouseY = 0
-    let currentX = 0
-    let currentY = 0
-    let requestRef: number
+  const coords = new Spring(
+    { x: 0, y: 0 },
+    {
+      stiffness: 0.8,
+      damping: 0.9,
+    },
+  )
 
-    const updateMousePosition = (e: PointerEvent) => {
-      if (e.pointerType === 'mouse' || e.pointerType === 'pen') {
-        isVisible = true
-        mouseX = e.clientX
-        mouseY = e.clientY
-      } else {
-        isVisible = false
-      }
+  const handleMove = (e: PointerEvent) => {
+    if (e.pointerType === 'mouse' || e.pointerType === 'pen') {
+      isVisible = true
+      coords.target = { x: e.clientX, y: e.clientY }
+    } else {
+      isVisible = false
     }
+  }
 
-    const animate = () => {
-      const ease = 1
-      const dx = mouseX - currentX
-      const dy = mouseY - currentY
-      currentX += dx * ease
-      currentY += dy * ease
-
-      if (cursorRef) {
-        cursorRef.style.transform = `translate(${currentX - 10}px, ${currentY - 10}px)`
-      }
-
-      requestRef = requestAnimationFrame(animate)
+  const handleMouseOver = (e: MouseEvent) => {
+    if ((e.target as HTMLElement).closest('a, button, .clickable')) {
+      isHovering = true
+    } else {
+      isHovering = false
     }
-
-    requestRef = requestAnimationFrame(animate)
-    window.addEventListener('pointermove', updateMousePosition, {
-      passive: true,
-    })
-
-    const handleMouseDown = () => (isClicking = true)
-    const handleMouseUp = () => (isClicking = false)
-    const handleMouseOver = (e: MouseEvent) => {
-      if ((e.target as HTMLElement).closest('a, button, .clickable')) {
-        isHovering = true
-      } else {
-        isHovering = false
-      }
-    }
-
-    window.addEventListener('mousedown', handleMouseDown)
-    window.addEventListener('mouseup', handleMouseUp)
-    window.addEventListener('mouseover', handleMouseOver)
-
-    return () => {
-      window.removeEventListener('pointermove', updateMousePosition)
-      window.removeEventListener('mousedown', handleMouseDown)
-      window.removeEventListener('mouseup', handleMouseUp)
-      window.removeEventListener('mouseover', handleMouseOver)
-      cancelAnimationFrame(requestRef)
-    }
-  })
+  }
 </script>
+
+<svelte:window
+  onpointermove={handleMove}
+  onmousedown={() => (isClicking = true)}
+  onmouseup={() => (isClicking = false)}
+  onmouseover={handleMouseOver}
+/>
 
 {#if isVisible}
   <div
-    bind:this={cursorRef}
     style:position="fixed"
     style:top="0"
     style:left="0"
@@ -80,7 +51,8 @@
     style:display="flex"
     style:align-items="center"
     style:justify-content="center"
-    style:transform="translate(-100px, -100px)"
+    style:transform="translate({coords.current.x - 10}px, {coords.current.y -
+      10}px)"
   >
     <div
       style:width={isHovering ? '40px' : '20px'}

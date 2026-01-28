@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
-
   interface Props {
     children?: import('svelte').Snippet
     delay?: number
@@ -10,18 +8,13 @@
   let { children, delay = 0, threshold = 0.1 }: Props = $props()
 
   let isVisible = $state(false)
-  let ref: HTMLDivElement
 
-  onMount(() => {
-    if (!ref) return
-
+  function reveal(node: HTMLElement) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setTimeout(() => {
-              isVisible = true
-            }, delay)
+            isVisible = true
             observer.unobserve(entry.target)
           }
         })
@@ -29,13 +22,22 @@
       { threshold },
     )
 
-    observer.observe(ref)
+    observer.observe(node)
 
-    return () => observer.disconnect()
-  })
+    return {
+      destroy() {
+        observer.disconnect()
+      },
+    }
+  }
 </script>
 
-<div bind:this={ref} class="scroll-reveal" class:is-visible={isVisible}>
+<div
+  use:reveal
+  class="scroll-reveal"
+  class:is-visible={isVisible}
+  style:transition-delay="{delay}ms"
+>
   {@render children?.()}
 </div>
 

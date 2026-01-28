@@ -75,6 +75,11 @@
         "link": "https://blog.indusy.site/"
       },
       {
+        "name": "九伏工作室的任饭聚集地",
+        "link": "http://9-volt.ys168.com",
+        "avatar": null
+      },
+      {
         "name": "可爱怪的窝",
         "link": "https://bytedance.host/",
         "avatar": "https://cdn.jsdelivr.net/gh/zsqw123/cdn@master/img/custom/icon.webp",
@@ -95,6 +100,12 @@
       {
         "name": "米来吉的个人站",
         "link": "https://miraged.fun/"
+      },
+      {
+        "name": "O3E Network",
+        "link": "https://www.o3e.net",
+        "avatar": null,
+        "desc": "一个神奇的页面"
       },
       {
         "name": "ReaJason",
@@ -157,17 +168,6 @@
         "link": "https://blog.zzzero.site/",
         "avatar": "https://s1.imagehub.cc/images/2025/08/22/5aeabd5d7868bc9bc70af208609c7b50.jpg",
         "desc": "记录技术、日常"
-      },
-      {
-        "name": "九伏工作室的任饭聚集地",
-        "link": "http://9-volt.ys168.com",
-        "avatar": null
-      },
-      {
-        "name": "O3E Network",
-        "link": "https://www.o3e.net",
-        "avatar": null,
-        "desc": "一个神奇的页面"
       }
     ]
   },
@@ -180,6 +180,12 @@
         "link": "https://blog.furrysp.top",
         "avatar": "https://i.postimg.cc/Pr0ryGtV/g.jpg",
         "desc": "My web3 blog"
+      },
+      {
+        "name": "ERHE.GROUP",
+        "link": "https://erhe.group/",
+        "avatar": "https://erhe.group/images/1icon.png",
+        "desc": "宇宙工作组"
       },
       {
         "name": "飞翔企鹅的博客",
@@ -212,10 +218,22 @@
         "desc": "业余学习前端的生物狗"
       },
       {
+        "name": "启之站",
+        "link": "https://blog.rinki.top/",
+        "avatar": "https://blog.rinki.top/img/avatarnew.png",
+        "desc": "一个感觉自己好像还不是大学生的大学生。"
+      },
+      {
         "name": "谭先生的塘",
         "link": "https://tandongtao.com",
         "avatar": "https://cdn.tandongtao.com/touxiang.jpg",
         "desc": "爱犯懒的谭先生"
+      },
+      {
+        "name": "调皮豆干",
+        "link": "https://blog.catrol.cn/",
+        "avatar": "https://img.catrol.cn/avatar/avatar-head-only.jpg",
+        "desc": "就在这里发电"
       },
       {
         "name": "web1n",
@@ -237,24 +255,6 @@
         "name": "逐梦影音",
         "link": "http://video.zmkj6.top",
         "avatar": "https://zmkj-1255910732.cos.ap-chengdu.myqcloud%E9%80%90%E6%A2%A6%E8%A7%86%E9%A2%91/zmpaly_icon.png"
-      },
-      {
-        "name": "ERHE.GROUP",
-        "link": "https://erhe.group/",
-        "avatar": "https://erhe.group/images/1icon.png",
-        "desc": "宇宙工作组"
-      },
-      {
-        "name": "启之站",
-        "link": "https://blog.rinki.top/",
-        "avatar": "https://blog.rinki.top/img/avatarnew.png",
-        "desc": "一个感觉自己好像还不是大学生的大学生。"
-      },
-      {
-        "name": "调皮豆干",
-        "link": "https://blog.catrol.cn/",
-        "avatar": "https://img.catrol.cn/avatar/avatar-head-only.jpg",
-        "desc": "就在这里发电"
       }
     ]
   }
