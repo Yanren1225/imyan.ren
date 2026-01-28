@@ -4,12 +4,11 @@
   import ImageWithPlaceholder from '$lib/components/image-with-placeholder/image-with-placeholder.svelte'
 
   interface Props {
-    class?: string
     name: string
     avatar?: string
   }
 
-  let { class: className, name, avatar }: Props = $props()
+  let { name, avatar }: Props = $props()
 
   function handleError(e: Event) {
     if (e.target instanceof HTMLImageElement) {
@@ -25,7 +24,7 @@
 <ImageWithPlaceholder
   src={avatar ?? ''}
   alt={name}
-  class={className}
   imgClass="friend-avatar-img"
+  size={50}
   onerror={handleError}
 />

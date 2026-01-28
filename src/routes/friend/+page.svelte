@@ -1,5 +1,4 @@
 <script lang="ts">
-  import './friend.css'
   import { onMount } from 'svelte'
   import HoverCard from '$lib/components/hover-card/hover-card.svelte'
   import ScrollReveal from '$lib/components/scroll-reveal/scroll-reveal.svelte'
@@ -59,7 +58,7 @@
 
           <div class="info-item">
             <span class="label">{t('friend_info.address')}</span>
-            <span class="value">{myInfo.link}</span>
+            <span class="value url-text">{myInfo.link}</span>
           </div>
 
           <div class="info-item">
@@ -92,3 +91,99 @@
     </div>
   {/each}
 </div>
+
+<style>
+  #friend {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .friends-box {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-gap: 20px;
+
+      @media (max-width: 1000px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      @media (max-width: 600px) {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .friend-part {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .friend-desc {
+        font-size: 20px;
+        color: var(--c-text);
+        font-weight: bold;
+      }
+    }
+
+    :global(.my-friend-card) {
+      padding: 24px;
+      align-items: flex-start;
+      gap: 20px;
+
+      &::after {
+        content: 'USER_PROFILE_v1.0';
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        font-family: 'Fira Code', monospace;
+        font-size: 10px;
+        opacity: 0.3;
+        pointer-events: none;
+      }
+
+      .meta {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 16px;
+      }
+
+      .info-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .info-item {
+        display: flex;
+        align-items: baseline;
+        gap: 16px;
+        font-size: 14px;
+
+        @media (max-width: 600px) {
+          flex-direction: column;
+          gap: 4px;
+        }
+      }
+
+      .label {
+        min-width: 70px;
+        color: var(--c-text);
+        opacity: 0.5;
+        font-weight: 500;
+        flex-shrink: 0;
+      }
+
+      .value {
+        color: var(--c-text);
+        opacity: 0.9;
+        line-height: 1.5;
+      }
+
+      .url-text {
+        word-break: break-all;
+        opacity: 0.9;
+        user-select: all;
+      }
+    }
+  }
+</style>

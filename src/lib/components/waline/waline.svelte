@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { onMount, onDestroy } from 'svelte'
   import { getLocale } from '$lib/i18n'
 
   interface Props {
@@ -10,28 +9,38 @@
 
   let { path, serverURL, ...others }: Props = $props()
 
-  let sodesu: any = null
+  const elementId = `sodesu-${Math.random().toString(36).slice(2, 9)}`
 
-  onMount(async () => {
-    if (typeof window !== 'undefined') {
+  $effect(() => {
+    const currentLang = getLocale()
+    let instance: any = null
+    let active = true
+
+    const init = async () => {
+      if (typeof window === 'undefined') return
+
       const Sodesu = await import('sodesu-comment')
-      sodesu = Sodesu.init({
-        el: '#sodesu',
+      if (!active) return
+
+      instance = Sodesu.init({
+        el: `#${elementId}`,
         path: path || window.location.pathname,
         serverURL,
         login: 'disable',
-        lang: getLocale(),
+        lang: currentLang,
         dark: 'auto',
       })
     }
-  })
 
-  $effect(() => {
-    const l = getLocale()
-    sodesu?.update({ lang: l })
+    init()
+
+    return () => {
+      active = false
+      instance?.destroy()
+    }
   })
 </script>
 
 <div id="sodesu-wrapper" {...others}>
-  <div id="sodesu"></div>
+  <div id={elementId}></div>
 </div>

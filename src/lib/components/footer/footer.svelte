@@ -1,5 +1,4 @@
 <script lang="ts">
-  import './footer.css'
   import { t } from '$lib/i18n'
 
   const currentYear = new Date().getFullYear()
@@ -25,3 +24,20 @@
     />
   </a>
 </footer>
+
+<style>
+  footer {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  footer p {
+    opacity: 0.4;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+</style>

@@ -1,6 +1,4 @@
 <script lang="ts">
-  import './mouse-follow.css'
-
   interface Props {
     children?: import('svelte').Snippet
     intensity?: number
@@ -41,3 +39,10 @@
 >
   {@render children?.()}
 </div>
+
+<style>
+  .mouse-follow-wrapper {
+    width: 100%;
+    transition: transform 0.1s ease-out;
+  }
+</style>

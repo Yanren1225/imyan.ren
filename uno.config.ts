@@ -3,14 +3,14 @@ import safeList from 'sodesu-comment/safeList'
 import {
   defineConfig,
   presetIcons,
-  presetUno,
+  presetMini,
   presetWebFonts,
   transformerDirectives,
 } from 'unocss'
 
 export default defineConfig({
   presets: [
-    presetUno({
+    presetMini({
       dark: 'media',
     }),
     presetWebFonts({

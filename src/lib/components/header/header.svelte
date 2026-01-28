@@ -1,13 +1,12 @@
 <script lang="ts">
-  import './header.css';
-  import { t } from '$lib/i18n';
-  import { page } from '$app/stores';
-  import LanguageSwitcher from '../language-switcher/language-switcher.svelte';
+  import { t } from '$lib/i18n'
+  import { page } from '$app/stores'
+  import LanguageSwitcher from '../language-switcher/language-switcher.svelte'
 
-  let isScrolled = $state(false);
+  let isScrolled = $state(false)
 
   function onScroll() {
-    isScrolled = window.scrollY > 20;
+    isScrolled = window.scrollY > 20
   }
 </script>
 
@@ -31,7 +30,10 @@
       </a>
     </li>
     <li>
-      <a class:active={$page.url.pathname.startsWith('/comment')} href="/comment">
+      <a
+        class:active={$page.url.pathname.startsWith('/comment')}
+        href="/comment"
+      >
         {t('nav.comment')}
       </a>
     </li>
@@ -43,3 +45,54 @@
   </ul>
   <LanguageSwitcher />
 </header>
+
+<style>
+  header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.scrolled {
+      background-color: var(--c-bg);
+      padding: 12px 0;
+    }
+
+    .nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    :global(#language-switcher) {
+      margin-left: auto;
+    }
+
+    .nav a {
+      color: var(--c-text);
+      text-decoration: none;
+      transition: all 0.3s;
+
+      &.active {
+        color: var(--c-text-hover);
+        font-weight: bold;
+      }
+
+      &:hover {
+        color: var(--c-text-hover);
+      }
+    }
+
+    @media (max-width: 600px) {
+      flex-direction: column-reverse;
+      gap: 20px;
+
+      :global(#language-switcher) {
+        margin-left: 0;
+      }
+    }
+  }
+</style>

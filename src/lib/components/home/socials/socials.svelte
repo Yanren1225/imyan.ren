@@ -1,6 +1,4 @@
 <script lang="ts">
-  import './socials.css'
-
   interface SocialConfig {
     name: string
     link: string
@@ -66,7 +64,8 @@
 <div id="socials">
   {#each socialList as item}
     <a
-      class="outfit link {item.class || ''}"
+      class="outfit link {item.class ||
+        ''} inline-flex px-3 py-2 mt-2 mr-2 rounded-none gap-2 text-inherit bg-gray-50 transition-all transition-duration-300 decoration-none hover:text-white dark:bg-gray-50/10 border border-black/5 dark:border-white/10"
       class:hide-name={item.hideName}
       href={item.link}
       target="_blank"
@@ -79,3 +78,60 @@
     </a>
   {/each}
 </div>
+
+<style>
+  #socials {
+    margin-top: 1rem;
+
+    .link {
+      /* --at-apply: 'inline-flex px-3 py-2 mt-2 mr-2 rounded-none gap-2 text-inherit bg-gray-50 transition-all transition-duration-300 decoration-none hover:text-white dark:bg-gray-50/10 border border-black/5 dark:border-white/10'; */
+      transform: translateY(0);
+      will-change: transform, box-shadow;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .icon {
+      --at-apply: h-20px w-20px;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .link:hover .icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .text {
+      --at-apply: text-sm ml-1;
+    }
+
+    .link.hide-name {
+      gap: 0;
+
+      .text {
+        display: grid;
+        grid-template-columns: 0fr;
+        overflow: hidden;
+        transition: all 0.3s;
+        opacity: 0;
+
+        span {
+          min-width: 0;
+        }
+      }
+
+      &:hover {
+        gap: 0.5rem;
+
+        .text {
+          grid-template-columns: 1fr;
+          opacity: 1;
+        }
+      }
+    }
+  }
+</style>

@@ -1,6 +1,7 @@
 <script lang="ts">
-  import '../index.css'
   import 'virtual:uno.css'
+  import '../index.css'
+
   import { page } from '$app/stores'
 
   import Header from '$lib/components/header/header.svelte'

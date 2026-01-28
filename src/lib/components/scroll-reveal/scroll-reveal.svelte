@@ -1,5 +1,4 @@
 <script lang="ts">
-  import './scroll-reveal.css'
   import { onMount } from 'svelte'
 
   interface Props {
@@ -36,6 +35,21 @@
   })
 </script>
 
-<div bind:this={ref} class="scroll-reveal" class:visible={isVisible}>
+<div bind:this={ref} class="scroll-reveal" class:is-visible={isVisible}>
   {@render children?.()}
 </div>
+
+<style>
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
