@@ -22,43 +22,48 @@ export const Header: Component = () => {
   return (
     <>
       <header classList={{ scrolled: isScrolled() }}>
-        <ul class="nav font-mono">
-          <li>
-            <A classList={{ active: Boolean(useMatch(() => '/')()) }} href="/">
-              {t('nav.home')}
-            </A>
-          </li>
-          <li>
-            <A
-              classList={{ active: Boolean(useMatch(() => '/friend')()) }}
-              href="/friend"
-            >
-              {t('nav.friend')}
-            </A>
-          </li>
-          <li>
-            <A
-              classList={{ active: Boolean(useMatch(() => '/about')()) }}
-              href="/about"
-            >
-              {t('nav.about')}
-            </A>
-          </li>
-          <li>
-            <A
-              classList={{ active: Boolean(useMatch(() => '/comment')()) }}
-              href="/comment"
-            >
-              {t('nav.comment')}
-            </A>
-          </li>
-          <li>
-            <A target="_blank" href="https://www.travellings.cn/go.html">
-              {t('nav.travelling')}
-            </A>
-          </li>
-        </ul>
-        <LanguageSwitcher />
+        <div class="inner">
+          <ul class="nav font-mono">
+            <li>
+              <A
+                classList={{ active: Boolean(useMatch(() => '/')()) }}
+                href="/"
+              >
+                {t('nav.home')}
+              </A>
+            </li>
+            <li>
+              <A
+                classList={{ active: Boolean(useMatch(() => '/friend')()) }}
+                href="/friend"
+              >
+                {t('nav.friend')}
+              </A>
+            </li>
+            <li>
+              <A
+                classList={{ active: Boolean(useMatch(() => '/about')()) }}
+                href="/about"
+              >
+                {t('nav.about')}
+              </A>
+            </li>
+            <li>
+              <A
+                classList={{ active: Boolean(useMatch(() => '/comment')()) }}
+                href="/comment"
+              >
+                {t('nav.comment')}
+              </A>
+            </li>
+            <li>
+              <A target="_blank" href="https://www.travellings.cn/go.html">
+                {t('nav.travelling')}
+              </A>
+            </li>
+          </ul>
+          <LanguageSwitcher />
+        </div>
       </header>
     </>
   )

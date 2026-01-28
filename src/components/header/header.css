@@ -1,14 +1,26 @@
 header {
-  display: flex;
+  grid-column: 1 / -1 !important;
+  width: 100%;
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 20px 0;
-  margin-bottom: 20px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid transparent;
 
   &.scrolled {
-    background-color: var(--c-bg);
+    background-color: color-mix(in srgb, var(--c-bg), transparent 20%);
+    border-bottom: 1px solid var(--c-grid);
+  }
+
+  .inner {
+    width: min(65rem, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    transition: padding 0.3s;
+  }
+
+  &.scrolled .inner {
     padding: 12px 0;
   }
 
