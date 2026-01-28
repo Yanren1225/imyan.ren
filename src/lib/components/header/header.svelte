@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { t } from '$lib/i18n'
-  import { page } from '$app/stores'
+  import { i18n } from '$lib/i18n'
+  import { page } from '$app/state'
   import LanguageSwitcher from '../language-switcher/language-switcher.svelte'
 
   let isScrolled = $state(false)
@@ -16,34 +16,34 @@
   <div class="inner">
     <ul class="nav font-mono">
       <li>
-        <a class:active={$page.url.pathname === '/'} href="/">
-          {t('nav.home')}
+        <a class:active={page.url.pathname === '/'} href="/">
+          {i18n.t.nav.home}
         </a>
       </li>
       <li>
         <a
-          class:active={$page.url.pathname.startsWith('/friend')}
+          class:active={page.url.pathname.startsWith('/friend')}
           href="/friend"
         >
-          {t('nav.friend')}
+          {i18n.t.nav.friend}
         </a>
       </li>
       <li>
-        <a class:active={$page.url.pathname.startsWith('/about')} href="/about">
-          {t('nav.about')}
+        <a class:active={page.url.pathname.startsWith('/about')} href="/about">
+          {i18n.t.nav.about}
         </a>
       </li>
       <li>
         <a
-          class:active={$page.url.pathname.startsWith('/comment')}
+          class:active={page.url.pathname.startsWith('/comment')}
           href="/comment"
         >
-          {t('nav.comment')}
+          {i18n.t.nav.comment}
         </a>
       </li>
       <li>
         <a target="_blank" href="https://www.travellings.cn/go.html">
-          {t('nav.travelling')}
+          {i18n.t.nav.travelling}
         </a>
       </li>
     </ul>

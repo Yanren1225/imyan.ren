@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { t, getLocale } from '$lib/i18n'
+  import { i18n } from '$lib/i18n'
   import { onMount } from 'svelte'
 
   let part1 = $state('')
@@ -7,9 +7,9 @@
   let part3 = $state('')
 
   function getParts() {
-    const l = getLocale()
-    const p1 = `${t('hey')},\n${t('im')}${l === 'en' ? ' ' : ''}`
-    const p2 = t('yanren') as string
+    const l = i18n.locale
+    const p1 = `${i18n.t.hey},\n${i18n.t.im}${l === 'en' ? ' ' : ''}`
+    const p2 = i18n.t.yanren as string
     const p3 = '.'
     return [p1, p2, p3]
   }
@@ -63,18 +63,14 @@
     </p>
   </div>
   <div class="info">
-    <p>{t('info.0')}</p>
-    <p>{t('info.1')}</p>
+    <p>{i18n.t.info[0]}</p>
+    <p>{i18n.t.info[1]}</p>
   </div>
 </div>
 
 <style>
   #hero {
     margin-top: 4.5rem;
-
-    .block {
-      display: block;
-    }
 
     .info {
       margin-top: 24px;

@@ -2,7 +2,7 @@
   import HoverCard from '$lib/components/hover-card/hover-card.svelte'
   import ImageWithPlaceholder from '$lib/components/image-with-placeholder/image-with-placeholder.svelte'
   import ScrollReveal from '$lib/components/scroll-reveal/scroll-reveal.svelte'
-  import { t } from '$lib/i18n'
+  import { i18n } from '$lib/i18n'
   import FlixIcon from '$src/assets/flix.png'
 
   interface ProjectConfig {
@@ -36,7 +36,7 @@
 </script>
 
 <div id="project">
-  <span class="title">{t('project')}</span>
+  <span class="title">{i18n.t.project}</span>
   <div class="projects">
     {#each projects as item, index (item.title)}
       <ScrollReveal delay={Math.min(index * 50, 150)}>

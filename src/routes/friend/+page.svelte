@@ -3,7 +3,7 @@
   import HoverCard from '$lib/components/hover-card/hover-card.svelte'
   import ScrollReveal from '$lib/components/scroll-reveal/scroll-reveal.svelte'
   import FriendItem from '$lib/components/friend/friend-item/friend-item.svelte'
-  import { t } from '$lib/i18n'
+  import { i18n } from '$lib/i18n'
   import type { IFriendData } from '$lib/types'
 
   let friendData: IFriendData[] = $state([])
@@ -18,7 +18,7 @@
   })
 
   const myInfo = {
-    name: '炎忍',
+    name: 'Yanren',
     websiteName: "I'm Yanren",
     link: 'https://imyan.ren',
     avatar: 'https://github.com/yanren1225.png',
@@ -27,15 +27,15 @@
 
   function getDescription(key?: string) {
     if (key === 'isAccessDenied') {
-      return t('access-denied')
+      return i18n.t.access_denied
     }
-    return t('friend-list')
+    return i18n.t.friend_list
   }
 </script>
 
 <div id="friend">
   <div class="friend-part">
-    <p class="friend-desc">{t('my-friend')}</p>
+    <p class="friend-desc">{i18n.t.my_friend}</p>
 
     <HoverCard
       class="my-friend-card"
@@ -47,27 +47,27 @@
       <div class="meta">
         <div class="info-list">
           <div class="info-item">
-            <span class="label">{t('friend_info.name')}</span>
+            <span class="label">{i18n.t.friend_info.name}</span>
             <span class="value">{myInfo.name}</span>
           </div>
 
           <div class="info-item">
-            <span class="label">{t('friend_info.site-name')}</span>
+            <span class="label">{i18n.t.friend_info.site_name}</span>
             <span class="value">{myInfo.websiteName}</span>
           </div>
 
           <div class="info-item">
-            <span class="label">{t('friend_info.address')}</span>
+            <span class="label">{i18n.t.friend_info.address}</span>
             <span class="value url-text">{myInfo.link}</span>
           </div>
 
           <div class="info-item">
-            <span class="label">{t('friend_info.avatar')}</span>
+            <span class="label">{i18n.t.friend_info.avatar}</span>
             <span class="value url-text">{myInfo.avatar}</span>
           </div>
 
           <div class="info-item">
-            <span class="label">{t('friend_info.description')}</span>
+            <span class="label">{i18n.t.friend_info.description}</span>
             <span class="value">{myInfo.descr}</span>
           </div>
         </div>

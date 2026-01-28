@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getLocale } from '$lib/i18n'
+  import { i18n } from '$lib/i18n'
 
   interface Props {
     path?: string
@@ -12,7 +12,7 @@
   const elementId = `sodesu-${Math.random().toString(36).slice(2, 9)}`
 
   $effect(() => {
-    const currentLang = getLocale()
+    const currentLang = i18n.locale
     let instance: any = null
     let active = true
 

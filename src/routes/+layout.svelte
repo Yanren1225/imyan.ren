@@ -2,7 +2,7 @@
   import 'virtual:uno.css'
   import '../index.css'
 
-  import { page } from '$app/stores'
+  import { page } from '$app/state'
 
   import Header from '$lib/components/header/header.svelte'
   import Footer from '$lib/components/footer/footer.svelte'
@@ -20,7 +20,7 @@
   <Header />
 
   <main>
-    {#key $page.url.pathname}
+    {#key page.url.pathname}
       <PageTransition>
         {@render children()}
       </PageTransition>

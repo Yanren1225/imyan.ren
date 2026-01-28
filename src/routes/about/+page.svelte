@@ -3,6 +3,7 @@
   import TerminalHighlight from '$lib/components/terminal/TerminalHighlight.svelte'
   import TerminalLine from '$lib/components/terminal/TerminalLine.svelte'
   import TerminalPrompt from '$lib/components/terminal/TerminalPrompt.svelte'
+  import { i18n } from '$lib/i18n'
 </script>
 
 <div id="about">
@@ -44,11 +45,6 @@
   /* Since they are in slots passed to components, scoped CSS might apply if they are in the same component file. */
   /* Yes, styles in +page.svelte apply to markup in +page.svelte. */
   /* However, if they are passed as children to another component, scoped CSS *does* apply to the slot content. */
-
-  .line {
-    margin-bottom: 10px;
-    opacity: 0.9;
-  }
 
   .cursor::after {
     content: '_';

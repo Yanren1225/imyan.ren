@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getLocale, setLocale, type Locale } from '$lib/i18n'
+  import { i18n, type Locale } from '$lib/i18n'
 
   const languageList: { text: string; lan: Locale }[] = [
     { text: 'en_US', lan: 'en' },
@@ -7,8 +7,7 @@
   ]
 
   $effect(() => {
-    const l = getLocale()
-    if (l === 'en') {
+    if (i18n.locale === 'en') {
       document.title = "I'm Yanren"
     } else {
       document.title = '我是炎忍'
@@ -16,7 +15,7 @@
   })
 
   function switchLang(l: Locale) {
-    setLocale(l)
+    i18n.setLocale(l)
   }
 </script>
 
@@ -27,10 +26,10 @@
         <button
           type="button"
           class="font-mono clickable"
-          class:active={getLocale() === item.lan}
+          class:active={i18n.locale === item.lan}
           onclick={() => switchLang(item.lan)}
         >
-          {getLocale() === item.lan ? `[ ${item.text} ]` : item.text}
+          {i18n.locale === item.lan ? `[ ${item.text} ]` : item.text}
         </button>
       </li>
     {/each}
