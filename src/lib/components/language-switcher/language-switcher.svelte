@@ -14,7 +14,7 @@
     }
   })
 
-  function switchLang(l: Locale) {
+  const switchLang = (l: Locale) => {
     i18n.setLocale(l)
   }
 </script>

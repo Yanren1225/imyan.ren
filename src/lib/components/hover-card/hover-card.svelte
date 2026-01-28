@@ -1,6 +1,6 @@
 <script lang="ts">
-  import MouseFollow from '../mouse-follow/mouse-follow.svelte'
-  import MouseLight from '../mouse-light/mouse-light.svelte'
+  import MouseFollow from '$lib/components/mouse/mouse-follow/mouse-follow.svelte'
+  import MouseLight from '$lib/components/mouse/mouse-light/mouse-light.svelte'
 
   interface Props {
     as?: string

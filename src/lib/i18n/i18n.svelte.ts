@@ -24,28 +24,3 @@ export const i18n = {
     return dictionaries[locale]
   },
 }
-// export const getLocale = () => locale
-// export const setLocale = (l: Locale) => {
-//   locale = l
-//   if (typeof localStorage !== 'undefined') {
-//     localStorage.setItem('locale', l)
-//   }
-// }
-
-// // Persist
-// if (typeof localStorage !== 'undefined') {
-//   const saved = localStorage.getItem('locale') as Locale
-//   if (saved && dictionaries[saved]) {
-//     locale = saved
-//   }
-// }
-
-// function resolve(obj: any, path: string) {
-//   return path.split('.').reduce((prev, curr) => prev && prev[curr], obj)
-// }
-
-// export const t = (key: string) => {
-//   const dict = dictionaries[locale]
-//   const val = resolve(dict, key)
-//   return val !== undefined ? val : key
-// }

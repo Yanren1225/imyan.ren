@@ -13,7 +13,7 @@
     ...others
   }: Props = $props()
 
-  function onMouseMove(e: MouseEvent) {
+  const onMouseMove = (e: MouseEvent) => {
     const element = e.currentTarget as HTMLElement
     const rect = element.getBoundingClientRect()
     const x = e.clientX - rect.left

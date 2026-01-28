@@ -8,7 +8,7 @@
 
   let wrapperRef: HTMLDivElement
 
-  function handleMouseMove(e: MouseEvent) {
+  const handleMouseMove = (e: MouseEvent) => {
     if (!wrapperRef) return
 
     const rect = wrapperRef.getBoundingClientRect()
@@ -24,7 +24,7 @@
     wrapperRef.style.transform = `translate(${moveX}px, ${moveY}px)`
   }
 
-  function handleMouseLeave() {
+  const handleMouseLeave = () => {
     if (!wrapperRef) return
     wrapperRef.style.transform = ''
   }

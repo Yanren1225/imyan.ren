@@ -1,12 +1,11 @@
 <script lang="ts">
   import { i18n } from '$lib/i18n'
-  import { onMount } from 'svelte'
 
   let part1 = $state('')
   let part2 = $state('')
   let part3 = $state('')
 
-  function getParts() {
+  const getParts = () => {
     const l = i18n.locale
     const p1 = `${i18n.t.hey},\n${i18n.t.im}${l === 'en' ? ' ' : ''}`
     const p2 = i18n.t.yanren as string
@@ -15,14 +14,8 @@
   }
 
   $effect(() => {
-    // getParts uses getLocale(), so this tracks changes.
     const [p1, p2, p3] = getParts()
 
-    // Clear check to avoid glitch if it's just mounting?
-    // Effect runs after mount.
-    // Logic: type out from scratch on locale change.
-
-    // Reset
     part1 = ''
     part2 = ''
     part3 = ''
@@ -30,7 +23,6 @@
     let charIndex = 0
     const totalLength = p1.length + p2.length + p3.length
 
-    // We need to properly clear interval if effects re-run.
     const interval = setInterval(() => {
       if (charIndex <= totalLength) {
         if (charIndex <= p1.length) {

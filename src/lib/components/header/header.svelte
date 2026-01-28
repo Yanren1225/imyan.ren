@@ -5,7 +5,7 @@
 
   let isScrolled = $state(false)
 
-  function onScroll() {
+  const onScroll = () => {
     isScrolled = window.scrollY > 20
   }
 </script>

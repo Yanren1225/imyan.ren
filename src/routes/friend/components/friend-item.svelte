@@ -1,9 +1,21 @@
 <script lang="ts">
   import HoverCard from '$lib/components/hover-card/hover-card.svelte'
-  import FriendAvatar from '../friend-avatar/friend-avatar.svelte'
   import type { IFriendItem } from '$lib/types'
+  import { createAvatar } from '@dicebear/core'
+  import { pixelArt } from '@dicebear/collection'
+  import ImageWithPlaceholder from '../../../lib/components/image-with-placeholder/image-with-placeholder.svelte'
 
   let props: IFriendItem = $props()
+
+  const handleError = (e: Event) => {
+    if (e.target instanceof HTMLImageElement) {
+      const newAvatar = createAvatar(pixelArt, {
+        seed: props.name,
+        scale: 85,
+      })
+      e.target.src = newAvatar.toDataUri()
+    }
+  }
 </script>
 
 <HoverCard
@@ -14,7 +26,12 @@
   denied={props.isAccessDenied === true}
   class="friend-item"
 >
-  <FriendAvatar name={props.name} avatar={props.avatar} />
+  <ImageWithPlaceholder
+    src={props.avatar ?? ''}
+    alt={props.name}
+    size={50}
+    onerror={handleError}
+  />
   <div class="flex flex-col flex-1 min-w-0 justify-center">
     <p class="name" title={props.name}>{props.name}</p>
     <p class="desc" title={props.desc}>{props.desc}</p>

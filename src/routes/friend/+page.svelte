@@ -2,15 +2,15 @@
   import { onMount } from 'svelte'
   import HoverCard from '$lib/components/hover-card/hover-card.svelte'
   import ScrollReveal from '$lib/components/scroll-reveal/scroll-reveal.svelte'
-  import FriendItem from '$lib/components/friend/friend-item/friend-item.svelte'
-  import { i18n } from '$lib/i18n'
+  import FriendItem from './components/friend-item.svelte'
   import type { IFriendData } from '$lib/types'
+  import { i18n } from '$src/lib/i18n'
 
   let friendData: IFriendData[] = $state([])
 
   onMount(async () => {
     try {
-      const res = await fetch('/link.json') // served from static
+      const res = await fetch('/link.json')
       friendData = await res.json()
     } catch (e) {
       console.error(e)
@@ -25,7 +25,7 @@
     descr: 'nice -20 Game && nice 19 Code',
   }
 
-  function getDescription(key?: string) {
+  const getDescription = (key?: string) => {
     if (key === 'isAccessDenied') {
       return i18n.t.access_denied
     }
