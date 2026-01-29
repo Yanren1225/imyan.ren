@@ -4,7 +4,7 @@
   import ScrollReveal from '$lib/components/scroll-reveal/scroll-reveal.svelte'
   import FriendItem from './components/friend-item.svelte'
   import type { IFriendData } from '$lib/types'
-  import { i18n } from '$src/lib/i18n'
+  import { i18n } from '$lib/i18n'
 
   let friendData: IFriendData[] = $state([])
 

@@ -3,6 +3,7 @@
   import Terminal from '$lib/components/terminal/Terminal.svelte'
   import TerminalPrompt from '$lib/components/terminal/TerminalPrompt.svelte'
   import TerminalLine from '$lib/components/terminal/TerminalLine.svelte'
+  import TerminalCursor from '$lib/components/terminal/TerminalCursor.svelte'
 </script>
 
 <div class="error-page">
@@ -32,7 +33,7 @@
     </TerminalLine>
 
     <TerminalPrompt>
-      <span class="cursor">_</span>
+      <TerminalCursor />
     </TerminalPrompt>
   </Terminal>
 </div>
@@ -78,21 +79,5 @@
     margin-left: 10px;
     opacity: 0.7;
     font-size: 0.9em;
-  }
-
-  .cursor {
-    margin-left: 10px;
-    animation: blink 1s step-end infinite;
-    font-weight: bold;
-  }
-
-  @keyframes blink {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
   }
 </style>

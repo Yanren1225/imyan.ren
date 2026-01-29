@@ -3,7 +3,7 @@
   import ImageWithPlaceholder from '$lib/components/image-with-placeholder/image-with-placeholder.svelte'
   import ScrollReveal from '$lib/components/scroll-reveal/scroll-reveal.svelte'
   import { i18n } from '$lib/i18n'
-  import FlixIcon from '$src/assets/flix.png'
+  import FlixIcon from '$assets/flix.png'
 
   interface ProjectConfig {
     title: string

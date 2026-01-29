@@ -1,5 +1,5 @@
-@import '$src/style/variables.css';
-@import '$src/style/base.css';
+@import './style/variables.css';
+@import './style/base.css';
 
 .app-layout {
   padding-top: 8vh;

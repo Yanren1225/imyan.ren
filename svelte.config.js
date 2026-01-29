@@ -16,7 +16,7 @@ const config = {
       fallback: '404.html',
     }),
     alias: {
-      $src: path.resolve('./src'),
+      $assets: path.resolve('./src/assets'),
     },
   },
 }

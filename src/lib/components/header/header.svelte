@@ -39,7 +39,11 @@
         </a>
       </li>
       <li>
-        <a target="_blank" href="https://www.travellings.cn/go.html">
+        <a
+          target="_blank"
+          href="https://www.travellings.cn/go.html"
+          rel="noopener noreferrer"
+        >
           {i18n.t.nav.travelling}
         </a>
       </li>
