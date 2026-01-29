@@ -1,5 +1,4 @@
 @media (hover: hover) and (pointer: fine) {
-
   html,
   body,
   * {
@@ -9,9 +8,10 @@
 
 html {
   background-color: var(--c-bg);
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Rubik', sans-serif;
   scroll-behavior: smooth;
-  background-image: linear-gradient(var(--c-grid) 1px, transparent 1px),
+  background-image:
+    linear-gradient(var(--c-grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--c-grid) 1px, transparent 1px);
   background-size: 30px 30px;
 }

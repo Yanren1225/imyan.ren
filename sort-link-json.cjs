@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const pinyin = require('pinyin')
 
-const filePath = path.resolve(__dirname, 'public', 'link.json')
+const filePath = path.resolve(__dirname, 'static', 'link.json')
 const raw = fs.readFileSync(filePath, 'utf8')
 let data = JSON.parse(raw)
 
