@@ -61,6 +61,7 @@
     width: var(--size);
     height: var(--size);
     border: 1px solid var(--c-grid);
+    transition: all 0.3s ease;
   }
 
   .img-with-placeholder {
