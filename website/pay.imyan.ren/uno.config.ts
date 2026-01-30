@@ -5,11 +5,20 @@ export default defineConfig({
   presets: [
     basePreset(),
     presetWebFonts({
-      provider: 'fontshare',
+      provider: 'bunny',
       fonts: {
-        Outfit: 'Outfit',
-        Satoshi: 'Satoshi',
+        outfit: ['Outfit', 'sans-serif'],
+        sans: ['Rubik', 'PingFang SC', 'Microsoft YaHei', 'sans-serif'],
+        mono: ['Fira Code', 'monospace'],
       },
     }),
   ],
+  theme: {
+    breakpoints: {
+      sm: '600px',
+      md: '768px',
+      lg: '1000px',
+      xl: '1280px',
+    },
+  },
 })

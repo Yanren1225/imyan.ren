@@ -27,7 +27,7 @@
     {#each languageList as item}
       <li>
         <button
-          class="outfit"
+          class="font-outfit hover:text-black dark:hover:text-white transition-colors"
           class:active={i18n.locale === item.lan}
           onclick={() => setLanguage(item.lan)}
         >
@@ -56,15 +56,10 @@
     cursor: pointer;
     color: #6060608e;
     font-size: 1.25rem;
-    transition: 0.4s;
     line-height: 1;
     background: none;
     border: none;
     padding: 0;
-  }
-
-  .language-list > li > button:hover {
-    color: #000000;
   }
 
   .language-list > li > button.active {
@@ -73,10 +68,6 @@
 
   @media screen and (prefers-color-scheme: dark) {
     .language-list > li > button.active {
-      color: #fff;
-    }
-
-    .language-list > li > button:hover {
       color: #fff;
     }
   }

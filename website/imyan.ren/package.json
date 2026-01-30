@@ -4,6 +4,7 @@
   "description": "",
   "type": "module",
   "scripts": {
+    "prepare": "svelte-kit sync || echo ''",
     "start": "node ./sort-link-json.cjs && vite",
     "dev": "node ./sort-link-json.cjs && vite",
     "build": "node ./sort-link-json.cjs && vite build",
@@ -26,8 +27,6 @@
     "@unocss/preset-web-fonts": "^66.6.0",
     "@unocss/transformer-directives": "^66.6.0",
     "pinyin": "^4.0.0",
-    "postcss": "^8.5.6",
-    "postcss-preset-env": "^11.1.2",
     "svelte": "^5.49.1",
     "svelte-check": "^4.3.5",
     "typescript": "^5.9.3",

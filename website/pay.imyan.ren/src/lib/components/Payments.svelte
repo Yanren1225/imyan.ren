@@ -11,20 +11,34 @@
   }
 
   let selectPayment = $state('')
+  let isDesktop = $state(false)
 
-  // We need to initialize UA parser carefully as it might run on server during SSG build where navigator is undefined
   let parsedUA: UAParser.IResult | undefined = undefined
 
   onMount(() => {
     parsedUA = new UAParser(navigator.userAgent).getResult()
-    document.body.addEventListener('mouseup', (e) => {
-      const el = document.querySelector('.payment')
-      if (!el) {
-        // logic from original file seemed empty here or incomplete
+
+    // Check if desktop on mount
+    const checkDesktop = () => {
+      isDesktop = document.body.clientWidth >= 900
+    }
+    checkDesktop()
+    window.addEventListener('resize', checkDesktop)
+
+    // Click outside to close (only for mobile)
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement
+      if (!target.closest('.payment-item') && !isDesktop) {
+        selectPayment = ''
       }
     })
+
+    return () => {
+      window.removeEventListener('resize', checkDesktop)
+    }
   })
 
+  // svelte-ignore non_reactive_update
   const payments: Array<Payment> = [
     {
       id: 'alipay',
@@ -61,219 +75,214 @@
         )
         return
       }
-      selectPayment = payment.id
-
-      setTimeout(() => {
-        document
-          .querySelector(`.payment-container.${payment.id}`)
-          ?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-      }, 400)
+      // On desktop, no toggle needed (always expanded)
+      // On mobile, toggle
+      if (!isDesktop) {
+        selectPayment = payment.id === selectPayment ? '' : payment.id
+      }
     }
   }
 
-  function close() {
-    selectPayment = ''
+  // Check if item should show details
+  function shouldShowDetails(itemId: string): boolean {
+    return isDesktop || selectPayment === itemId
   }
 
   // QR Code Action
   function qrcode(node: HTMLImageElement, text: string) {
     const canvas = document.createElement('canvas')
-    QRCode.toCanvas(canvas, text, { width: 1000 }, (err) => {
-      if (err) console.error(err)
-    })
-    // canvas context settings
-    const ctx = canvas.getContext('2d')
-    if (ctx) ctx.imageSmoothingEnabled = false
-
+    QRCode.toCanvas(
+      canvas,
+      text,
+      { width: 1000, margin: 0, color: { dark: '#000000', light: '#ffffff' } },
+      (err) => {
+        if (err) console.error(err)
+      },
+    )
     node.src = canvas.toDataURL('image/png')
   }
 </script>
 
-<div class="payments">
+<div class="payments-terminal" class:desktop={isDesktop}>
   {#each payments as item}
     <!-- svelte-ignore a11y_click_events_have_key_events -->
     <!-- svelte-ignore a11y_no_static_element_interactions -->
     <div
-      class={`payment-container ${item.id}`}
-      class:open={selectPayment === item.id}
-      onclick={(e) => {
-        if ((e.target as HTMLElement).classList.contains('close')) {
-          selectPayment = ''
-          return
-        }
-        handlePay(item)
-      }}
+      class="payment-item {item.id}"
+      class:active={selectPayment === item.id || isDesktop}
+      onclick={() => handlePay(item)}
     >
-      <div class="payment">
-        <div class={`icon ${item.icon}`}></div>
-        <img use:qrcode={item.link} alt={item.id} class="qrcode" />
-        <i onclick={() => close()} class="close i-ri-close-fill"></i>
+      <div class="payment-header">
+        <span class="bracket">[</span>
+        <span class="status-indicator"
+          >{shouldShowDetails(item.id) ? 'x' : ' '}</span
+        >
+        <span class="bracket">]</span>
+        <span class="payment-id">{item.id.toUpperCase()}</span>
+        <span class="separator">::</span>
+        <span class="payment-status"
+          >{shouldShowDetails(item.id) ? 'ACTIVE' : 'IDLE'}</span
+        >
       </div>
+
+      {#if shouldShowDetails(item.id)}
+        <div class="payment-details">
+          <div class="scan-line"></div>
+          <div class="qr-box">
+            <img use:qrcode={item.link} alt={item.id} class="qrcode-image" />
+          </div>
+          <p class="instruction">SCAN_QR_CODE_TO_PROCEED</p>
+        </div>
+      {/if}
     </div>
   {/each}
 </div>
 
-<style lang="less">
-  .payments {
-    position: relative;
+<style>
+  .payments-terminal {
     display: flex;
     flex-direction: column;
-    gap: 32px;
-    margin-top: 50px;
+    gap: 0;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 16px;
+    line-height: 1.6;
   }
 
-  .payment-container {
+  /* Desktop: 3 column grid */
+  .payments-terminal.desktop {
     display: grid;
-    width: 50%;
-    grid-template-rows: 0fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  /* Define brand colors */
+  .payment-item.alipay {
+    --accent-color: #1677ff;
+  }
+  .payment-item.wechat {
+    --accent-color: #07c160;
+  }
+  .payment-item.qq {
+    --accent-color: #12b7f5;
+  }
+
+  .payment-item {
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  /* Mobile: hover effect */
+  .payment-item:hover {
+    background: var(--c-card-bg-hover);
+  }
+
+  .payment-item:hover .bracket,
+  .payment-item:hover .separator,
+  .payment-item:hover .status-indicator,
+  .payment-item:hover .payment-id {
+    color: var(--accent-color);
+  }
+
+  .payment-item.active {
+    border: 1px solid var(--accent-color);
+    background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  }
+
+  .payment-item.active:hover {
+    background: color-mix(in srgb, var(--accent-color), transparent 85%);
+  }
+
+  /* Desktop: always show active style */
+  .payments-terminal.desktop .payment-item {
+    cursor: default;
+  }
+
+  .payment-header {
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5ch;
+    flex-wrap: wrap;
+  }
+
+  .bracket,
+  .separator {
+    color: var(--geek-border);
+    transition: color 0.2s;
+  }
+
+  .status-indicator {
+    color: var(--accent-color);
+    font-weight: bold;
+    width: 1ch;
+    text-align: center;
+  }
+
+  .payment-id {
+    color: var(--geek-text);
+    font-weight: bold;
+    transition: color 0.2s;
+  }
+
+  .payment-details {
+    padding: 1rem;
+    border-top: 1px dashed var(--accent-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
     overflow: hidden;
-    transition: all 0.5s;
+  }
 
-    .payment {
-      min-height: 100px;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #f9fafb;
-      border-radius: 32px;
-      position: relative; /* Ensure absolute positioning works inside */
+  .qr-box {
+    padding: 10px;
+    background: white;
+    margin-bottom: 0.5rem;
+    border: 2px solid var(--accent-color);
+  }
 
-      & > .icon {
-        position: absolute;
-      }
+  .qrcode-image {
+    width: 150px;
+    height: 150px;
+    display: block;
+    image-rendering: pixelated;
+  }
 
-      & > .qrcode {
-        border-radius: 32px;
-        display: block;
-        width: 80% !important;
-        height: auto !important ;
-        aspect-ratio: 1/1;
-        visibility: hidden;
-        transform: translateY(-80%);
-        transition:
-          transform 400ms,
-          visibility 100ms;
-      }
+  /* Larger QR on desktop */
+  .payments-terminal.desktop .qrcode-image {
+    width: 180px;
+    height: 180px;
+  }
 
-      & > .close {
-        display: none !important;
-      }
-    }
+  .instruction {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    letter-spacing: 1px;
+    color: var(--accent-color);
+    text-align: center;
+  }
 
-    @media screen and (prefers-color-scheme: dark) {
-      > .payment {
-        background-color: #ffffff1a;
-      }
-    }
+  .scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      transparent 50%,
+      color-mix(in srgb, var(--accent-color), transparent 95%) 50%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 10;
+  }
 
-    &:hover {
-      width: 100%;
-
-      > .payment:hover > .icon {
-        color: #fff;
-      }
-
-      &.alipay:hover > .payment {
-        background-color: #027aff;
-      }
-
-      &.wechat:hover > .payment {
-        background-color: #1aad19;
-      }
-
-      &.qq:hover > .payment {
-        background-color: #01c5ff;
-      }
-    }
-
-    &.open {
-      cursor: default;
-      position: relative;
-      width: 80%;
-      grid-template-rows: 1fr;
-      flex-direction: column;
-      justify-content: space-around;
-
-      > .payment {
-        aspect-ratio: 1/1;
-
-        & > .icon {
-          display: none;
-        }
-
-        & > .close {
-          cursor: pointer;
-          display: block !important;
-          position: absolute;
-          top: 16px;
-          right: 16px;
-          height: 40px;
-          width: 40px;
-          color: #fff;
-          transition: 0.4s;
-
-          &:hover {
-            color: red;
-          }
-        }
-
-        & > .qrcode {
-          visibility: visible;
-          transform: translateY(0%);
-        }
-      }
-    }
-
-    @media (max-width: 768px) {
-      width: 100%;
-
-      &.open {
-        width: 100%;
-
-        > .payment {
-          & > .close {
-            top: 8px;
-            right: 8px;
-            height: 32px;
-            width: 32px;
-          }
-        }
-      }
-
-      & > .payment {
-        border-radius: 16px;
-
-        .qrcode {
-          border-radius: 16px;
-        }
-      }
-
-      .payment.open {
-        margin-top: -100px;
-
-        > .qrcode {
-          font-size: 28px;
-          top: 16px;
-          right: 16px;
-        }
-
-        > .icon {
-          border-radius: 16px;
-        }
-      }
-    }
-
-    &.alipay.open > .payment {
-      background-color: #027aff;
-    }
-
-    &.wechat.open > .payment {
-      background-color: #1aad19;
-    }
-
-    &.qq.open > .payment {
-      background-color: #01c5ff;
+  /* Responsive adjustments */
+  @media (max-width: 767px) {
+    .payment-header {
+      padding: 0.25rem 0;
     }
   }
 </style>

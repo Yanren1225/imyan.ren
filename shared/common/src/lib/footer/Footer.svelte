@@ -1,10 +1,10 @@
 <script lang="ts">
-  const { author, travellingTitle } = $props<{
-    author: string;
-    travellingTitle: string;
-  }>();
+  const { author, hasTravelling } = $props<{
+    author: string
+    hasTravelling: boolean
+  }>()
 
-  const currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear()
 </script>
 
 <footer>
@@ -12,20 +12,22 @@
     © 2018 - {currentYear}
     {author}
   </p>
-  <a
-    href="https://www.travellings.cn/go.html"
-    target="_blank"
-    rel="noopener noreferrer"
-    title={travellingTitle}
-  >
-    <img
-      src="https://www.travellings.cn/assets/w.png"
-      alt={travellingTitle}
-      width="100"
-      loading="lazy"
-      decoding="async"
-    />
-  </a>
+  {#if hasTravelling}
+    <a
+      href="https://www.travellings.cn/go.html"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="Travellings"
+    >
+      <img
+        src="https://www.travellings.cn/assets/w.png"
+        alt="Travellings"
+        width="100"
+        loading="lazy"
+        decoding="async"
+      />
+    </a>
+  {/if}
 </footer>
 
 <style>

@@ -38,3 +38,8 @@ a[role='button']:active,
 .clickable:active {
   transform: scale(0.95);
 }
+
+::selection {
+  background: var(--c-neon);
+  color: var(--c-bg);
+}

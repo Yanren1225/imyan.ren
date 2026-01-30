@@ -1,3 +1,11 @@
-export { default as GeekCursor } from "./lib/geek-cursor/GeekCursor.svelte";
-export { default as Footer } from "./lib/footer/Footer.svelte";
-export { default as GeekDecorations } from "./lib/geek-decorations/GeekDecorations.svelte";
+export { default as GeekCursor } from './lib/geek-cursor/GeekCursor.svelte'
+export { default as Footer } from './lib/footer/Footer.svelte'
+export { default as GeekDecorations } from './lib/geek-decorations/GeekDecorations.svelte'
+export { default as HoverCard } from './lib/hover-card/hover-card.svelte'
+export { default as MouseFollow } from './lib/mouse/mouse-follow/mouse-follow.svelte'
+export { default as MouseLight } from './lib/mouse/mouse-light/mouse-light.svelte'
+export { default as Terminal } from './lib/terminal/Terminal.svelte'
+export { default as TerminalLine } from './lib/terminal/TerminalLine.svelte'
+export { default as TerminalPrompt } from './lib/terminal/TerminalPrompt.svelte'
+export { default as TerminalCursor } from './lib/terminal/TerminalCursor.svelte'
+export { default as TerminalHighlight } from './lib/terminal/TerminalHighlight.svelte'
