@@ -1,18 +1,11 @@
 import presetSodesu from 'sodesu-comment/preset'
 import safeList from 'sodesu-comment/safeList'
-import {
-  defineConfig,
-  presetIcons,
-  presetMini,
-  presetWebFonts,
-  transformerDirectives,
-} from 'unocss'
+import { defineConfig, presetWebFonts } from 'unocss'
+import { basePreset } from '@yanren/config'
 
 export default defineConfig({
   presets: [
-    presetMini({
-      dark: 'media',
-    }),
+    basePreset(),
     presetWebFonts({
       provider: 'bunny',
       fonts: {
@@ -21,17 +14,8 @@ export default defineConfig({
         mono: ['Fira Code', 'monospace'],
       },
     }),
-    presetIcons({
-      extraProperties: {
-        display: 'inline-block',
-        'vertical-align': 'middle',
-        width: '24px',
-        height: '24px',
-      },
-    }),
     presetSodesu(),
   ],
-  transformers: [transformerDirectives()],
   safelist: safeList,
   theme: {
     breakpoints: {
