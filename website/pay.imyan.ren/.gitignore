@@ -1,0 +1,23 @@
+# Build output (构建产物)
+.svelte-kit
+/build/
+/dist/
+
+# Dependencies (依赖包)
+node_modules/
+
+# Logs (日志)
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables (环境变量 - 重要!)
+.env
+.env.*
+!.env.example
+!.env.test
+
+# MacOS / System files (系统文件)
+.DS_Store
+Thumbs.db

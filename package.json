@@ -1,0 +1,24 @@
+{
+  "name": "yanren-website-monorepo",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build:imyan.ren": "pnpm --filter imyan.ren build",
+    "build:pay.imyan.ren": "pnpm --filter pay.imyan.ren build",
+    "serve:imyan.ren": "pnpm --filter imyan.ren serve",
+    "serve:pay.imyan.ren": "pnpm --filter pay.imyan.ren serve",
+    "dev:imyan.ren": "pnpm --filter imyan.ren dev",
+    "dev:pay.imyan.ren": "pnpm --filter pay.imyan.ren dev",
+    "check:imyan.ren": "pnpm --filter imyan.ren check",
+    "check:pay.imyan.ren": "pnpm --filter pay.imyan.ren check",
+    "check:common": "pnpm --filter @yanren/common check",
+    "check": "pnpm run --recursive check",
+    "clean:build": "pnpm -r --parallel exec rm -rf .svelte-kit dist build",
+    "clean:all": "pnpm -r --parallel exec rm -rf .svelte-kit dist build node_modules"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.11.0",
+  "devDependencies": {}
+}

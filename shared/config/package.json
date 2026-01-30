@@ -1,0 +1,13 @@
+{
+  "name": "@yanren/config",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "index.ts",
+  "peerDependencies": {
+    "unocss": "^66.6.0"
+  },
+  "devDependencies": {
+    "unocss": "^66.6.0"
+  }
+}
