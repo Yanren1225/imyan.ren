@@ -18,14 +18,12 @@
   onMount(() => {
     parsedUA = new UAParser(navigator.userAgent).getResult()
 
-    // Check if desktop on mount
     const checkDesktop = () => {
-      isDesktop = document.body.clientWidth >= 900
+      isDesktop = document.body.clientWidth >= 768
     }
     checkDesktop()
     window.addEventListener('resize', checkDesktop)
 
-    // Click outside to close (only for mobile)
     document.addEventListener('click', (e) => {
       const target = e.target as HTMLElement
       if (!target.closest('.payment-item') && !isDesktop) {
@@ -38,7 +36,6 @@
     }
   })
 
-  // svelte-ignore non_reactive_update
   const payments: Array<Payment> = [
     {
       id: 'alipay',
