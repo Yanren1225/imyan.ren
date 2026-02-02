@@ -13,11 +13,13 @@
     "check:pay.imyan.ren": "pnpm --filter pay.imyan.ren check",
     "check:common": "pnpm --filter @yanren/common check",
     "check": "pnpm run --recursive check",
-    "clean:build": "pnpm -r --parallel exec rm -rf .svelte-kit dist build",
-    "clean:all": "pnpm -r --parallel exec rm -rf .svelte-kit dist build node_modules"
+    "clean:build": "pnpm -r --parallel exec rimraf .svelte-kit dist build",
+    "clean:all": "pnpm -r --parallel exec rimraf .svelte-kit dist build node_modules"
   },
   "keywords": [],
   "author": "",
   "packageManager": "pnpm@10.11.0",
-  "devDependencies": {}
+  "devDependencies": {
+    "rimraf": "^6.1.2"
+  }
 }
