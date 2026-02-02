@@ -1,12 +1,25 @@
 <script lang="ts">
-  import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte'
+  import { LanguageSwitcher } from '@yanren/common'
   import Payments from '$lib/components/Payments.svelte'
-  import { i18n } from '$lib/i18n'
+  import { i18n, type Locale } from '$lib/i18n'
+
+  const languages: { text: string; locale: Locale }[] = [
+    { text: 'en_US', locale: 'en' },
+    { text: 'zh_CN', locale: 'zh-cn' },
+  ]
+
+  function formatText(text: string, isActive: boolean) {
+    return isActive ? `[ ${text} ]` : text
+  }
+
+  $effect(() => {
+    document.title = i18n.t.payTitle
+  })
 </script>
 
 <div class="page-container">
   <div class="language-wrapper">
-    <LanguageSwitcher />
+    <LanguageSwitcher {i18n} {languages} {formatText} />
   </div>
 
   <div class="header-section">

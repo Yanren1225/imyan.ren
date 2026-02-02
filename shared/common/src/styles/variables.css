@@ -1,29 +1,33 @@
 :root {
-    --c-bg: #f2f2f2;
-    --c-card-bg: rgba(0, 0, 0, 0.05);
-    --c-bg-soft: rgba(0, 0, 0, 0.03);
-    --c-card-bg-hover: rgba(0, 0, 0, 0.1);
-    --c-scroll: #d9d9d9;
-    --c-scroll-hover: #00aa2c;
-    --c-text: #333333;
-    --c-text-hover: #00aa2c;
-    --c-neon: #00aa2c;
-    --c-grid: rgba(0, 0, 0, 0.05);
-    scrollbar-color: var(--c-scrollbar) var(--c-bg);
-    color-scheme: light dark;
+  --c-bg: #f2f2f2;
+  --c-card-bg: rgba(0, 0, 0, 0.05);
+  --c-bg-soft: rgba(0, 0, 0, 0.03);
+  --c-card-bg-hover: rgba(0, 0, 0, 0.1);
+  --c-scroll: #d9d9d9;
+  --c-scroll-hover: #00aa2c;
+  --c-text: #333333;
+  --c-text-hover: #00aa2c;
+  --c-neon: #00aa2c;
+  --c-terminal-highlight: #0088aa;
+  --c-terminal-hostname: #aa5500;
+  --c-grid: rgba(0, 0, 0, 0.05);
+  scrollbar-color: var(--c-scrollbar) var(--c-bg);
+  color-scheme: light dark;
 }
 
 @media screen and (prefers-color-scheme: dark) {
-    :root {
-        --c-bg: #0a0a0a;
-        --c-card-bg: rgba(255, 255, 255, 0.05);
-        --c-bg-soft: rgba(255, 255, 255, 0.03);
-        --c-card-bg-hover: rgba(255, 255, 255, 0.1);
-        --c-scroll: #333333;
-        --c-scroll-hover: #00ff41;
-        --c-text: #e0e0e0;
-        --c-text-hover: #00ff41;
-        --c-neon: #00ff41;
-        --c-grid: rgba(0, 255, 65, 0.03);
-    }
+  :root {
+    --c-bg: #0a0a0a;
+    --c-card-bg: rgba(255, 255, 255, 0.05);
+    --c-bg-soft: rgba(255, 255, 255, 0.03);
+    --c-card-bg-hover: rgba(255, 255, 255, 0.1);
+    --c-scroll: #333333;
+    --c-scroll-hover: #00ff41;
+    --c-text: #e0e0e0;
+    --c-text-hover: #00ff41;
+    --c-neon: #00ff41;
+    --c-terminal-highlight: #00d4ff;
+    --c-terminal-hostname: #ff9944;
+    --c-grid: rgba(0, 255, 65, 0.03);
+  }
 }

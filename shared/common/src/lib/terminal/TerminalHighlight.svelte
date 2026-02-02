@@ -7,3 +7,10 @@
 </script>
 
 <span class="highlight" {...others}>{@render children?.()}</span>
+
+<style>
+  .highlight {
+    color: var(--c-terminal-highlight);
+    font-weight: bold;
+  }
+</style>

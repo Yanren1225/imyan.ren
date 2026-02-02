@@ -1,9 +1,6 @@
 <script lang="ts">
   import { page } from '$app/state'
-  import Terminal from '$lib/components/terminal/Terminal.svelte'
-  import TerminalPrompt from '$lib/components/terminal/TerminalPrompt.svelte'
-  import TerminalLine from '$lib/components/terminal/TerminalLine.svelte'
-  import TerminalCursor from '$lib/components/terminal/TerminalCursor.svelte'
+  import { Terminal, TerminalPrompt, TerminalLine } from '@yanren/common'
 </script>
 
 <div class="error-page">
@@ -32,9 +29,7 @@
       <span class="help-desc">- Return to homepage</span>
     </TerminalLine>
 
-    <TerminalPrompt>
-      <TerminalCursor />
-    </TerminalPrompt>
+    <TerminalPrompt showCursor></TerminalPrompt>
   </Terminal>
 </div>
 

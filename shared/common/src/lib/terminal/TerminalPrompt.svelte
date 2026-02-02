@@ -1,13 +1,37 @@
 <script lang="ts">
   import TerminalLine from './TerminalLine.svelte'
-  import TerminalHighlight from './TerminalHighlight.svelte'
+  import TerminalCursor from './TerminalCursor.svelte'
+
   interface Props {
+    /**
+     * The hostname to display (e.g., "root@imyan.ren:~$")
+     */
+    hostname?: string
+    /**
+     * Whether to show the blinking cursor
+     */
+    showCursor?: boolean
     children?: import('svelte').Snippet
   }
-  let { children }: Props = $props()
+
+  let {
+    hostname = 'root@imyan.ren:~$',
+    showCursor = false,
+    children,
+  }: Props = $props()
 </script>
 
 <TerminalLine>
-  <TerminalHighlight>root@imyan.ren:~$</TerminalHighlight>
+  <span class="hostname">{hostname}</span>{' '}
   {@render children?.()}
+  {#if showCursor}
+    <TerminalCursor />
+  {/if}
 </TerminalLine>
+
+<style>
+  .hostname {
+    color: var(--c-terminal-hostname);
+    font-weight: bold;
+  }
+</style>

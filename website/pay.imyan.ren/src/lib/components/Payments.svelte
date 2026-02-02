@@ -10,30 +10,10 @@
     type: string
   }
 
-  let selectPayment = $state('')
-  let isDesktop = $state(false)
-
   let parsedUA: UAParser.IResult | undefined = undefined
 
   onMount(() => {
     parsedUA = new UAParser(navigator.userAgent).getResult()
-
-    const checkDesktop = () => {
-      isDesktop = document.body.clientWidth >= 768
-    }
-    checkDesktop()
-    window.addEventListener('resize', checkDesktop)
-
-    document.addEventListener('click', (e) => {
-      const target = e.target as HTMLElement
-      if (!target.closest('.payment-item') && !isDesktop) {
-        selectPayment = ''
-      }
-    })
-
-    return () => {
-      window.removeEventListener('resize', checkDesktop)
-    }
   })
 
   const payments: Array<Payment> = [
@@ -58,34 +38,18 @@
   ]
 
   function handlePay(payment: Payment) {
-    if (payment.type === 'openlink') {
-      window.open(payment.link, '_blank')
-    } else {
-      if (
-        parsedUA &&
-        payment.id === 'alipay' &&
-        parsedUA.device.type === 'mobile'
-      ) {
-        window.open(
-          'alipays://platformapi/startapp?appId=10000007&qrcode=https://qr.alipay.com/fkx07170tzxfnbs56z5ejdb',
-          '_blank',
-        )
-        return
-      }
-      // On desktop, no toggle needed (always expanded)
-      // On mobile, toggle
-      if (!isDesktop) {
-        selectPayment = payment.id === selectPayment ? '' : payment.id
-      }
+    if (
+      parsedUA &&
+      payment.id === 'alipay' &&
+      parsedUA.device.type === 'mobile'
+    ) {
+      window.open(
+        'alipays://platformapi/startapp?appId=10000007&qrcode=https://qr.alipay.com/fkx07170tzxfnbs56z5ejdb',
+        '_blank',
+      )
     }
   }
 
-  // Check if item should show details
-  function shouldShowDetails(itemId: string): boolean {
-    return isDesktop || selectPayment === itemId
-  }
-
-  // QR Code Action
   function qrcode(node: HTMLImageElement, text: string) {
     const canvas = document.createElement('canvas')
     QRCode.toCanvas(
@@ -100,59 +64,55 @@
   }
 </script>
 
-<div class="payments-terminal" class:desktop={isDesktop}>
+<div class="payments-terminal">
   {#each payments as item}
-    <!-- svelte-ignore a11y_click_events_have_key_events -->
-    <!-- svelte-ignore a11y_no_static_element_interactions -->
-    <div
-      class="payment-item {item.id}"
-      class:active={selectPayment === item.id || isDesktop}
-      onclick={() => handlePay(item)}
-    >
+    <div class="payment-item {item.id}">
       <div class="payment-header">
-        <span class="bracket">[</span>
-        <span class="status-indicator"
-          >{shouldShowDetails(item.id) ? 'x' : ' '}</span
-        >
-        <span class="bracket">]</span>
         <span class="payment-id">{item.id.toUpperCase()}</span>
-        <span class="separator">::</span>
-        <span class="payment-status"
-          >{shouldShowDetails(item.id) ? 'ACTIVE' : 'IDLE'}</span
+        <button
+          class="open-link-btn"
+          onclick={() => handlePay(item)}
+          title="Open in app"
         >
+          OPEN ↗
+        </button>
       </div>
 
-      {#if shouldShowDetails(item.id)}
-        <div class="payment-details">
-          <div class="scan-line"></div>
-          <div class="qr-box">
-            <img use:qrcode={item.link} alt={item.id} class="qrcode-image" />
-          </div>
-          <p class="instruction">SCAN_QR_CODE_TO_PROCEED</p>
+      <div class="payment-details">
+        <div class="scan-line"></div>
+        <div class="qr-box">
+          <img use:qrcode={item.link} alt={item.id} class="qrcode-image" />
         </div>
-      {/if}
+        <p class="instruction">SCAN_QR_CODE_TO_PROCEED</p>
+      </div>
     </div>
   {/each}
 </div>
 
 <style>
   .payments-terminal {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1rem;
+    width: 100%;
     font-family: 'Fira Code', 'Consolas', monospace;
     font-size: 16px;
     line-height: 1.6;
   }
 
-  /* Desktop: 3 column grid */
-  .payments-terminal.desktop {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+  @media (min-width: 900px) {
+    .payments-terminal {
+      grid-template-columns: repeat(auto-fill, 230px);
+    }
   }
 
-  /* Define brand colors */
+  @media (max-width: 530px) {
+    .payments-terminal {
+      grid-template-columns: minmax(0, 280px);
+      justify-content: center;
+    }
+  }
+
   .payment-item.alipay {
     --accent-color: #1677ff;
   }
@@ -164,62 +124,45 @@
   }
 
   .payment-item {
-    border: 1px solid transparent;
-    cursor: pointer;
+    border: 1px solid var(--accent-color);
+    background: color-mix(in srgb, var(--accent-color), transparent 90%);
     transition: all 0.2s;
   }
 
-  /* Mobile: hover effect */
   .payment-item:hover {
-    background: var(--c-card-bg-hover);
-  }
-
-  .payment-item:hover .bracket,
-  .payment-item:hover .separator,
-  .payment-item:hover .status-indicator,
-  .payment-item:hover .payment-id {
-    color: var(--accent-color);
-  }
-
-  .payment-item.active {
-    border: 1px solid var(--accent-color);
-    background: color-mix(in srgb, var(--accent-color), transparent 90%);
-  }
-
-  .payment-item.active:hover {
     background: color-mix(in srgb, var(--accent-color), transparent 85%);
   }
 
-  /* Desktop: always show active style */
-  .payments-terminal.desktop .payment-item {
-    cursor: default;
-  }
-
   .payment-header {
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
     gap: 0.5ch;
     flex-wrap: wrap;
   }
 
-  .bracket,
-  .separator {
-    color: var(--geek-border);
-    transition: color 0.2s;
-  }
-
-  .status-indicator {
+  .payment-id {
     color: var(--accent-color);
     font-weight: bold;
-    width: 1ch;
-    text-align: center;
+    transition: color 0.2s;
   }
 
-  .payment-id {
-    color: var(--geek-text);
-    font-weight: bold;
-    transition: color 0.2s;
+  .open-link-btn {
+    margin-left: auto;
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    padding: 0.15rem 0.4rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    line-height: 1;
+  }
+
+  .open-link-btn:hover {
+    background: var(--accent-color);
+    color: var(--c-bg);
   }
 
   .payment-details {
@@ -247,9 +190,11 @@
   }
 
   /* Larger QR on desktop */
-  .payments-terminal.desktop .qrcode-image {
-    width: 180px;
-    height: 180px;
+  @media (min-width: 768px) {
+    .qrcode-image {
+      width: 180px;
+      height: 180px;
+    }
   }
 
   .instruction {
@@ -274,12 +219,5 @@
     background-size: 100% 4px;
     pointer-events: none;
     z-index: 10;
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 767px) {
-    .payment-header {
-      padding: 0.25rem 0;
-    }
   }
 </style>

@@ -27,5 +27,5 @@
     {/key}
   </main>
 
-  <Footer author={i18n.t.yanren} travellingTitle={i18n.t.travelling_title} />
+  <Footer author={i18n.t.yanren} hasTravelling />
 </div>

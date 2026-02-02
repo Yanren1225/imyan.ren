@@ -1,9 +1,11 @@
 <script lang="ts">
-  import Terminal from '$lib/components/terminal/Terminal.svelte'
-  import TerminalHighlight from '$lib/components/terminal/TerminalHighlight.svelte'
-  import TerminalLine from '$lib/components/terminal/TerminalLine.svelte'
-  import TerminalPrompt from '$lib/components/terminal/TerminalPrompt.svelte'
-  import TerminalCursor from '$lib/components/terminal/TerminalCursor.svelte'
+  import {
+    Terminal,
+    TerminalPrompt,
+    TerminalLine,
+    TerminalHighlight,
+    TerminalCursor,
+  } from '@yanren/common'
 </script>
 
 <div id="about">
