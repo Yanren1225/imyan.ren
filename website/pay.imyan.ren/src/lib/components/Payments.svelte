@@ -38,15 +38,15 @@
   ]
 
   function handlePay(payment: Payment) {
-    if (
-      parsedUA &&
-      payment.id === 'alipay' &&
-      parsedUA.device.type === 'mobile'
-    ) {
+    if (!payment.link) return
+
+    if (payment.id === 'alipay') {
       window.open(
-        'alipays://platformapi/startapp?appId=10000007&qrcode=https://qr.alipay.com/fkx07170tzxfnbs56z5ejdb',
+        `alipays://platformapi/startapp?appId=10000007&qrcode=${encodeURIComponent(payment.link)}`,
         '_blank',
       )
+    } else if (payment.id === 'wechat' || payment.id === 'qq') {
+      window.open(payment.link, '_blank')
     }
   }
 

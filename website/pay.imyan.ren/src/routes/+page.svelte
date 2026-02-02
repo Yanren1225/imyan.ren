@@ -13,7 +13,7 @@
   }
 
   $effect(() => {
-    document.title = i18n.t.payTitle
+    document.title = 'Pay --user Yanren'
   })
 </script>
 
