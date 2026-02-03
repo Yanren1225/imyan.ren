@@ -1,0 +1,23 @@
+@import '@yanren/common/styles/variables.css';
+@import '@yanren/common/styles/base.css';
+
+/* Global resets or project specific overrides */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.app-layout {
+  padding-top: 8vh;
+  display: grid;
+  grid-template-columns: 1fr min(65rem, calc(100% - 48px)) 1fr;
+  grid-column-gap: 24px;
+
+  & > * {
+    grid-column: 2;
+  }
+}

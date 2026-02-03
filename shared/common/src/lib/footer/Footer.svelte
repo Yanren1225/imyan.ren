@@ -1,5 +1,5 @@
 <script lang="ts">
-  const { author, hasTravelling } = $props<{
+  const { author, hasTravelling = false } = $props<{
     author: string
     hasTravelling: boolean
   }>()

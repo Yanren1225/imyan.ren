@@ -20,6 +20,10 @@
       "name": "pay.imyan.ren",
       "path": "website/pay.imyan.ren/",
     },
+    {
+      "name": "note.imyan.ren",
+      "path": "website/note.imyan.ren/",
+    },
   ],
   "settings": {
     "i18n-ally.enabledParsers": ["ts"],
