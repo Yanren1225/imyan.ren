@@ -1,6 +1,5 @@
 <script lang="ts">
   import 'virtual:uno.css'
-  import favicon from '$lib/assets/favicon.svg'
   import '../app.css'
   import { GeekCursor, Footer, LanguageSwitcher } from '@yanren/common'
   import { i18n, type Locale } from '$lib/i18n'
@@ -20,7 +19,7 @@
 <GeekCursor />
 
 <svelte:head>
-  <link rel="icon" href={favicon} />
+  <link rel="icon" href="https://github.com/yanren1225.png" />
 </svelte:head>
 
 <div class="app-layout">

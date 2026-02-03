@@ -7,6 +7,10 @@
   let { children } = $props()
 </script>
 
+<svelte:head>
+  <link rel="icon" href="https://github.com/yanren1225.png" />
+</svelte:head>
+
 <GeekCursor />
 
 <div class="app-layout">
