@@ -26,5 +26,11 @@
     "i18n-ally.keystyle": "nested",
     "i18n-ally.sourceLanguage": "zh-cn",
     "cSpell.words": ["travelling", "yanren"],
+    "i18n-ally.localesPaths": [
+      "shared/i18n",
+      "website/imyan.ren/src/lib/i18n",
+      "website/pay.imyan.ren/src/lib/locales",
+      "website/imyan.ren/src/lib/i18n/locale",
+    ],
   },
 }
