@@ -7,11 +7,11 @@
     { text: 'zh_CN', locale: 'zh-cn' },
   ]
 
-  function formatText(text: string, isActive: boolean) {
+  const formatText = (text: string, isActive: boolean) => {
     return isActive ? `[ ${text} ]` : text
   }
 
-  function handleLocaleChange(locale: Locale) {
+  const handleLocaleChange = (locale: Locale) => {
     if (locale === 'en') {
       document.title = "I'm Yanren"
     } else {

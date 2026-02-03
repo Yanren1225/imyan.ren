@@ -9,7 +9,7 @@
 
   let isVisible = $state(false)
 
-  function reveal(node: HTMLElement) {
+  const reveal = (node: HTMLElement) => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

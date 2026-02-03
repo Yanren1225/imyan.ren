@@ -8,7 +8,7 @@
     { text: 'zh_CN', locale: 'zh-cn' },
   ]
 
-  function formatText(text: string, isActive: boolean) {
+  const formatText = (text: string, isActive: boolean) => {
     return isActive ? `[ ${text} ]` : text
   }
 

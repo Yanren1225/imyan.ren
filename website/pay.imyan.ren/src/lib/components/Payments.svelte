@@ -10,7 +10,7 @@
     type: string
   }
 
-  let parsedUA: UAParser.IResult | undefined = undefined
+  let parsedUA = $state<UAParser.IResult | undefined>(undefined)
 
   onMount(() => {
     parsedUA = new UAParser(navigator.userAgent).getResult()
@@ -37,7 +37,7 @@
     },
   ]
 
-  function handlePay(payment: Payment) {
+  const handlePay = (payment: Payment) => {
     if (!payment.link) return
 
     if (payment.id === 'alipay') {
@@ -50,7 +50,7 @@
     }
   }
 
-  function qrcode(node: HTMLImageElement, text: string) {
+  const qrcode = (node: HTMLImageElement, text: string) => {
     const canvas = document.createElement('canvas')
     QRCode.toCanvas(
       canvas,
@@ -69,13 +69,15 @@
     <div class="payment-item {item.id}">
       <div class="payment-header">
         <span class="payment-id">{item.id.toUpperCase()}</span>
-        <button
-          class="open-link-btn"
-          onclick={() => handlePay(item)}
-          title="Open in app"
-        >
-          OPEN ↗
-        </button>
+        {#if parsedUA?.device.type === 'mobile'}
+          <button
+            class="open-link-btn"
+            onclick={() => handlePay(item)}
+            title="Open in app"
+          >
+            OPEN ↗
+          </button>
+        {/if}
       </div>
 
       <div class="payment-details">
