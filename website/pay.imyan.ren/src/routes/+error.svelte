@@ -6,5 +6,5 @@
 <ErrorPage
   status={page.status}
   message={page.error?.message}
-  hostname="root@imyan.ren:~$"
+  hostname="root@pay.imyan.ren:~$"
 />
