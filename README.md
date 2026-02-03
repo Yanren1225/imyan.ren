@@ -10,6 +10,7 @@
 
 - **[imyan.ren](./website/imyan.ren)**: 个站主站
 - **[pay.imyan.ren](./website/pay.imyan.ren)**: 支付
+- **[note.imyan.ren](./website/note.imyan.ren)**: 笔记
 
 ### 📦 共享包 (`shared/*`)
 
@@ -40,20 +41,25 @@
 
     # 启动支付页
     pnpm dev:pay.imyan.ren
+
+    # 启动笔记页
+    pnpm dev:note.imyan.ren
     ```
 
 ## 📜 可用脚本
 
 请在根目录下运行这些命令：
 
-| 命令                       | 说明                                     |
-| :------------------------- | :--------------------------------------- |
-| `pnpm dev:imyan.ren`       | 启动 `imyan.ren` 开发服务器              |
-| `pnpm dev:pay.imyan.ren`   | 启动 `pay.imyan.ren` 开发服务器          |
-| `pnpm build:imyan.ren`     | 构建 `imyan.ren` 生产版本                |
-| `pnpm build:pay.imyan.ren` | 构建 `pay.imyan.ren` 生产版本            |
-| `pnpm check`               | 对整个 Monorepo 进行 TypeScript 类型检查 |
-| `pnpm clean:all`           | 清理所有 `node_modules` 和构建产物       |
+| 命令                        | 说明                                     |
+| :-------------------------- | :--------------------------------------- |
+| `pnpm dev:imyan.ren`        | 启动 `imyan.ren` 开发服务器              |
+| `pnpm dev:pay.imyan.ren`    | 启动 `pay.imyan.ren` 开发服务器          |
+| `pnpm dev:note.imyan.ren`   | 启动 `note.imyan.ren` 开发服务器         |
+| `pnpm build:imyan.ren`      | 构建 `imyan.ren` 生产版本                |
+| `pnpm build:pay.imyan.ren`  | 构建 `pay.imyan.ren` 生产版本            |
+| `pnpm build:note.imyan.ren` | 构建 `note.imyan.ren` 生产版本           |
+| `pnpm check`                | 对整个 Monorepo 进行 TypeScript 类型检查 |
+| `pnpm clean:all`            | 清理所有 `node_modules` 和构建产物       |
 
 ## 🚀 部署
 
@@ -67,5 +73,8 @@
 - **pay.imyan.ren**:
   - 构建命令 (Build command): `pnpm build:pay.imyan.ren`
   - 输出目录 (Output directory): `website/pay.imyan.ren/build`
+- **note.imyan.ren**:
+  - 构建命令 (Build command): `pnpm build:note.imyan.ren`
+  - 输出目录 (Output directory): `website/note.imyan.ren/build`
 
 > **注意**: 请将 Cloudflare Pages 的 **根目录 (Root Directory)** 设置为 `/` (留空)，以确保能正确处理 Monorepo 结构。
