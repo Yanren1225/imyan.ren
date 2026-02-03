@@ -1,0 +1,36 @@
+{
+  "folders": [
+    {
+      "name": "Root",
+      "path": ".",
+    },
+    {
+      "name": "Shared",
+      "path": "shared/",
+    },
+    {
+      "name": "common",
+      "path": "shared/common/",
+    },
+    {
+      "name": "imyan.ren",
+      "path": "website/imyan.ren/",
+    },
+    {
+      "name": "pay.imyan.ren",
+      "path": "website/pay.imyan.ren/",
+    },
+  ],
+  "settings": {
+    "i18n-ally.enabledParsers": ["ts"],
+    "i18n-ally.keystyle": "nested",
+    "i18n-ally.sourceLanguage": "zh-cn",
+    "cSpell.words": ["travelling", "yanren"],
+    "i18n-ally.localesPaths": [
+      "shared/i18n",
+      "website/imyan.ren/src/lib/i18n",
+      "website/pay.imyan.ren/src/lib/locales",
+      "website/imyan.ren/src/lib/i18n/locale",
+    ],
+  },
+}

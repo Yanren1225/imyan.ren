@@ -3,8 +3,16 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
   },
-  "i18n-ally.localesPaths": ["src/i18n/locale"],
+  "i18n-ally.localesPaths": [
+    "shared/i18n",
+    "src/lib/i18n",
+    "src/lib/i18n/locale",
+    "website/imyan.ren/src/lib/i18n",
+    "website/pay.imyan.ren/src/lib/locales",
+    "website/imyan.ren/src/lib/i18n/locale"
+  ],
   "i18n-ally.enabledParsers": ["ts"],
   "i18n-ally.keystyle": "nested",
-  "i18n-ally.sourceLanguage": "zh-cn"
+  "i18n-ally.sourceLanguage": "zh-cn",
+  "cSpell.words": ["imyan", "Yanren"]
 }

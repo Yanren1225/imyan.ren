@@ -1,0 +1,33 @@
+{
+  "name": "@yanren/common",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "svelte-package",
+    "dev": "svelte-package -w",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "prepare": "svelte-kit sync || echo ''"
+  },
+  "files": [
+    "src"
+  ],
+  "exports": {
+    ".": "./src/index.ts",
+    "./*.svelte": "./src/*.svelte",
+    "./styles/*": "./src/styles/*"
+  },
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "^7.0.0",
+    "@sveltejs/kit": "^2.50.1",
+    "@sveltejs/package": "^2.5.7",
+    "@sveltejs/vite-plugin-svelte": "^6.2.4",
+    "svelte": "^5.49.1",
+    "svelte-check": "^4.3.5",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  }
+}

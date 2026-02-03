@@ -1,5 +1,5 @@
 root = true
-[*.{js.jsx,ts,tsx,css,json,less}]
+[*.{js,ts,svelte,css,html,json}]
 quote_type = single
 indent_size = 2
 trim_trailing_whitespace = false
