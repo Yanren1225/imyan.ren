@@ -1,13 +1,5 @@
-import { S3Client } from '@aws-sdk/client-s3'
+import { AwsClient } from 'aws4fetch'
 import { env } from '$env/dynamic/private'
-import { DOMParser, XMLSerializer } from '@xmldom/xmldom'
-
-// Polyfill DOMParser for AWS SDK in Node.js environment
-// This fixes "ReferenceError: DOMParser is not defined"
-if (!globalThis.DOMParser) {
-    globalThis.DOMParser = DOMParser
-    globalThis.XMLSerializer = XMLSerializer
-}
 
 // Debug environment variables
 console.log('R2 Environment Variables Check:', {
@@ -27,13 +19,12 @@ if (!env.R2_ACCOUNT_ID || !env.R2_ACCESS_KEY_ID || !env.R2_SECRET_ACCESS_KEY) {
     )
 }
 
-export const r2 = new S3Client({
+export const r2 = new AwsClient({
+    accessKeyId: env.R2_ACCESS_KEY_ID,
+    secretAccessKey: env.R2_SECRET_ACCESS_KEY,
+    service: 's3',
     region: 'auto',
-    endpoint: `https://${env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com`,
-    credentials: {
-        accessKeyId: env.R2_ACCESS_KEY_ID,
-        secretAccessKey: env.R2_SECRET_ACCESS_KEY,
-    },
 })
 
 export const BUCKET_NAME = env.R2_BUCKET_NAME
+export const ENDPOINT = `https://${env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com`

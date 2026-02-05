@@ -19,7 +19,6 @@
     "@types/spark-md5": "^3.0.5",
     "@unocss/preset-uno": "^66.6.0",
     "@unocss/transformer-directives": "^66.6.0",
-    "@xmldom/xmldom": "^0.8.11",
     "@yanren/config": "workspace:*",
     "svelte": "^5.48.2",
     "svelte-check": "^4.3.5",
@@ -28,7 +27,7 @@
     "vite": "^7.3.1"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.983.0",
-    "@aws-sdk/lib-storage": "^3.983.0"
+    "aws4fetch": "^1.0.20",
+    "fast-xml-parser": "^5.3.4"
   }
 }

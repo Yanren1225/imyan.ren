@@ -1,42 +1,58 @@
-import { ListObjectsV2Command, DeleteObjectCommand } from '@aws-sdk/client-s3'
-import { Upload } from '@aws-sdk/lib-storage'
-import { r2, BUCKET_NAME } from '$lib/server/r2'
+import { r2, BUCKET_NAME, ENDPOINT } from '$lib/server/r2'
 import { fail } from '@sveltejs/kit'
 import type { PageServerLoad, Actions } from './$types'
+import { XMLParser } from 'fast-xml-parser'
+import { env } from '$env/dynamic/private'
+
+// Helper to parse S3 XML response
+const parser = new XMLParser({
+  ignoreAttributes: false,
+  attributeNamePrefix: '@_'
+})
 
 export const load: PageServerLoad = async ({ depends }) => {
   depends('r2:files')
 
+  const bucketName = env.R2_BUCKET_NAME || 'R2 Storage'
+
   try {
-    const command = new ListObjectsV2Command({
-      Bucket: BUCKET_NAME,
-    })
+    // ListObjectsV2 URL
+    const url = `${ENDPOINT}/${BUCKET_NAME}?list-type=2`
 
-    const response = await r2.send(command)
+    // Sign and fetch using aws4fetch
+    const response = await r2.fetch(url)
 
-    const files = (response.Contents || [])
-      .map((file) => ({
+    if (!response.ok) {
+      throw new Error(`S3 list failed: ${response.status} ${response.statusText}`)
+    }
+
+    const xml = await response.text()
+    const result = parser.parse(xml)
+
+    // Handle empty bucket case where Contents is undefined
+    const contents = result.ListBucketResult?.Contents
+    const filesData = contents ? (Array.isArray(contents) ? contents : [contents]) : []
+
+    const files = filesData
+      .map((file: any) => ({
         key: file.Key,
-        lastModified: file.LastModified,
-        size: file.Size,
-        etag: file.ETag,
+        lastModified: new Date(file.LastModified),
+        size: Number(file.Size),
+        etag: file.ETag?.replace(/"/g, ''), // Remove quotes if present
       }))
-      .sort((a, b) => {
-        // Sort by last modified descending
-        return (
-          (b.lastModified?.getTime() ?? 0) - (a.lastModified?.getTime() ?? 0)
-        )
+      .sort((a: any, b: any) => {
+        return (b.lastModified?.getTime() ?? 0) - (a.lastModified?.getTime() ?? 0)
       })
 
     return {
       files,
-      bucketName: BUCKET_NAME,
+      bucketName,
     }
   } catch (error) {
     console.error('Failed to list files:', error)
     return {
       files: [],
-      bucketName: BUCKET_NAME,
+      bucketName,
       error: 'Failed to fetch files',
     }
   }
@@ -52,7 +68,7 @@ export const actions = {
     }
 
     try {
-      // Calculate hash using Web Crypto API (Cloudflare Workers compatible)
+      // Calculate hash
       const buffer = await file.arrayBuffer()
       const hashBuffer = await crypto.subtle.digest('SHA-256', buffer)
       const hashArray = Array.from(new Uint8Array(hashBuffer))
@@ -69,17 +85,22 @@ export const actions = {
       const ext = file.name.split('.').pop() || ''
       const key = `${year}/${month}/${hash}.${ext}`
 
-      const upload = new Upload({
-        client: r2,
-        params: {
-          Bucket: BUCKET_NAME,
-          Key: key,
-          Body: new Uint8Array(buffer),
-          ContentType: file.type,
-        },
+      // Upload using aws4fetch
+      // Note: R2/S3 usually requires the key to be path-encoded
+      const url = `${ENDPOINT}/${BUCKET_NAME}/${encodeURIComponent(key)}`
+
+      const response = await r2.fetch(url, {
+        method: 'PUT',
+        body: buffer,
+        headers: {
+          'Content-Type': file.type,
+          'Content-Length': String(buffer.byteLength)
+        }
       })
 
-      await upload.done()
+      if (!response.ok) {
+        throw new Error(`Upload failed: ${response.status}`)
+      }
 
       return { success: true }
     } catch (error) {
@@ -97,12 +118,15 @@ export const actions = {
     }
 
     try {
-      const command = new DeleteObjectCommand({
-        Bucket: BUCKET_NAME,
-        Key: key,
+      const url = `${ENDPOINT}/${BUCKET_NAME}/${encodeURIComponent(key)}`
+
+      const response = await r2.fetch(url, {
+        method: 'DELETE'
       })
 
-      await r2.send(command)
+      if (!response.ok) {
+        throw new Error(`Delete failed: ${response.status}`)
+      }
 
       return { success: true }
     } catch (error) {
