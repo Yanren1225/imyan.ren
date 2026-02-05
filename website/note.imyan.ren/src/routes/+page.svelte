@@ -27,24 +27,22 @@
 
       <div class="post-grid">
         {#each data.posts as post}
-          <HoverCard as="article" class="post-card">
-            <a href="/post/{post.slug}" class="post-link">
-              <h2 class="post-title">{post.title}</h2>
-              <div class="post-meta">
-                <time datetime={post.date}
-                  >{new Date(post.date).toLocaleDateString()}</time
-                >
-                <span class="category-tag">{post.category}</span>
-              </div>
-              {#if post.excerpt}
-                <p class="post-excerpt">{post.excerpt}</p>
-              {/if}
-              <div class="post-tags">
-                {#each post.tags as tag}
-                  <span class="tag">#{tag}</span>
-                {/each}
-              </div>
-            </a>
+          <HoverCard as="a" href="/post/{post.slug}" class="post-card">
+            <h2 class="post-title">{post.title}</h2>
+            <div class="post-meta">
+              <time datetime={post.date}
+                >{new Date(post.date).toLocaleDateString()}</time
+              >
+              <span class="category-tag">{post.category}</span>
+            </div>
+            {#if post.excerpt}
+              <p class="post-excerpt">{post.excerpt}</p>
+            {/if}
+            <div class="post-tags">
+              {#each post.tags as tag}
+                <span class="tag">#{tag}</span>
+              {/each}
+            </div>
           </HoverCard>
         {/each}
 
@@ -123,11 +121,10 @@
     gap: 20px;
   }
 
-  /* .post-card styles handled by HoverCard */
-
-  .post-link {
-    display: block;
+  :global(.post-card) {
     padding: 24px;
+    flex-direction: column;
+    text-decoration: none;
     color: var(--c-text);
   }
 
