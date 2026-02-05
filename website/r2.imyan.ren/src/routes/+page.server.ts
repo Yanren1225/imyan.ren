@@ -2,7 +2,6 @@ import { ListObjectsV2Command, DeleteObjectCommand } from '@aws-sdk/client-s3'
 import { Upload } from '@aws-sdk/lib-storage'
 import { r2, BUCKET_NAME } from '$lib/server/r2'
 import { fail } from '@sveltejs/kit'
-import SparkMD5 from 'spark-md5'
 import type { PageServerLoad, Actions } from './$types'
 
 export const load: PageServerLoad = async ({ depends }) => {
@@ -53,9 +52,13 @@ export const actions = {
     }
 
     try {
-      // Calculate MD5 hash using SparkMD5 (Environment Agnostic)
+      // Calculate hash using Web Crypto API (Cloudflare Workers compatible)
       const buffer = await file.arrayBuffer()
-      const hash = SparkMD5.ArrayBuffer.hash(buffer)
+      const hashBuffer = await crypto.subtle.digest('SHA-256', buffer)
+      const hashArray = Array.from(new Uint8Array(hashBuffer))
+      const hash = hashArray
+        .map((b) => b.toString(16).padStart(2, '0'))
+        .join('')
 
       // Get date parts
       const now = new Date()
