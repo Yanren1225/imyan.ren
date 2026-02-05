@@ -3,7 +3,7 @@ import path from 'node:path'
 import matter from 'gray-matter'
 import { marked } from 'marked'
 
-const POSTS_DIR = 'static/posts'
+const POSTS_DIR = 'posts'
 
 // 定义文章的数据结构接口
 export interface Post {
