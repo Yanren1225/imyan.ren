@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { Spring } from "svelte/motion";
+  import { Spring } from 'svelte/motion'
 
-  let isClicking = $state(false);
-  let isHovering = $state(false);
-  let isVisible = $state(false);
+  let isClicking = $state(false)
+  let isHovering = $state(false)
+  let isVisible = $state(false)
 
   const coords = new Spring(
     { x: 0, y: 0 },
@@ -11,24 +11,24 @@
       stiffness: 0.8,
       damping: 0.9,
     },
-  );
+  )
 
   const handleMove = (e: PointerEvent) => {
-    if (e.pointerType === "mouse" || e.pointerType === "pen") {
-      isVisible = true;
-      coords.target = { x: e.clientX, y: e.clientY };
+    if (e.pointerType === 'mouse' || e.pointerType === 'pen') {
+      isVisible = true
+      coords.target = { x: e.clientX, y: e.clientY }
     } else {
-      isVisible = false;
+      isVisible = false
     }
-  };
+  }
 
   const handleMouseOver = (e: MouseEvent) => {
-    if ((e.target as HTMLElement).closest("a, button, .clickable")) {
-      isHovering = true;
+    if ((e.target as HTMLElement).closest('a, button, .clickable')) {
+      isHovering = true
     } else {
-      isHovering = false;
+      isHovering = false
     }
-  };
+  }
 </script>
 
 <svelte:window
@@ -37,6 +37,20 @@
   onmouseup={() => (isClicking = false)}
   onmouseover={handleMouseOver}
 />
+
+<svelte:head>
+  {#if isVisible}
+    <style>
+      @media (hover: hover) and (pointer: fine) {
+        html,
+        body,
+        * {
+          cursor: none !important;
+        }
+      }
+    </style>
+  {/if}
+</svelte:head>
 
 {#if isVisible}
   <div
@@ -55,12 +69,12 @@
       10}px)"
   >
     <div
-      style:width={isHovering ? "40px" : "20px"}
-      style:height={isHovering ? "40px" : "20px"}
+      style:width={isHovering ? '40px' : '20px'}
+      style:height={isHovering ? '40px' : '20px'}
       style:border="1px solid var(--c-text-hover)"
       style:background-color={isClicking
-        ? "var(--c-text-hover)"
-        : "transparent"}
+        ? 'var(--c-text-hover)'
+        : 'transparent'}
       style:opacity="0.8"
       style:transition="all 0.2s ease-out"
     >

@@ -1,10 +1,10 @@
-@media (hover: hover) and (pointer: fine) {
+/* @media (hover: hover) and (pointer: fine) {
   html,
   body,
   * {
     cursor: none !important;
   }
-}
+} */
 
 html {
   background-color: var(--c-bg);
