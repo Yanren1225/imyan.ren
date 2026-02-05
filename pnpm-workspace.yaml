@@ -1,3 +1,5 @@
 packages:
   - 'website/*'
   - 'shared/*'
+onlyBuiltDependencies:
+  - esbuild
