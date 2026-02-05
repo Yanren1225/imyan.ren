@@ -8,6 +8,15 @@ export const load: PageServerLoad = async ({ depends }) => {
   depends('r2:files')
 
   try {
+    // Debug environment variables (remove in production)
+    console.log('Environment check:', {
+      hasAccountId: !!process.env.R2_ACCOUNT_ID,
+      hasAccessKey: !!process.env.R2_ACCESS_KEY_ID,
+      hasSecretKey: !!process.env.R2_SECRET_ACCESS_KEY,
+      hasBucketName: !!process.env.R2_BUCKET_NAME,
+      bucketName: BUCKET_NAME,
+    })
+
     const command = new ListObjectsV2Command({
       Bucket: BUCKET_NAME,
     })
@@ -28,6 +37,8 @@ export const load: PageServerLoad = async ({ depends }) => {
         )
       })
 
+    console.log(`Successfully loaded ${files.length} files from R2`)
+
     return {
       files,
       bucketName: BUCKET_NAME,
@@ -37,7 +48,7 @@ export const load: PageServerLoad = async ({ depends }) => {
     return {
       files: [],
       bucketName: BUCKET_NAME,
-      error: 'Failed to fetch files',
+      error: `Failed to fetch files: ${error instanceof Error ? error.message : String(error)}`,
     }
   }
 }
