@@ -19,7 +19,7 @@ export const actions = {
       path: '/',
       httpOnly: true,
       sameSite: 'strict',
-      secure: process.env.NODE_ENV === 'production',
+      secure: true, // Always secure in Cloudflare Pages
       maxAge: 60 * 60 * 24 * 7, // 1 week
     })
 
