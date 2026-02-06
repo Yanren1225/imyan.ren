@@ -1,15 +1,14 @@
 <script lang="ts">
   import { signIn } from '@auth/sveltekit/client'
   import { page } from '$app/stores'
+  import { HoverCard } from '@yanren/common'
 
   let callbackUrl = $derived($page.url.searchParams.get('callbackUrl') || '/')
 </script>
 
-<div
-  class="h-screen w-full flex items-center justify-center bg-dark-900 text-white font-mono selection:bg-gray-700 selection:text-white"
->
+<div class="h-[calc(100vh-8vh)] w-full flex items-center justify-center">
   <div
-    class="border border-dark-600 bg-dark-800/50 backdrop-blur p-8 rounded-lg shadow-2xl max-w-sm w-full relative overflow-hidden"
+    class="border border-[var(--c-border)] bg-[var(--c-card-bg)] backdrop-blur p-8 rounded-lg shadow-2xl max-w-sm w-full relative overflow-hidden"
   >
     <!-- Decorative elements -->
     <div
@@ -17,32 +16,36 @@
     ></div>
 
     <div class="mb-8 text-center">
-      <h1 class="text-2xl font-bold tracking-wider mb-2">SYSTEM ACCESS</h1>
+      <h1 class="text-2xl font-bold tracking-wider mb-2 text-[var(--c-text)]">
+        SYSTEM ACCESS
+      </h1>
       <p class="text-xs text-gray-400 uppercase tracking-widest">
         Authentication Required
       </p>
     </div>
 
     <div class="flex flex-col gap-4">
-      <button
+      <HoverCard
+        as="button"
         onclick={() => signIn('github', { callbackUrl })}
-        class="group flex items-center justify-center gap-3 p-3 bg-dark-700 border border-dark-500 rounded hover:bg-dark-600 hover:border-gray-500 transition-all duration-300"
+        class="group flex items-center justify-center gap-3 p-3 w-full"
       >
         <span
           class="i-simple-icons-github text-xl op-80 group-hover:op-100 transition-opacity"
         ></span>
         <span class="text-sm font-medium">Login via GitHub</span>
-      </button>
+      </HoverCard>
 
-      <button
+      <HoverCard
+        as="button"
         onclick={() => signIn('google', { callbackUrl })}
-        class="group flex items-center justify-center gap-3 p-3 bg-dark-700 border border-dark-500 rounded hover:bg-dark-600 hover:border-gray-500 transition-all duration-300"
+        class="group flex items-center justify-center gap-3 p-3 w-full"
       >
         <span
           class="i-simple-icons-google text-xl op-80 group-hover:op-100 transition-opacity"
         ></span>
         <span class="text-sm font-medium">Login via Google</span>
-      </button>
+      </HoverCard>
     </div>
 
     <div class="mt-8 text-center">
