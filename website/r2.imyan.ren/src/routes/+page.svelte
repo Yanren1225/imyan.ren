@@ -9,8 +9,10 @@
     modal,
     toast,
   } from '@yanren/common'
+  import { invalidateAll } from '$app/navigation'
   import { formatBytes } from '$lib/utils'
   import { env } from '$env/dynamic/public'
+  import FileCard from '$lib/components/FileCard.svelte'
   import type { PageData } from './$types'
 
   let { data } = $props()
@@ -18,6 +20,97 @@
   let uploadForm: HTMLFormElement
   let fileToDelete = $state('')
   let deleteForm: HTMLFormElement
+
+  interface UploadingFile {
+    key: string
+    size: number
+    progress: number
+    status: 'uploading' | 'done' | 'error'
+  }
+
+  // Simple Set implementation for Svelte 5 reactivity
+  class SvelteSet<T> {
+    set = $state(new Set<T>())
+
+    add(item: T) {
+      this.set = new Set(this.set.add(item))
+    }
+
+    delete(item: T) {
+      const newSet = new Set(this.set)
+      newSet.delete(item)
+      this.set = newSet
+    }
+
+    has(item: T) {
+      return this.set.has(item)
+    }
+  }
+
+  let uploadingFiles = $state<UploadingFile[]>([])
+  let deletingFiles = new SvelteSet<string>()
+
+  function uploadFile(file: File) {
+    const tempKey = file.name
+    // Add to optimistic UI
+    uploadingFiles = [
+      ...uploadingFiles,
+      { key: tempKey, size: file.size, progress: 0, status: 'uploading' },
+    ]
+
+    const xhr = new XMLHttpRequest()
+    xhr.upload.onprogress = (e) => {
+      if (e.lengthComputable) {
+        const percentComplete = (e.loaded / e.total) * 100
+        // Update progress
+        uploadingFiles = uploadingFiles.map((f) =>
+          f.key === tempKey ? { ...f, progress: percentComplete } : f,
+        )
+      }
+    }
+
+    xhr.onload = async () => {
+      if (xhr.status === 200) {
+        uploadingFiles = uploadingFiles.filter((f) => f.key !== tempKey)
+        await invalidateAll()
+        toast.success(`Uploaded ${tempKey}`)
+      } else {
+        uploadingFiles = uploadingFiles.map((f) =>
+          f.key === tempKey ? { ...f, status: 'error' } : f,
+        )
+        toast.error(`Failed to upload ${tempKey}`)
+      }
+    }
+
+    xhr.onerror = () => {
+      uploadingFiles = uploadingFiles.map((f) =>
+        f.key === tempKey ? { ...f, status: 'error' } : f,
+      )
+      toast.error(`Error uploading ${tempKey}`)
+    }
+
+    const formData = new FormData()
+    formData.append('file', file) // Matches the name='file' in the original form
+    xhr.open('POST', '?/upload')
+    xhr.send(formData)
+  }
+
+  function handleFileSelect(e: Event) {
+    const input = e.target as HTMLInputElement
+    if (input.files && input.files.length > 0) {
+      Array.from(input.files).forEach((file) => uploadFile(file))
+      input.value = '' // Reset input
+    }
+  }
+
+  function handleDrop(e: DragEvent) {
+    e.preventDefault()
+    isDragging = false
+
+    if (e.dataTransfer?.files.length) {
+      Array.from(e.dataTransfer.files).forEach((file) => uploadFile(file))
+    }
+  }
 
   async function confirmDelete(key: string) {
     const isConfirmed = await modal.confirm({
@@ -90,26 +183,15 @@
         isDragging = true
       }}
       ondragleave={() => (isDragging = false)}
-      ondrop={(e) => {
-        e.preventDefault()
-        isDragging = false
-
-        if (e.dataTransfer?.files.length) {
-          const input = uploadForm.querySelector(
-            'input[type="file"]',
-          ) as HTMLInputElement
-          input.files = e.dataTransfer.files
-          uploadForm.requestSubmit()
-        }
-      }}
+      ondrop={handleDrop}
     >
       <form
         action="?/upload"
         method="POST"
         enctype="multipart/form-data"
-        use:enhance
         bind:this={uploadForm}
         class="upload-form"
+        onsubmit={(e) => e.preventDefault()}
       >
         <div class="upload-icon">
           <div class="i-material-symbols-upload text-3xl"></div>
@@ -124,7 +206,8 @@
           name="file"
           class="hidden"
           id="file-upload"
-          onchange={() => uploadForm.requestSubmit()}
+          multiple
+          onchange={handleFileSelect}
         />
         <label for="file-upload" class="file-label-overlay"></label>
       </form>
@@ -132,53 +215,19 @@
   </div>
 
   <div class="file-grid">
+    <!-- Uploading Files -->
+    {#each uploadingFiles as file (file.key)}
+      <FileCard {file} isUploading={true} progress={file.progress} />
+    {/each}
+
+    <!-- Real Files -->
     {#each data.files as file (file.key)}
-      <div in:fly={{ y: 20, duration: 300 }}>
-        <HoverCard class="file-card">
-          <div class="file-preview">
-            {#if /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(file.key || '')}
-              <img
-                src={`https://${env.PUBLIC_ASSETS_DOMAIN || 'assets.imyan.ren'}/${file.key}`}
-                alt={file.key}
-                loading="lazy"
-              />
-            {:else}
-              <div class="file-icon">
-                <div class="i-material-symbols-description text-2xl"></div>
-              </div>
-            {/if}
-          </div>
-
-          <div class="file-info">
-            <h3 class="file-name" title={file.key}>{file.key}</h3>
-            <div class="file-meta">
-              <span>{formatBytes(file.size || 0)}</span>
-              <span
-                >{file.lastModified
-                  ? new Date(file.lastModified).toLocaleDateString()
-                  : '-'}</span
-              >
-            </div>
-          </div>
-
-          <div class="file-actions">
-            <button
-              class="action-btn copy"
-              onclick={() => copyUrl(file.key || '')}
-              title="Copy URL"
-            >
-              <div class="i-material-symbols-content-copy-outline"></div>
-            </button>
-            <button
-              class="action-btn delete"
-              title="Delete"
-              onclick={() => confirmDelete(file.key || '')}
-            >
-              <div class="i-material-symbols-delete-outline text-xl"></div>
-            </button>
-          </div>
-        </HoverCard>
-      </div>
+      <FileCard
+        {file}
+        isDeleting={deletingFiles.has(file.key)}
+        onCopy={copyUrl}
+        onDelete={confirmDelete}
+      />
     {/each}
   </div>
 
@@ -191,7 +240,14 @@
   <form
     action="?/delete"
     method="POST"
-    use:enhance
+    use:enhance={() => {
+      deletingFiles.add(fileToDelete)
+      return async ({ update }) => {
+        await update()
+        deletingFiles.delete(fileToDelete)
+        toast.success(`Deleted ${fileToDelete}`)
+      }
+    }}
     bind:this={deleteForm}
     class="hidden"
   >
