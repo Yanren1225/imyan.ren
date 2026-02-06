@@ -28,6 +28,10 @@
       "name": "r2.imyan.ren",
       "path": "website/r2.imyan.ren/",
     },
+    {
+      "name": "auth.imyan.ren",
+      "path": "website/auth.imyan.ren/",
+    },
   ],
   "settings": {
     "i18n-ally.enabledParsers": ["ts"],

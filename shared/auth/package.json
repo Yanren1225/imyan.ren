@@ -1,0 +1,22 @@
+{
+  "name": "@yanren/auth",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "check": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "peerDependencies": {
+    "@auth/core": "^0.41.1",
+    "@auth/sveltekit": "^1.11.1"
+  },
+  "devDependencies": {
+    "@auth/core": "^0.41.1",
+    "@auth/sveltekit": "^1.11.1",
+    "svelte-check": "^4.3.5",
+    "typescript": "^5.9.3"
+  }
+}
