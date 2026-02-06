@@ -6,6 +6,8 @@
     TerminalPrompt,
     HoverCard,
     TerminalCursor,
+    modal,
+    toast,
   } from '@yanren/common'
   import { formatBytes } from '$lib/utils'
   import { env } from '$env/dynamic/public'
@@ -14,12 +16,30 @@
   let { data } = $props()
   let isDragging = $state(false)
   let uploadForm: HTMLFormElement
+  let fileToDelete = $state('')
+  let deleteForm: HTMLFormElement
+
+  async function confirmDelete(key: string) {
+    const isConfirmed = await modal.confirm({
+      title: 'Confirm Deletion',
+      content: `Are you sure you want to delete ${key}? This action cannot be undone.`,
+      confirmText: 'Delete',
+      type: 'warning',
+    })
+
+    if (isConfirmed) {
+      fileToDelete = key
+      setTimeout(() => {
+        deleteForm.requestSubmit()
+      }, 0)
+    }
+  }
 
   function copyUrl(key: string) {
     const domain = env.PUBLIC_ASSETS_DOMAIN || 'assets.imyan.ren'
     const url = `https://${domain}/${key}`
     navigator.clipboard.writeText(url)
-    alert('Copied: ' + url)
+    toast.success('Copied URL to clipboard')
   }
 </script>
 
@@ -149,18 +169,13 @@
             >
               <div class="i-material-symbols-content-copy-outline"></div>
             </button>
-            <form action="?/delete" method="POST" use:enhance>
-              <input type="hidden" name="key" value={file.key} />
-              <button
-                class="action-btn delete"
-                title="Delete"
-                onclick={(e) => {
-                  if (!confirm('Delete this file?')) e.preventDefault()
-                }}
-              >
-                <div class="i-material-symbols-delete-outline"></div>
-              </button>
-            </form>
+            <button
+              class="action-btn delete"
+              title="Delete"
+              onclick={() => confirmDelete(file.key || '')}
+            >
+              <div class="i-material-symbols-delete-outline text-xl"></div>
+            </button>
           </div>
         </HoverCard>
       </div>
@@ -172,6 +187,16 @@
       <p>No files in bucket</p>
     </div>
   {/if}
+
+  <form
+    action="?/delete"
+    method="POST"
+    use:enhance
+    bind:this={deleteForm}
+    class="hidden"
+  >
+    <input type="hidden" name="key" value={fileToDelete} />
+  </form>
 </div>
 
 <style>

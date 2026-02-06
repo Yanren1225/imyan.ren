@@ -60,7 +60,7 @@
     style:width="20px"
     style:height="20px"
     style:pointer-events="none"
-    style:z-index="9999"
+    style:z-index="10000"
     style:transition="width 0.2s, height 0.2s"
     style:display="flex"
     style:align-items="center"

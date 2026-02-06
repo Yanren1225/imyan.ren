@@ -1,7 +1,7 @@
 <script lang="ts">
   import '../app.css'
   import 'virtual:uno.css'
-  import { GeekCursor, Footer } from '@yanren/common'
+  import { GeekCursor, Footer, Toaster, ModalContainer } from '@yanren/common'
 
   import favicon from '$lib/assets/favicon.svg'
 
@@ -9,6 +9,8 @@
 </script>
 
 <GeekCursor />
+<Toaster />
+<ModalContainer />
 
 <svelte:head>
   <link rel="icon" href={favicon} />
