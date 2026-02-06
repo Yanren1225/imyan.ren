@@ -11,11 +11,13 @@
   },
   "peerDependencies": {
     "@auth/core": "^0.41.1",
-    "@auth/sveltekit": "^1.11.1"
+    "@auth/sveltekit": "^1.11.1",
+    "@sveltejs/kit": "^2.0.0"
   },
   "devDependencies": {
     "@auth/core": "^0.41.1",
     "@auth/sveltekit": "^1.11.1",
+    "@sveltejs/kit": "^2.50.1",
     "svelte-check": "^4.3.5",
     "typescript": "^5.9.3"
   }
