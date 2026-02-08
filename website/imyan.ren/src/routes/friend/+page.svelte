@@ -1,21 +1,11 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
   import HoverCard from '$lib/components/hover-card/hover-card.svelte'
   import ScrollReveal from '$lib/components/scroll-reveal/scroll-reveal.svelte'
   import FriendItem from './components/friend-item.svelte'
-  import type { IFriendData } from '$lib/types'
   import { i18n } from '$lib/i18n'
+  import type { PageData } from './$types'
 
-  let friendData: IFriendData[] = $state([])
-
-  onMount(async () => {
-    try {
-      const res = await fetch('/link.json')
-      friendData = await res.json()
-    } catch (e) {
-      console.error(e)
-    }
-  })
+  let { data }: { data: PageData } = $props()
 
   const myInfo = {
     name: 'Yanren',
@@ -75,7 +65,7 @@
     </HoverCard>
   </div>
 
-  {#each friendData as item}
+  {#each data.friendData as item}
     <div class="friend-part">
       <p class="friend-desc">{getDescription(item.class_desc)}</p>
       <div class="friends-box">

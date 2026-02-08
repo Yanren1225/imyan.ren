@@ -70,6 +70,13 @@
     opacity: 1;
   }
 
+  /* JS 禁用时隐藏光效 */
+  @media (scripting: none) {
+    .mouse-light .light-effect {
+      display: none;
+    }
+  }
+
   .mouse-light > *:not(.light-effect) {
     position: relative;
     z-index: 2;

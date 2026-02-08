@@ -141,4 +141,11 @@
       background-position: 0% 200%;
     }
   }
+
+  /* JS 禁用时隐藏加载占位框 */
+  @media (scripting: none) {
+    .img-placeholder-shim {
+      display: none;
+    }
+  }
 </style>

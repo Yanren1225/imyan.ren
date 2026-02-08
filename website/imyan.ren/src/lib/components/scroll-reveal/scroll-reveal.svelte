@@ -54,4 +54,11 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  @media (scripting: none) {
+    .scroll-reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 </style>

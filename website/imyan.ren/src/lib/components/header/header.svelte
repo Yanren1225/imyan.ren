@@ -2,7 +2,6 @@
   import { i18n } from '$lib/i18n'
   import { page } from '$app/state'
   import LanguageSwitcher from '../language-switcher/language-switcher.svelte'
-
   let y = $state(0)
   let isScrolled = $derived(y > 20)
 </script>

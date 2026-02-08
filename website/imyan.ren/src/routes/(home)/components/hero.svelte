@@ -47,12 +47,24 @@
 
 <div class="font-outfit" id="hero">
   <div class="box">
-    <p style="white-space: pre-line">
+    <!-- JS 启用时显示打字效果 -->
+    <p class="typewriter-text" style="white-space: pre-line">
       <span>{part1}</span>
       <span class="font-bold">{part2}</span>
       <span>{part3}</span>
       <span class="cursor-blink">_</span>
     </p>
+    <!-- JS 禁用时显示静态内容 -->
+    <noscript>
+      <p class="static-text" style="white-space: pre-line">
+        <span>{i18n.t.hey},</span>
+        <br />
+        <span>{i18n.t.im}{i18n.locale === 'en' ? ' ' : ''}</span>
+        <span class="font-bold">{i18n.t.yanren}</span>
+        <span>.</span>
+        <span class="cursor-blink">_</span>
+      </p>
+    </noscript>
   </div>
   <div class="info">
     <p>{i18n.t.info[0]}</p>
@@ -95,6 +107,32 @@
       font-size: 1.125rem;
       line-height: 1.75rem;
       margin-top: 0.5rem;
+    }
+
+    /* JS 禁用时隐藏打字效果版本 */
+    @media (scripting: none) {
+      .typewriter-text {
+        display: none;
+      }
+    }
+
+    /* noscript 内的静态文本样式继承 */
+    :global(noscript .static-text) {
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--c-text);
+    }
+
+    :global(noscript .static-text .font-bold) {
+      font-weight: bold;
+      color: var(--c-text-hover);
+
+      @media (prefers-color-scheme: dark) {
+        text-shadow:
+          0 0 5px var(--c-neon),
+          0 0 15px var(--c-neon),
+          0 0 30px var(--c-neon);
+      }
     }
   }
 
