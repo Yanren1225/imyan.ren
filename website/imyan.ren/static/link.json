@@ -126,6 +126,11 @@
         "desc": "睡大觉 🤤💤"
       },
       {
+        "name": "rinki's garden",
+        "link": "https://rinki.top/",
+        "avatar": "https://rinki.top/favicon.svg"
+      },
+      {
         "name": "Shan San",
         "link": "https://shansan.top",
         "avatar": "https://cdn.jsdelivr.net/gh/ssmath/images-assets-cdn/try20200311205451.jpg",
@@ -222,10 +227,6 @@
         "link": "https://blog.jiehua1995.xyz",
         "avatar": "https://blog.jiehua1995.xyz/img/avatar.jpeg",
         "desc": "业余学习前端的生物狗"
-      },
-      {
-        "name": "rinki's garden",
-        "link": "https://rinki.top/"
       },
       {
         "name": "谭先生的塘",
