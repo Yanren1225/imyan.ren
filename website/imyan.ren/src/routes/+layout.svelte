@@ -8,7 +8,6 @@
   import Header from '$lib/components/header/header.svelte'
   import PageTransition from '$lib/components/page-transition/page-transition.svelte'
   import { Footer, GeekCursor, GeekDecorations } from '@yanren/common'
-  // import GeekDecorations from '$lib/components/geek-decorations/geek-decorations.svelte'
 
   let { children } = $props()
 </script>
