@@ -78,6 +78,15 @@
     font-style: italic;
   }
 
+  /* Strikethrough */
+  .markdown-body :global(del),
+  .markdown-body :global(s) {
+    text-decoration: line-through;
+    text-decoration-color: var(--c-neon);
+    text-decoration-thickness: 2px;
+    opacity: 0.7;
+  }
+
   /* Links */
   .markdown-body :global(a) {
     color: var(--c-neon);
