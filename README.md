@@ -1,6 +1,6 @@
 # Yanren Website Monorepo
 
-这个 Monorepo 管理着我的网站源代码，使用 **SvelteKit**、**UnoCSS** 和 **TypeScript** 构建。对应 package 下的文件夹名就是网站的域名。
+这个 Monorepo 管理着我的网站源代码，使用 **SvelteKit** 构建。对应 package 下的文件夹名就是网站的域名。
 
 ## 📂 项目结构
 
