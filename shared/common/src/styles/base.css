@@ -23,6 +23,7 @@ html {
 }
 
 body {
+  color: var(--c-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

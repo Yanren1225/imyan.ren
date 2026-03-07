@@ -107,6 +107,7 @@
       font-size: 1.125rem;
       line-height: 1.75rem;
       margin-top: 0.5rem;
+      color: var(--c-text);
     }
 
     /* JS 禁用时隐藏打字效果版本 */
