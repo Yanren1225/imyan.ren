@@ -65,7 +65,7 @@
   {#each socialList as item}
     <a
       class="outfit link {item.class ||
-        ''} inline-flex px-3 py-2 mt-2 mr-2 rounded-none gap-2 text-inherit bg-gray-50 transition-all transition-duration-300 decoration-none hover:text-white dark:bg-gray-50/10 border border-black/5 dark:border-white/10"
+        ''} inline-flex px-3 py-2 mt-2 mr-2 rounded-none gap-2 text-inherit bg-gray-50 text-gray-900 transition-all transition-duration-300 decoration-none hover:text-white dark:bg-gray-50/10 dark:text-white border border-black/5 dark:border-white/10"
       class:hide-name={item.hideName}
       href={item.link}
       target="_blank"
@@ -93,7 +93,7 @@
 
     .link:hover {
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
     }
 
     .icon {

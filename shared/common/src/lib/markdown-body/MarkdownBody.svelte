@@ -81,9 +81,7 @@
   /* Strikethrough */
   .markdown-body :global(del),
   .markdown-body :global(s) {
-    text-decoration: line-through;
-    text-decoration-color: var(--c-neon);
-    text-decoration-thickness: 2px;
+    text-decoration: line-through var(--c-neon) 2px;
     opacity: 0.7;
   }
 

@@ -48,22 +48,12 @@
     opacity: 0;
     background: radial-gradient(
       300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(0, 0, 0, 0.03),
+      rgb(from var(--c-text) r g b / 0.03),
       transparent 40%
     );
     transition: opacity 0.3s;
     pointer-events: none;
     z-index: 1;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .mouse-light .light-effect {
-      background: radial-gradient(
-        300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(255, 255, 255, 0.08),
-        transparent 40%
-      );
-    }
   }
 
   .mouse-light:hover .light-effect {

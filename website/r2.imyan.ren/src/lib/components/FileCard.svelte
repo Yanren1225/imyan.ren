@@ -123,7 +123,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgb(255 255 255 / 0.05);
     z-index: 1;
   }
 
@@ -192,7 +192,7 @@
 
   .action-btn.delete:hover {
     color: #ef4444;
-    background: rgba(239, 68, 68, 0.1);
+    background: rgb(239 68 68 / 0.1);
   }
 
   .upload-progress,

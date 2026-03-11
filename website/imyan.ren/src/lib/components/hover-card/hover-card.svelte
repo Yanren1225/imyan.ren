@@ -92,7 +92,7 @@
     :global(.hover-card-container):hover {
       background-color: var(--c-card-bg-hover);
       border-color: var(--c-neon);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
     }
 
     :global(.hover-card-container.has-lift):hover {
@@ -106,10 +106,10 @@
     border-color: #ff3c3c !important;
     background: repeating-linear-gradient(
       45deg,
-      rgba(255, 60, 60, 0.05),
-      rgba(255, 60, 60, 0.05) 10px,
-      rgba(0, 0, 0, 0.05) 10px,
-      rgba(0, 0, 0, 0.05) 20px
+      rgb(255 60 60 / 0.05),
+      rgb(255 60 60 / 0.05) 10px,
+      rgb(0 0 0 / 0.05) 10px,
+      rgb(0 0 0 / 0.05) 20px
     );
     cursor: not-allowed !important;
 

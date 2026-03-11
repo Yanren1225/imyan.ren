@@ -11,7 +11,8 @@
 
 <style>
   .page-transition {
-    animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: fadeInUp 0.4s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   @keyframes fadeInUp {

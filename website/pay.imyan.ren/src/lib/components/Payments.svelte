@@ -126,7 +126,7 @@
   }
 
   .payment-item {
-    border: 1px solid var(--accent-color);
+    border:1px solid var(--accent-color);
     background: color-mix(in srgb, var(--accent-color), transparent 90%);
     transition: all 0.2s;
   }
@@ -157,7 +157,7 @@
     font-size: 0.9rem;
     padding: 0.15rem 0.4rem;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: background-color 0.2s, color 0.2s;
     font-family: inherit;
     line-height: 1;
   }

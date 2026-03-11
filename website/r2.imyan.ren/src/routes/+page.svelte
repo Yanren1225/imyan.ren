@@ -350,7 +350,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgb(255 255 255 / 0.05);
   }
 
   .file-preview img {
@@ -416,7 +416,7 @@
 
   .action-btn.delete:hover {
     color: #ef4444;
-    background: rgba(239, 68, 68, 0.1);
+    background: rgb(239 68 68 / 0.1);
   }
 
   .empty-state {
@@ -426,6 +426,6 @@
     opacity: 0.5;
     background: var(--c-bg-soft);
     border-radius: 12px;
-    border: 1px dashed rgba(255, 255, 255, 0.1);
+    border: 1px dashed rgb(255 255 255 / 0.1);
   }
 </style>

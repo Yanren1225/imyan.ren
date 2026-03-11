@@ -109,9 +109,9 @@
     background: linear-gradient(
       to bottom,
       transparent 0%,
-      rgba(0, 255, 0, 0.1) 40%,
+      rgb(0 255 0 / 0.1) 40%,
       var(--c-neon) 50%,
-      rgba(0, 255, 0, 0.1) 60%,
+      rgb(0 255 0 / 0.1) 60%,
       transparent 100%
     );
     background-size: 100% 200%;

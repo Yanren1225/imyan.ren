@@ -83,7 +83,7 @@
     background: var(--c-bg);
     border: 1px solid var(--c-border);
     margin-bottom: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.3);
     overflow: hidden;
     pointer-events: auto;
     font-family: 'Fira Code', monospace;

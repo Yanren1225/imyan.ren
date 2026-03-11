@@ -45,9 +45,8 @@
   .scroll-reveal {
     opacity: 0;
     transform: translateY(20px);
-    transition:
-      opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1),
-      transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.45s, transform 0.45s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .scroll-reveal.is-visible {

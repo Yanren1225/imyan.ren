@@ -64,15 +64,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.8); /* Darker, no blur */
+    background: rgb(0 0 0 / 0.8);
   }
 
   .modal-content {
     width: 90%;
     max-width: 400px;
-    background: var(--c-bg); /* Use theme background */
-    border: 1px solid var(--c-border); /* Use theme border */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* More subtle shadow */
+    background: var(--c-bg);
+    border: 1px solid var(--c-border);
+    box-shadow: 0 0 15px rgb(0 0 0 / 0.5);
     font-family: 'Fira Code', monospace;
   }
 
@@ -148,7 +148,7 @@
 
   .btn-cancel:hover {
     opacity: 1;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgb(255 255 255 / 0.1);
   }
 
   .btn-confirm {
@@ -171,7 +171,7 @@
 
   .type-warning .modal-header {
     border-color: #ef4444;
-    background: rgba(239, 68, 68, 0.05);
+    background: rgb(239 68 68 / 0.05);
   }
 
   .type-warning .modal-title {
@@ -179,7 +179,7 @@
   }
 
   .type-warning .close-btn:hover {
-    background: rgba(239, 68, 68, 0.1);
+    background: rgb(239 68 68 / 0.1);
     color: #ef4444;
   }
 
