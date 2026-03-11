@@ -1,41 +1,50 @@
 <script lang="ts">
   import { fade, scale } from 'svelte/transition'
 
-  export let title = 'Confirm'
-  export let content = ''
-  export let confirmText = 'Confirm'
-  export let cancelText = 'Cancel'
-  export let type: 'info' | 'warning' | 'error' = 'info'
-  export let isOpen = false
-  export let onclose: () => void = () => {}
-  export let onconfirm: () => void = () => {}
-
-  function close() {
-    onclose()
+  interface Props {
+    title?: string
+    content?: string
+    confirmText?: string
+    cancelText?: string
+    type?: 'info' | 'warning' | 'error'
+    isOpen?: boolean
+    onclose?: () => void
+    onconfirm?: () => void
   }
 
-  function confirm() {
-    onconfirm()
-  }
+  let {
+    title = 'Confirm',
+    content = '',
+    confirmText = 'Confirm',
+    cancelText = 'Cancel',
+    type = 'info',
+    isOpen = false,
+    onclose = () => {},
+    onconfirm = () => {},
+  }: Props = $props()
+
+
 </script>
 
 {#if isOpen}
   <div
     class="modal-overlay"
     transition:fade={{ duration: 200 }}
-    onclick={close}
+    onclick={onclose}
     role="presentation"
   >
     <div
       class="modal-content type-{type}"
       transition:scale={{ duration: 200, start: 0.95 }}
       onclick={(e) => e.stopPropagation()}
+      onkeydown={(e) => e.key === 'Escape' && onclose()}
       role="dialog"
       aria-modal="true"
+      tabindex="-1"
     >
       <div class="modal-header">
         <h3 class="modal-title">{title}</h3>
-        <button class="close-btn" onclick={close}>
+        <button class="close-btn" onclick={onclose} aria-label="Close dialog">
           <div class="i-material-symbols-close text-xl"></div>
         </button>
       </div>
@@ -44,13 +53,14 @@
         {#if content}
           <p>{content}</p>
         {:else}
+          <!-- svelte-ignore slot_element_deprecated -->
           <slot></slot>
         {/if}
       </div>
 
       <div class="modal-footer">
-        <button class="btn btn-cancel" onclick={close}>{cancelText}</button>
-        <button class="btn btn-confirm" onclick={confirm}>{confirmText}</button>
+        <button class="btn btn-cancel" onclick={onclose}>{cancelText}</button>
+        <button class="btn btn-confirm" onclick={onconfirm}>{confirmText}</button>
       </div>
     </div>
   </div>
@@ -164,8 +174,7 @@
   }
 
   /* Warning Type Styling */
-  /* Warning Type Styling */
-  .type-warning .modal-content {
+  .modal-content.type-warning {
     border-color: #ef4444;
   }
 

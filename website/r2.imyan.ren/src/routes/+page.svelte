@@ -30,20 +30,24 @@
 
   // Simple Set implementation for Svelte 5 reactivity
   class SvelteSet<T> {
-    set = $state(new Set<T>())
+    #set = $state(new Set<T>())
 
     add(item: T) {
-      this.set = new Set(this.set.add(item))
+      if (!this.#set.has(item)) {
+        this.#set = new Set([...this.#set, item])
+      }
     }
 
     delete(item: T) {
-      const newSet = new Set(this.set)
-      newSet.delete(item)
-      this.set = newSet
+      if (this.#set.has(item)) {
+        const newSet = new Set(this.#set)
+        newSet.delete(item)
+        this.#set = newSet
+      }
     }
 
     has(item: T) {
-      return this.set.has(item)
+      return this.#set.has(item)
     }
   }
 
@@ -338,85 +342,6 @@
     padding: 16px;
     gap: 16px;
     height: 100%;
-  }
-
-  .file-preview {
-    width: 48px;
-    height: 48px;
-    flex-shrink: 0;
-    border-radius: 8px;
-    overflow: hidden;
-    background: var(--c-bg-soft);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgb(255 255 255 / 0.05);
-  }
-
-  .file-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .file-icon {
-    color: var(--c-text);
-    opacity: 0.5;
-  }
-
-  .file-info {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .file-name {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--c-text);
-    margin-bottom: 4px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .file-meta {
-    display: flex;
-    gap: 12px;
-    font-size: 0.8rem;
-    color: var(--c-text);
-    opacity: 0.6;
-    font-family: 'Fira Code', monospace;
-  }
-
-  .file-actions {
-    display: flex;
-    gap: 8px;
-  }
-
-  .action-btn {
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    color: var(--c-text);
-    opacity: 0.6;
-    transition: all 0.2s;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-  }
-
-  .action-btn:hover {
-    opacity: 1;
-    background: var(--c-bg-soft);
-    color: var(--c-neon);
-  }
-
-  .action-btn.delete:hover {
-    color: #ef4444;
-    background: rgb(239 68 68 / 0.1);
   }
 
   .empty-state {

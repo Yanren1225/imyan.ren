@@ -1,14 +1,18 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte'
   import { fly, fade } from 'svelte/transition'
-  import { toast } from './store'
-  import type { Toast } from './store'
+  import { toast } from './store.svelte'
+  import type { Toast } from './store.svelte'
 
-  export let item: Toast
+  interface Props {
+    item: Toast
+  }
 
-  let progress = 100
+  let { item }: Props = $props()
+
+  let progress = $state(100)
   let interval: ReturnType<typeof setInterval>
-  let isPaused = false
+  let isPaused = $state(false)
   const step = 10 // Update every 10ms for smooth progress bar
 
   onMount(() => {

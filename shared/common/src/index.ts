@@ -16,6 +16,6 @@ export { default as ModalContainer } from './lib/modal/ModalContainer.svelte'
 export { modal } from './lib/modal/store'
 
 export { default as Toaster } from './lib/toast/Toaster.svelte'
-export { toast } from './lib/toast/store'
+export { toast } from './lib/toast/store.svelte'
 
 export { default as MarkdownBody } from './lib/markdown-body/MarkdownBody.svelte'

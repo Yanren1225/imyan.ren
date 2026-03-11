@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { toast } from './store'
+  import { toast } from './store.svelte'
   import Toast from './Toast.svelte'
 </script>
 
 <div class="toaster">
-  {#each $toast as item (item.id)}
+  {#each toast.toasts as item (item.id)}
     <Toast {item} />
   {/each}
 </div>

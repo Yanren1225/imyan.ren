@@ -3,7 +3,7 @@
   import { HoverCard, Terminal, TerminalPrompt } from '@yanren/common'
   import { i18n } from '$lib/i18n'
 
-  export let data: PageData
+  let { data }: { data: PageData } = $props()
 </script>
 
 <svelte:head>
