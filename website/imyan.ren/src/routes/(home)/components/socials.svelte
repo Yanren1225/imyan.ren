@@ -58,6 +58,13 @@
       class: '!hover:bg-[#28a8e9]',
       hideName: true,
     },
+    {
+      name: 'GPG',
+      link: 'https://keys.openpgp.org/vks/v1/by-fingerprint/B28684BECADF1E259607D3CBCE3C4F005627FE06',
+      icon: 'i-simple-icons-gnuprivacyguard',
+      class: '!hover:bg-[#009400]',
+      hideName: true,
+    },
   ]
 </script>
 
