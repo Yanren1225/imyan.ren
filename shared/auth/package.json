@@ -7,7 +7,7 @@
     ".": "./src/index.ts"
   },
   "scripts": {
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "check": "tsc --noEmit --project ./tsconfig.json"
   },
   "peerDependencies": {
     "@auth/core": "^0.41.1",

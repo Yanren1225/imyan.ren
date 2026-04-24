@@ -11,12 +11,15 @@
 - **[imyan.ren](./website/imyan.ren)**: 个站主站
 - **[pay.imyan.ren](./website/pay.imyan.ren)**: 支付
 - **[note.imyan.ren](./website/note.imyan.ren)**: 笔记
+- **[auth.imyan.ren](./website/auth.imyan.ren)**: 统一认证
+- **[r2.imyan.ren](./website/r2.imyan.ren)**: R2 文件管理
 
 ### 📦 共享包 (`shared/*`)
 
 - **[@yanren/common](./shared/common)**: 公共 UI 组件
 - **[@yanren/config](./shared/config)**: 公共配置
 - **[@yanren/i18n](./shared/i18n)**: 公共国际化逻辑与类型
+- **[@yanren/auth](./shared/auth)**: 公共认证封装
 
 ## 🛠️ 开发指南
 
@@ -44,6 +47,12 @@
 
     # 启动笔记页
     pnpm dev:note.imyan.ren
+
+    # 启动认证页
+    pnpm dev:auth.imyan.ren
+
+    # 启动 R2 管理页
+    pnpm dev:r2.imyan.ren
     ```
 
 ## 📜 可用脚本
@@ -52,18 +61,22 @@
 
 | 命令                        | 说明                                     |
 | :-------------------------- | :--------------------------------------- |
-| `pnpm dev:imyan.ren`        | 启动 `imyan.ren` 开发服务器              |
-| `pnpm dev:pay.imyan.ren`    | 启动 `pay.imyan.ren` 开发服务器          |
-| `pnpm dev:note.imyan.ren`   | 启动 `note.imyan.ren` 开发服务器         |
-| `pnpm build:imyan.ren`      | 构建 `imyan.ren` 生产版本                |
-| `pnpm build:pay.imyan.ren`  | 构建 `pay.imyan.ren` 生产版本            |
-| `pnpm build:note.imyan.ren` | 构建 `note.imyan.ren` 生产版本           |
-| `pnpm check`                | 对整个 Monorepo 进行 TypeScript 类型检查 |
-| `pnpm clean:all`            | 清理所有 `node_modules` 和构建产物       |
+| `pnpm dev:imyan.ren`         | 启动 `imyan.ren` 开发服务器              |
+| `pnpm dev:pay.imyan.ren`     | 启动 `pay.imyan.ren` 开发服务器          |
+| `pnpm dev:note.imyan.ren`    | 启动 `note.imyan.ren` 开发服务器         |
+| `pnpm dev:auth.imyan.ren`    | 启动 `auth.imyan.ren` 开发服务器         |
+| `pnpm dev:r2.imyan.ren`      | 启动 `r2.imyan.ren` 开发服务器           |
+| `pnpm build:imyan.ren`       | 构建 `imyan.ren` 生产版本                |
+| `pnpm build:pay.imyan.ren`   | 构建 `pay.imyan.ren` 生产版本            |
+| `pnpm build:note.imyan.ren`  | 构建 `note.imyan.ren` 生产版本           |
+| `pnpm build:auth.imyan.ren`  | 构建 `auth.imyan.ren` 生产版本           |
+| `pnpm build:r2.imyan.ren`    | 构建 `r2.imyan.ren` 生产版本             |
+| `pnpm check`                 | 对整个 Monorepo 进行 TypeScript 类型检查 |
+| `pnpm clean:all`             | 清理所有 `node_modules` 和构建产物       |
 
 ## 🚀 部署
 
-所有项目均配置为使用 `@sveltejs/adapter-static` 进行静态托管 (例如 Cloudflare Pages)。
+静态站点使用 `@sveltejs/adapter-static` 托管，服务端站点使用 `@sveltejs/adapter-cloudflare`。
 
 **Cloudflare Pages 参考配置:**
 
@@ -76,5 +89,11 @@
 - **note.imyan.ren**:
   - 构建命令 (Build command): `pnpm build:note.imyan.ren`
   - 输出目录 (Output directory): `website/note.imyan.ren/build`
+- **auth.imyan.ren**:
+  - 构建命令 (Build command): `pnpm build:auth.imyan.ren`
+  - 需要配置 `AUTH_SECRET`、OAuth Client ID/Secret、`COOKIE_DOMAIN` 等环境变量
+- **r2.imyan.ren**:
+  - 构建命令 (Build command): `pnpm build:r2.imyan.ren`
+  - 需要配置 R2 访问凭据和共享认证环境变量
 
 > **注意**: 请将 Cloudflare Pages 的 **根目录 (Root Directory)** 设置为 `/` (留空)，以确保能正确处理 Monorepo 结构。

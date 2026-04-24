@@ -44,7 +44,7 @@ import { redirect, type RequestEvent } from '@sveltejs/kit'
 export async function requireAuth(event: RequestEvent) {
   const session = await event.locals.auth()
   if (!session?.user) {
-    throw redirect(303, `https://auth.imyan.ren/?callbackUrl=${event.url.href}`)
+    throw redirect(303, `https://auth.imyan.ren/?callbackUrl=${encodeURIComponent(event.url.href)}`)
   }
   return { session }
 }

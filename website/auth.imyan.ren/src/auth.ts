@@ -1,28 +1,44 @@
 import { createAuth } from '@yanren/auth'
 import GitHub from '@auth/sveltekit/providers/github'
 import Google from '@auth/sveltekit/providers/google'
-import {
-  AUTH_SECRET,
-  GITHUB_ID,
-  GITHUB_SECRET,
-  GOOGLE_ID,
-  GOOGLE_SECRET,
-  ALLOWED_EMAILS,
-  COOKIE_DOMAIN,
-} from '$env/static/private'
+import { env } from '$env/dynamic/private'
 import { dev } from '$app/environment'
 
-const allowedEmails = ALLOWED_EMAILS
-  ? ALLOWED_EMAILS.split(',').map((email) => email.trim())
+const requiredEnv = [
+  'AUTH_SECRET',
+  'GITHUB_ID',
+  'GITHUB_SECRET',
+  'GOOGLE_ID',
+  'GOOGLE_SECRET',
+] as const
+
+const missingEnv = requiredEnv.filter((key) => !env[key])
+
+if (missingEnv.length > 0) {
+  throw new Error(`Auth environment variables are not configured. Missing: ${missingEnv.join(', ')}`)
+}
+
+const requireEnv = (key: (typeof requiredEnv)[number]) => env[key] as string
+
+const allowedEmails = env.ALLOWED_EMAILS
+  ? env.ALLOWED_EMAILS.split(',').map((email: string) => email.trim())
   : []
 
+const isAllowedRedirectHost = (hostname: string) => {
+  const cookieDomain = env.COOKIE_DOMAIN?.replace(/^\./, '')
+
+  if (!cookieDomain) return false
+
+  return hostname === cookieDomain || hostname.endsWith(`.${cookieDomain}`)
+}
+
 export const { handle, signIn, signOut } = createAuth({
-  secret: AUTH_SECRET,
-  cookieDomain: COOKIE_DOMAIN,
+  secret: requireEnv('AUTH_SECRET'),
+  cookieDomain: env.COOKIE_DOMAIN,
   dev,
   providers: [
-    GitHub({ clientId: GITHUB_ID, clientSecret: GITHUB_SECRET }),
-    Google({ clientId: GOOGLE_ID, clientSecret: GOOGLE_SECRET }),
+    GitHub({ clientId: requireEnv('GITHUB_ID'), clientSecret: requireEnv('GITHUB_SECRET') }),
+    Google({ clientId: requireEnv('GOOGLE_ID'), clientSecret: requireEnv('GOOGLE_SECRET') }),
   ],
   callbacks: {
     async signIn({ user }: { user: any }) {
@@ -36,16 +52,17 @@ export const { handle, signIn, signOut } = createAuth({
       return true
     },
     async redirect({ url, baseUrl }: { url: string; baseUrl: string }) {
-      // Allows relative callback URLs
       if (url.startsWith('/')) return `${baseUrl}${url}`
-      // Allows callback URLs on the same origin
-      if (new URL(url).origin === baseUrl) return url
-      // Allows callback URLs on .imyan.ren subdomains (from env)
-      if (
-        COOKIE_DOMAIN &&
-        (url.endsWith(COOKIE_DOMAIN) || url.includes(`${COOKIE_DOMAIN}/`))
-      )
-        return url
+
+      try {
+        const targetUrl = new URL(url)
+
+        if (targetUrl.origin === baseUrl) return url
+        if (isAllowedRedirectHost(targetUrl.hostname)) return url
+      } catch {
+        return baseUrl
+      }
+
       return baseUrl
     },
   },

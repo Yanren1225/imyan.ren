@@ -1,42 +1,85 @@
-# sv
+# auth.imyan.ren
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+统一认证站，负责 GitHub/Google 登录，并为同域下其他服务提供共享会话 Cookie。
 
-## Creating a project
+## 技术栈
 
-If you're seeing this, you've probably already done this step. Congrats!
+- SvelteKit 2 + Svelte 5
+- Auth.js SvelteKit
+- UnoCSS
+- `@yanren/auth` 公共认证封装
+- `@sveltejs/adapter-cloudflare`
 
-```sh
-# create a new project
-npx sv create my-app
+## 本地开发
+
+先准备环境变量：
+
+```bash
+cp .env.example .env
 ```
 
-To recreate this project with the same configuration:
+推荐从仓库根目录运行：
 
-```sh
-# recreate this project
-pnpm dlx sv create --template minimal --types ts --install pnpm website/auth.imyan.ren
+```bash
+pnpm dev:auth.imyan.ren
 ```
 
-## Developing
+也可以在当前目录运行：
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+```bash
+pnpm dev
 ```
 
-## Building
+## 常用命令
 
-To create a production version of your app:
-
-```sh
-npm run build
+```bash
+pnpm dev
+pnpm check
+pnpm build
+pnpm serve
 ```
 
-You can preview the production build with `npm run preview`.
+从仓库根目录对应命令：
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```bash
+pnpm check:auth.imyan.ren
+pnpm build:auth.imyan.ren
+pnpm serve:auth.imyan.ren
+```
+
+## 环境变量
+
+见 `.env.example`。
+
+必需变量：
+
+- `AUTH_SECRET`: Auth.js secret，生产环境必须固定且足够随机
+- `GITHUB_ID`: GitHub OAuth Client ID
+- `GITHUB_SECRET`: GitHub OAuth Client Secret
+- `GOOGLE_ID`: Google OAuth Client ID
+- `GOOGLE_SECRET`: Google OAuth Client Secret
+
+可选变量：
+
+- `ALLOWED_EMAILS`: 允许登录的邮箱列表，逗号分隔；为空则不限制邮箱
+- `COOKIE_DOMAIN`: 共享 Cookie 域名，生产环境通常为 `.imyan.ren`
+
+## 行为说明
+
+- 登录页：`src/routes/+page.svelte`
+- 认证配置：`src/auth.ts`
+- Hook 入口：`src/hooks.server.ts`
+- 只允许跳转到相对路径、同源 URL 或 `COOKIE_DOMAIN` 下的根域/子域
+- 会话 Cookie 名由 `@yanren/auth` 统一设置为 `yanren.session-token`
+
+## 部署
+
+使用 `@sveltejs/adapter-cloudflare` 部署到 Cloudflare Pages/Workers。
+
+Cloudflare Pages 参考配置：
+
+- Build command: `pnpm build:auth.imyan.ren`
+- Root directory: 仓库根目录
+- 环境变量：按 `.env.example` 配置
+
+生产环境中，`AUTH_SECRET` 必须和依赖共享登录态的站点保持一致。

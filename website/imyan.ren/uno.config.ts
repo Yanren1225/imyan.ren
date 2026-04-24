@@ -8,6 +8,7 @@ export default defineConfig({
     basePreset(),
     presetWebFonts({
       provider: 'bunny',
+      inlineImports: false,
       fonts: {
         outfit: ['Outfit', 'sans-serif'],
         sans: ['Rubik', 'PingFang SC', 'Microsoft YaHei', 'sans-serif'],

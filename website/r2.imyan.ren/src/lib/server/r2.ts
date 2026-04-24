@@ -1,14 +1,6 @@
 import { AwsClient } from 'aws4fetch'
 import { env } from '$env/dynamic/private'
 
-// Debug environment variables
-console.log('R2 Environment Variables Check:', {
-    R2_ACCOUNT_ID: env.R2_ACCOUNT_ID ? 'SET' : 'MISSING',
-    R2_ACCESS_KEY_ID: env.R2_ACCESS_KEY_ID ? 'SET' : 'MISSING',
-    R2_SECRET_ACCESS_KEY: env.R2_SECRET_ACCESS_KEY ? 'SET' : 'MISSING',
-    R2_BUCKET_NAME: env.R2_BUCKET_NAME ? 'SET' : 'MISSING',
-})
-
 if (!env.R2_ACCOUNT_ID || !env.R2_ACCESS_KEY_ID || !env.R2_SECRET_ACCESS_KEY) {
     const missing = []
     if (!env.R2_ACCOUNT_ID) missing.push('R2_ACCOUNT_ID')

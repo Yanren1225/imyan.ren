@@ -10,6 +10,19 @@ const parser = new XMLParser({
   attributeNamePrefix: '@_'
 })
 
+const MAX_UPLOAD_SIZE = 50 * 1024 * 1024
+const BLOCKED_EXTENSIONS = new Set(['bat', 'cmd', 'com', 'exe', 'js', 'msi', 'ps1', 'scr', 'sh'])
+const BLOCKED_MIME_TYPES = new Set([
+  'application/javascript',
+  'application/x-msdownload',
+  'application/x-sh',
+  'text/javascript',
+  'text/x-shellscript',
+])
+
+const encodeKey = (key: string) => key.split('/').map(encodeURIComponent).join('/')
+const getExtension = (filename: string) => filename.split('.').pop()?.toLowerCase() || ''
+
 export const load: PageServerLoad = async ({ depends }) => {
   depends('r2:files')
 
@@ -67,6 +80,20 @@ export const actions = {
       return fail(400, { missing: true })
     }
 
+    if (file.size === 0) {
+      return fail(400, { error: 'Empty files are not allowed' })
+    }
+
+    if (file.size > MAX_UPLOAD_SIZE) {
+      return fail(413, { error: 'File is too large' })
+    }
+
+    const ext = getExtension(file.name)
+
+    if (BLOCKED_EXTENSIONS.has(ext) || BLOCKED_MIME_TYPES.has(file.type)) {
+      return fail(400, { error: 'File type is not allowed' })
+    }
+
     try {
       // Calculate hash
       const buffer = await file.arrayBuffer()
@@ -82,12 +109,11 @@ export const actions = {
       const month = String(now.getMonth() + 1).padStart(2, '0')
 
       // Get extension
-      const ext = file.name.split('.').pop() || ''
       const key = `${year}/${month}/${hash}.${ext}`
 
       // Upload using aws4fetch
       // Note: R2/S3 usually requires the key to be path-encoded
-      const url = `${ENDPOINT}/${BUCKET_NAME}/${encodeURIComponent(key)}`
+      const url = `${ENDPOINT}/${BUCKET_NAME}/${encodeKey(key)}`
 
       const response = await r2.fetch(url, {
         method: 'PUT',
@@ -118,7 +144,7 @@ export const actions = {
     }
 
     try {
-      const url = `${ENDPOINT}/${BUCKET_NAME}/${encodeURIComponent(key)}`
+      const url = `${ENDPOINT}/${BUCKET_NAME}/${encodeKey(key)}`
 
       const response = await r2.fetch(url, {
         method: 'DELETE'
@@ -136,7 +162,7 @@ export const actions = {
   },
 
   logout: async ({ cookies }) => {
-    cookies.delete('auth', { path: '/' })
+    cookies.delete('yanren.session-token', { path: '/' })
     return { success: true }
   },
 } satisfies Actions
