@@ -3,11 +3,15 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
+  "scripts": {
+    "check": "tsc --noEmit --project ./tsconfig.json"
+  },
   "main": "index.ts",
   "peerDependencies": {
-    "svelte": "^5.0.0"
+    "svelte": "catalog:"
   },
   "devDependencies": {
-    "svelte": "^5.49.1"
+    "svelte": "catalog:",
+    "typescript": "catalog:"
   }
 }

@@ -3,11 +3,15 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
+  "scripts": {
+    "check": "tsc --noEmit --project ./tsconfig.json"
+  },
   "main": "index.ts",
   "peerDependencies": {
-    "unocss": "^66.6.0"
+    "unocss": "catalog:"
   },
   "devDependencies": {
-    "unocss": "^66.6.0"
+    "typescript": "catalog:",
+    "unocss": "catalog:"
   }
 }
