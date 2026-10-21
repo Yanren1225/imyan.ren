@@ -1,19 +1,15 @@
-import { defineConfig, presetWebFonts } from 'unocss'
+import { defineConfig } from 'unocss'
 import { basePreset } from '@yanren/config'
 import transformerDirectives from '@unocss/transformer-directives'
 
 export default defineConfig({
-  presets: [
-    basePreset(),
-    presetWebFonts({
-      provider: 'bunny',
-      inlineImports: false,
-      fonts: {
-        outfit: ['Outfit', 'sans-serif'],
-        sans: ['Rubik', 'PingFang SC', 'Microsoft YaHei', 'sans-serif'],
-        mono: ['Fira Code', 'monospace'],
-      },
-    }),
-  ],
+  presets: [basePreset()],
   transformers: [transformerDirectives()],
+  theme: {
+    fontFamily: {
+      outfit: ['Outfit', 'sans-serif'],
+      sans: ['Rubik', 'PingFang SC', 'Microsoft YaHei', 'sans-serif'],
+      mono: ['Fira Code', 'monospace'],
+    },
+  },
 })
