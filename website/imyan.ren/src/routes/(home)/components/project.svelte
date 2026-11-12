@@ -4,6 +4,8 @@
   import ScrollReveal from '$lib/components/scroll-reveal/scroll-reveal.svelte'
   import { i18n } from '$lib/i18n'
   import FlixIcon from '$assets/flix.png'
+  import ShareRelayIcon from '$assets/projects/share-relay.png'
+  import ContentDeskIcon from '$assets/projects/content-desk.svg'
 
   interface ProjectConfig {
     title: string
@@ -31,6 +33,16 @@
       title: 'Snipdroid',
       icon: 'https://avatars.githubusercontent.com/u/127229863',
       link: 'https://github.com/Snipdroid/',
+    },
+    {
+      title: 'ShareRelay',
+      icon: ShareRelayIcon,
+      link: 'https://github.com/Yanren1225/share-relay',
+    },
+    {
+      title: 'Content Desk',
+      icon: ContentDeskIcon,
+      link: 'https://github.com/Yanren1225/dsh-content-desk',
     },
   ]
 </script>
