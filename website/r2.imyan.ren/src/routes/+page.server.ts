@@ -11,12 +11,41 @@ const parser = new XMLParser({
 })
 
 const MAX_UPLOAD_SIZE = 50 * 1024 * 1024
-const BLOCKED_EXTENSIONS = new Set(['bat', 'cmd', 'com', 'exe', 'js', 'msi', 'ps1', 'scr', 'sh'])
+// Public assets must not be able to execute scripts when served from the assets domain.
+// Block both by extension and by declared MIME type; HTML/SVG/XML are intentionally rejected.
+const BLOCKED_EXTENSIONS = new Set([
+  'bat',
+  'cmd',
+  'com',
+  'exe',
+  'js',
+  'mjs',
+  'cjs',
+  'msi',
+  'ps1',
+  'scr',
+  'sh',
+  'html',
+  'htm',
+  'xhtml',
+  'xml',
+  'xsl',
+  'xslt',
+  'svg',
+  'wasm',
+])
 const BLOCKED_MIME_TYPES = new Set([
   'application/javascript',
+  'application/x-javascript',
   'application/x-msdownload',
   'application/x-sh',
+  'application/xhtml+xml',
+  'application/xml',
+  'application/wasm',
+  'image/svg+xml',
+  'text/html',
   'text/javascript',
+  'text/xml',
   'text/x-shellscript',
 ])
 
@@ -162,7 +191,10 @@ export const actions = {
   },
 
   logout: async ({ cookies }) => {
-    cookies.delete('yanren.session-token', { path: '/' })
+    cookies.delete('yanren.session-token', {
+      path: '/',
+      ...(env.COOKIE_DOMAIN ? { domain: env.COOKIE_DOMAIN } : {}),
+    })
     return { success: true }
   },
 } satisfies Actions

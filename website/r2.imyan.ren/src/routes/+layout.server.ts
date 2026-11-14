@@ -1,6 +1,1 @@
-import { requireAuth } from '@yanren/auth'
-
-// export const load = async (event) => {
-//   const { session } = await requireAuth(event)
-//   return { session }
-// }
+// Auth is enforced in hooks.server.ts so it covers both page loads and form actions.
