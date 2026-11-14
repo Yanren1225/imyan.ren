@@ -1,9 +1,16 @@
 <script lang="ts">
+  import { onMount } from 'svelte'
   import { signIn } from '@auth/sveltekit/client'
-  import { page } from '$app/stores'
+  import { page } from '$app/state'
   import { HoverCard } from '@yanren/common'
 
-  let callbackUrl = $derived($page.url.searchParams.get('callbackUrl') || '/')
+  let callbackUrl = $derived(page.url.searchParams.get('callbackUrl') || '/')
+  let sessionId = $state('')
+
+  onMount(() => {
+    // Keep this client-only so SSR and hydration render the same empty state.
+    sessionId = Math.random().toString(36).substring(7).toUpperCase()
+  })
 </script>
 
 <div class="h-[calc(100vh-8vh)] w-full flex items-center justify-center">
@@ -12,7 +19,8 @@
   >
     <!-- Decorative elements -->
     <div
-      class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500"
+      class="absolute top-0 left-0 w-full h-1"
+      style="background: linear-gradient(to right, #3b82f6, #a855f7)"
     ></div>
 
     <div class="mb-8 text-center">
@@ -50,9 +58,7 @@
 
     <div class="mt-8 text-center">
       <p class="text-[10px] text-gray-600">
-        SESSION ID: <span class="font-mono text-gray-500"
-          >{Math.random().toString(36).substring(7).toUpperCase()}</span
-        >
+        SESSION ID: <span class="font-mono text-gray-500">{sessionId}</span>
       </p>
     </div>
   </div>
