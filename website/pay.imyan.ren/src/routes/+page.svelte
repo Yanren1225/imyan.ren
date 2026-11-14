@@ -18,9 +18,9 @@
 </script>
 
 <div class="page-container">
-  <div class="language-wrapper">
+  <nav class="language-wrapper" aria-label={i18n.t.language}>
     <LanguageSwitcher {i18n} {languages} {formatText} />
-  </div>
+  </nav>
 
   <div class="header-section">
     <h1 class="title">{i18n.t.payTitle}</h1>
@@ -37,41 +37,60 @@
     min-height: 60vh;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
     align-items: start;
     justify-content: center;
     margin: 0 auto;
-    padding: 2rem 0;
+    padding: 1.5rem 0 2rem;
   }
 
   .language-wrapper {
-    top: 2rem;
-    left: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
   }
 
   .header-section {
     text-align: left;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.6rem;
     width: 100%;
   }
 
   .title {
-    font-size: 2rem;
-    font-weight: bold;
+    font-size: clamp(1.85rem, 5vw, 3rem);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+    text-wrap: balance;
     margin: 0;
   }
 
   .intro {
-    font-size: 1.1rem;
+    max-width: 48rem;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.7;
     margin: 0;
     opacity: 0.9;
   }
 
   .sub-text {
+    max-width: 48rem;
     font-size: 0.9rem;
+    line-height: 1.6;
     margin: 0;
     opacity: 0.7;
+  }
+
+  @media (max-width: 600px) {
+    .page-container {
+      min-height: auto;
+      padding-top: 0.75rem;
+    }
+
+    .language-wrapper {
+      justify-content: flex-start;
+    }
   }
 </style>

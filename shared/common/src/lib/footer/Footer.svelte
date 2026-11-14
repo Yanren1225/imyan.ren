@@ -1,7 +1,17 @@
 <script lang="ts">
-  const { author, hasTravelling = false } = $props<{
+  import ThemeSwitcher from '../theme-switcher/ThemeSwitcher.svelte'
+  import type { ThemeLabels } from '../theme-switcher/types'
+
+  const {
+    author,
+    hasTravelling = false,
+    showThemeSwitcher = false,
+    themeLabels,
+  } = $props<{
     author: string
     hasTravelling: boolean
+    showThemeSwitcher?: boolean
+    themeLabels?: Partial<ThemeLabels>
   }>()
 
   const currentYear = new Date().getFullYear()
@@ -24,6 +34,9 @@
         {site.name}
       </a>
     {/each}
+    {#if showThemeSwitcher}
+      <ThemeSwitcher labels={themeLabels} />
+    {/if}
     {#if hasTravelling}
       <a
         href="https://www.travellings.cn/go.html"

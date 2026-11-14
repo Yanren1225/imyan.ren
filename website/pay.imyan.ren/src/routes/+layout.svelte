@@ -18,5 +18,15 @@
     {@render children()}
   </main>
 
-  <Footer author={i18n.t.yanren} hasTravelling={false} />
+  <Footer
+    author={i18n.t.yanren}
+    hasTravelling={false}
+    showThemeSwitcher
+    themeLabels={{
+      auto: i18n.t.themeAuto,
+      light: i18n.t.themeLight,
+      dark: i18n.t.themeDark,
+      change: i18n.t.changeTheme,
+    }}
+  />
 </div>

@@ -1,4 +1,5 @@
 :root {
+  color-scheme: light;
   --c-bg: #f2f2f2;
   --c-neon: #00aa2c;
   --c-text: #333333;
@@ -16,6 +17,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    color-scheme: dark;
     --c-bg: #0a0a0a;
     --c-neon: #00ff41;
     --c-text: #e0e0e0;
@@ -30,4 +32,38 @@
     --c-grid: rgb(from var(--c-neon) r g b / 0.03);
     scrollbar-color: var(--c-scroll) var(--c-bg);
   }
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --c-bg: #f2f2f2;
+  --c-neon: #00aa2c;
+  --c-text: #333333;
+  --c-text-hover: var(--c-neon);
+  --c-scroll: #d9d9d9;
+  --c-scroll-hover: var(--c-neon);
+  --c-terminal-highlight: #0088aa;
+  --c-terminal-hostname: #aa5500;
+  --c-card-bg: rgb(from var(--c-text) r g b / 0.05);
+  --c-bg-soft: rgb(from var(--c-text) r g b / 0.03);
+  --c-card-bg-hover: rgb(from var(--c-text) r g b / 0.1);
+  --c-grid: rgb(from var(--c-neon) r g b / 0.03);
+  scrollbar-color: var(--c-scroll) var(--c-bg);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --c-bg: #0a0a0a;
+  --c-neon: #00ff41;
+  --c-text: #e0e0e0;
+  --c-text-hover: var(--c-neon);
+  --c-scroll: #333333;
+  --c-scroll-hover: var(--c-neon);
+  --c-terminal-highlight: #00d4ff;
+  --c-terminal-hostname: #ff9944;
+  --c-card-bg: rgb(from var(--c-text) r g b / 0.05);
+  --c-bg-soft: rgb(from var(--c-text) r g b / 0.03);
+  --c-card-bg-hover: rgb(from var(--c-text) r g b / 0.1);
+  --c-grid: rgb(from var(--c-neon) r g b / 0.03);
+  scrollbar-color: var(--c-scroll) var(--c-bg);
 }
