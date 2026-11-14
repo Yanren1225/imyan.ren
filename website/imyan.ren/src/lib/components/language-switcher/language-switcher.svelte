@@ -10,30 +10,12 @@
   const formatText = (text: string, isActive: boolean) => {
     return isActive ? `[ ${text} ]` : text
   }
-
-  const handleLocaleChange = (locale: Locale) => {
-    if (locale === 'en') {
-      document.title = "I'm Yanren"
-    } else {
-      document.title = '我是炎忍'
-    }
-  }
-
-  // Set initial title
-  $effect(() => {
-    if (i18n.locale === 'en') {
-      document.title = "I'm Yanren"
-    } else {
-      document.title = '我是炎忍'
-    }
-  })
 </script>
 
 <LanguageSwitcher
   {i18n}
   {languages}
   {formatText}
-  onLocaleChange={handleLocaleChange}
   class="imyan-lang-switcher"
 />
 

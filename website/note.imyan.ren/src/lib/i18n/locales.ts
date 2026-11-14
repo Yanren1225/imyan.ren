@@ -9,6 +9,10 @@ export const en = {
   list_notes_recent: 'list-notes --recent',
   found_notes: 'Found {count} notes...',
   found_notes_category: 'Found {count} notes in {category}...',
+  themeAuto: 'Auto',
+  themeLight: 'Light',
+  themeDark: 'Dark',
+  changeTheme: 'Change theme',
 }
 
 export const zh = {
@@ -22,6 +26,8 @@ export const zh = {
   list_notes_recent: 'list-notes --recent/',
   found_notes: '找到 {count} 篇笔记...',
   found_notes_category: '在 {category} 中找到 {count} 篇笔记...',
+  themeAuto: '自动',
+  themeLight: '浅色',
+  themeDark: '深色',
+  changeTheme: '切换主题',
 }
-
-export type Locale = typeof en

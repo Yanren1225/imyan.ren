@@ -11,10 +11,6 @@
   const formatText = (text: string, isActive: boolean) => {
     return isActive ? `[ ${text} ]` : text
   }
-
-  $effect(() => {
-    document.title = 'Pay --user Yanren'
-  })
 </script>
 
 <div class="page-container">

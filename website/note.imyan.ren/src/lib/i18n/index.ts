@@ -3,7 +3,7 @@ import { en, zh } from './locales'
 
 const dictionaries = {
   en,
-  zh,
+  'zh-cn': zh,
 }
 
 export const i18n = createI18n(dictionaries, 'en')

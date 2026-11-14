@@ -1,14 +1,15 @@
 <script lang="ts">
   import 'virtual:uno.css'
   import '../app.css'
-  import { GeekCursor, Footer, LanguageSwitcher } from '@yanren/common'
+  import { GeekCursor, Footer, LanguageSwitcher, SiteHead } from '@yanren/common'
   import { i18n, type Locale } from '$lib/i18n'
+  import favicon from '$lib/assets/favicon.svg'
 
   let { children } = $props()
 
   const languages: { text: string; locale: Locale }[] = [
     { text: 'en_US', locale: 'en' },
-    { text: 'zh_CN', locale: 'zh' },
+    { text: 'zh_CN', locale: 'zh-cn' },
   ]
 
   const formatText = (text: string, isActive: boolean) => {
@@ -16,11 +17,12 @@
   }
 </script>
 
-<GeekCursor />
+<SiteHead
+  description="Yanren 的个人笔记：技术、折腾与生活记录。"
+  {favicon}
+/>
 
-<svelte:head>
-  <link rel="icon" href="https://github.com/yanren1225.png" />
-</svelte:head>
+<GeekCursor />
 
 <div class="app-layout">
   <div class="lang-switch-wrapper mb-4">
@@ -31,5 +33,15 @@
     {@render children()}
   </main>
 
-  <Footer author="Yanren" hasTravelling={false} />
+  <Footer
+    author="Yanren"
+    hasTravelling={false}
+    showThemeSwitcher
+    themeLabels={{
+      auto: i18n.t.themeAuto,
+      light: i18n.t.themeLight,
+      dark: i18n.t.themeDark,
+      change: i18n.t.changeTheme,
+    }}
+  />
 </div>

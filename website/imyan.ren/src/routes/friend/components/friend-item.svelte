@@ -1,5 +1,5 @@
 <script lang="ts">
-  import HoverCard from '$lib/components/hover-card/hover-card.svelte'
+  import { HoverCard } from '@yanren/common'
   import type { IFriendItem } from '$lib/types'
   import { createAvatar } from '@dicebear/core'
   import { pixelArt } from '@dicebear/collection'

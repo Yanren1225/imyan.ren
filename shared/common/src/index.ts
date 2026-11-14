@@ -12,6 +12,7 @@ export { default as TerminalHighlight } from './lib/terminal/TerminalHighlight.s
 export { default as LanguageSwitcher } from './lib/language-switcher/LanguageSwitcher.svelte'
 export { default as ThemeSwitcher } from './lib/theme-switcher/ThemeSwitcher.svelte'
 export type { Theme, ThemeLabels } from './lib/theme-switcher/types'
+export { default as SiteHead } from './lib/site-head/SiteHead.svelte'
 export { default as ErrorPage } from './lib/error-page/ErrorPage.svelte'
 export { default as Modal } from './lib/modal/Modal.svelte'
 export { default as ModalContainer } from './lib/modal/ModalContainer.svelte'

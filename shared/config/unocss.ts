@@ -22,5 +22,18 @@ export const basePreset = definePreset(() => {
       }),
     ],
     transformers: [transformerDirectives()],
+    theme: {
+      fontFamily: {
+        outfit: ["Outfit", "sans-serif"],
+        sans: ["Rubik", "PingFang SC", "Microsoft YaHei", "sans-serif"],
+        mono: ["Fira Code", "monospace"],
+      },
+      breakpoints: {
+        sm: "600px",
+        md: "768px",
+        lg: "1000px",
+        xl: "1280px",
+      },
+    },
   };
 });

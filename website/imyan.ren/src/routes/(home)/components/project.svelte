@@ -1,5 +1,5 @@
 <script lang="ts">
-  import HoverCard from '$lib/components/hover-card/hover-card.svelte'
+  import { HoverCard } from '@yanren/common'
   import ImageWithPlaceholder from '$lib/components/image-with-placeholder/image-with-placeholder.svelte'
   import ScrollReveal from '$lib/components/scroll-reveal/scroll-reveal.svelte'
   import { i18n } from '$lib/i18n'

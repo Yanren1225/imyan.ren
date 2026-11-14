@@ -140,10 +140,6 @@
   }
 </script>
 
-<svelte:head>
-  <title>R2 Dashboard - Yanren</title>
-</svelte:head>
-
 <div class="container">
   <div class="terminal-wrapper">
     <Terminal>

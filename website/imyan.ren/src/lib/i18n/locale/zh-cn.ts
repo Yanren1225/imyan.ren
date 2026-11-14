@@ -26,4 +26,8 @@ export default {
   travelling_title: '开往-友链接力',
   info: ['前端、Flutter 与 Android 开发者，略懂后端。', '热爱创造有趣的项目。'],
   project: '项目',
+  themeAuto: '自动',
+  themeLight: '浅色',
+  themeDark: '深色',
+  changeTheme: '切换主题',
 }

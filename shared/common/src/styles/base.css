@@ -44,3 +44,17 @@ a[role='button']:active,
   background: var(--c-neon);
   color: var(--c-bg);
 }
+
+.app-layout {
+  display: grid;
+  grid-template-columns: 1fr min(
+      var(--layout-max-width, 65rem),
+      calc(100% - 48px)
+    ) 1fr;
+  grid-column-gap: 24px;
+  padding-top: var(--layout-padding-top, 8vh);
+}
+
+.app-layout > * {
+  grid-column: 2;
+}

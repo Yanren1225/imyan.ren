@@ -21,24 +21,6 @@ catalogs:
     '@types/node':
       specifier: ^26.1.1
       version: 26.1.1
-    '@unocss/cli':
-      specifier: ^66.7.5
-      version: 66.7.5
-    '@unocss/inspector':
-      specifier: ^66.7.5
-      version: 66.7.5
-    '@unocss/preset-icons':
-      specifier: ^66.7.5
-      version: 66.7.5
-    '@unocss/preset-uno':
-      specifier: ^66.7.5
-      version: 66.7.5
-    '@unocss/preset-web-fonts':
-      specifier: ^66.7.5
-      version: 66.7.5
-    '@unocss/transformer-directives':
-      specifier: ^66.7.5
-      version: 66.7.5
     '@unocss/vite':
       specifier: ^66.7.5
       version: 66.7.5
@@ -144,9 +126,9 @@ importers:
         specifier: workspace:*
         version: link:../../shared/common
     devDependencies:
-      '@iconify-json/material-symbols':
-        specifier: ^1.2.86
-        version: 1.2.86
+      '@iconify-json/simple-icons':
+        specifier: ^1.2.91
+        version: 1.2.91
       '@sveltejs/adapter-cloudflare':
         specifier: ^7.2.9
         version: 7.2.9(@sveltejs/kit@2.70.1(@sveltejs/vite-plugin-svelte@7.2.0(svelte@5.56.7)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.7)(jiti@2.7.0)(less@4.7.0)(tsx@4.21.0)))(svelte@5.56.7)(typescript@5.9.3)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.7)(jiti@2.7.0)(less@4.7.0)(tsx@4.21.0)))(wrangler@4.63.0(@cloudflare/workers-types@4.20260702.1))
@@ -156,12 +138,6 @@ importers:
       '@sveltejs/vite-plugin-svelte':
         specifier: 'catalog:'
         version: 7.2.0(svelte@5.56.7)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.7)(jiti@2.7.0)(less@4.7.0)(tsx@4.21.0))
-      '@unocss/preset-uno':
-        specifier: 'catalog:'
-        version: 66.7.5
-      '@unocss/transformer-directives':
-        specifier: 'catalog:'
-        version: 66.7.5
       '@yanren/config':
         specifier: workspace:*
         version: link:../../shared/config
@@ -217,27 +193,9 @@ importers:
       '@sveltejs/vite-plugin-svelte':
         specifier: 'catalog:'
         version: 7.2.0(svelte@5.56.7)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.7)(jiti@2.7.0)(less@4.7.0)(tsx@4.21.0))
-      '@types/multiavatar__multiavatar':
-        specifier: ^1.0.3
-        version: 1.0.3
       '@types/node':
         specifier: 'catalog:'
         version: 26.1.1
-      '@unocss/cli':
-        specifier: 'catalog:'
-        version: 66.7.5
-      '@unocss/inspector':
-        specifier: 'catalog:'
-        version: 66.7.5
-      '@unocss/preset-icons':
-        specifier: 'catalog:'
-        version: 66.7.5
-      '@unocss/preset-web-fonts':
-        specifier: 'catalog:'
-        version: 66.7.5
-      '@unocss/transformer-directives':
-        specifier: 'catalog:'
-        version: 66.7.5
       mdsvex:
         specifier: ^0.12.8
         version: 0.12.8(svelte@5.56.7)
@@ -339,9 +297,6 @@ importers:
       '@unocss/vite':
         specifier: 'catalog:'
         version: 66.7.5(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.7)(jiti@2.7.0)(less@4.7.0)(tsx@4.21.0))
-      less:
-        specifier: ^4.7.0
-        version: 4.7.0
       qrcode:
         specifier: ^1.5.4
         version: 1.5.4
@@ -394,15 +349,6 @@ importers:
       '@sveltejs/vite-plugin-svelte':
         specifier: 'catalog:'
         version: 7.2.0(svelte@5.56.7)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.7)(jiti@2.7.0)(less@4.7.0)(tsx@4.21.0))
-      '@types/spark-md5':
-        specifier: ^3.0.5
-        version: 3.0.5
-      '@unocss/preset-uno':
-        specifier: 'catalog:'
-        version: 66.7.5
-      '@unocss/transformer-directives':
-        specifier: 'catalog:'
-        version: 66.7.5
       '@yanren/config':
         specifier: workspace:*
         version: link:../../shared/config
@@ -1561,17 +1507,11 @@ packages:
   '@types/mdast@4.0.4':
     resolution: {integrity: sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA==}
 
-  '@types/multiavatar__multiavatar@1.0.3':
-    resolution: {integrity: sha512-ulVKHLyW9J5dibJfEaHGMuLwLFJSdk5swpwQ3lD+uPqXSynKeJEIPG85Q8tjANg4G3xMoqbfveKiZjQO2K7EJw==}
-
   '@types/node@26.1.1':
     resolution: {integrity: sha512-nxAkRSVkN1Y0JC1W8ky/fTfkGsMmcrRsbx+3XoZE+rMOX71kLYTV7fLXpqud1GpbpP5TuffXFqfX7fH2GgZREw==}
 
   '@types/qrcode@1.5.6':
     resolution: {integrity: sha512-te7NQcV2BOvdj2b1hCAHzAoMNuj65kNBMz0KBaxM6c3VGBOhU0dURQKOtH8CFNI/dsKkwlv32p26qYQTWoB5bw==}
-
-  '@types/spark-md5@3.0.5':
-    resolution: {integrity: sha512-lWf05dnD42DLVKQJZrDHtWFidcLrHuip01CtnC2/S6AMhX4t9ZlEUj4iuRlAnts0PQk7KESOqKxeGE/b6sIPGg==}
 
   '@types/trusted-types@2.0.7':
     resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
@@ -3363,8 +3303,6 @@ snapshots:
     dependencies:
       '@types/unist': 2.0.11
 
-  '@types/multiavatar__multiavatar@1.0.3': {}
-
   '@types/node@26.1.1':
     dependencies:
       undici-types: 8.3.0
@@ -3372,8 +3310,6 @@ snapshots:
   '@types/qrcode@1.5.6':
     dependencies:
       '@types/node': 26.1.1
-
-  '@types/spark-md5@3.0.5': {}
 
   '@types/trusted-types@2.0.7': {}
 
@@ -3581,6 +3517,7 @@ snapshots:
   copy-anything@3.0.5:
     dependencies:
       is-what: 4.1.16
+    optional: true
 
   css-tree@3.2.1:
     dependencies:
@@ -3776,7 +3713,8 @@ snapshots:
 
   is-unsafe@2.0.0: {}
 
-  is-what@4.1.16: {}
+  is-what@4.1.16:
+    optional: true
 
   jiti@2.7.0: {}
 
@@ -3807,6 +3745,7 @@ snapshots:
       source-map: 0.6.1
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   lightningcss-android-arm64@1.33.0:
     optional: true
@@ -4010,7 +3949,8 @@ snapshots:
 
   package-manager-detector@1.7.0: {}
 
-  parse-node-version@1.0.1: {}
+  parse-node-version@1.0.1:
+    optional: true
 
   path-exists@4.0.0: {}
 

@@ -12,6 +12,7 @@
   --c-bg-soft: rgb(from var(--c-text) r g b / 0.03);
   --c-card-bg-hover: rgb(from var(--c-text) r g b / 0.1);
   --c-grid: rgb(from var(--c-neon) r g b / 0.03);
+  --c-border: rgb(from var(--c-text) r g b / 0.2);
   scrollbar-color: var(--c-scroll) var(--c-bg);
 }
 
@@ -30,6 +31,7 @@
     --c-bg-soft: rgb(from var(--c-text) r g b / 0.03);
     --c-card-bg-hover: rgb(from var(--c-text) r g b / 0.1);
     --c-grid: rgb(from var(--c-neon) r g b / 0.03);
+    --c-border: rgb(from var(--c-text) r g b / 0.2);
     scrollbar-color: var(--c-scroll) var(--c-bg);
   }
 }
@@ -48,6 +50,7 @@
   --c-bg-soft: rgb(from var(--c-text) r g b / 0.03);
   --c-card-bg-hover: rgb(from var(--c-text) r g b / 0.1);
   --c-grid: rgb(from var(--c-neon) r g b / 0.03);
+  --c-border: rgb(from var(--c-text) r g b / 0.2);
   scrollbar-color: var(--c-scroll) var(--c-bg);
 }
 
@@ -65,5 +68,6 @@
   --c-bg-soft: rgb(from var(--c-text) r g b / 0.03);
   --c-card-bg-hover: rgb(from var(--c-text) r g b / 0.1);
   --c-grid: rgb(from var(--c-neon) r g b / 0.03);
+  --c-border: rgb(from var(--c-text) r g b / 0.2);
   scrollbar-color: var(--c-scroll) var(--c-bg);
 }

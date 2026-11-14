@@ -29,4 +29,8 @@ export default {
     'Passionate about creating interesting projects.',
   ],
   project: 'Project',
+  themeAuto: 'Auto',
+  themeLight: 'Light',
+  themeDark: 'Dark',
+  changeTheme: 'Change theme',
 }
