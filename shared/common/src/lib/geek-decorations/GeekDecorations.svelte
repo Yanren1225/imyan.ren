@@ -113,7 +113,7 @@
       style:top="{spacing}px"
       style:left="{spacing}px"
     >
-      SYSTEM: <span style:color="#00ff41">ONLINE</span>
+      SYSTEM: <span style:color="var(--c-text-hover)">ONLINE</span>
       <br />
       {uptime}
     </div>

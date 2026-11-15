@@ -10,7 +10,12 @@ export const basePreset = definePreset(() => {
     name: "imyan-base-preset",
     presets: [
       presetMini({
-        dark: "media",
+        // 跟随站点主题切换（html[data-theme]）而不是系统媒体查询，
+        // 否则手动切换主题后 dark: 工具类不会跟着变
+        dark: {
+          light: '[data-theme="light"]',
+          dark: '[data-theme="dark"]',
+        },
       }),
       presetIcons({
         extraProperties: {

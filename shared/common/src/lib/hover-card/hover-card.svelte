@@ -111,7 +111,7 @@
       rgb(0 0 0 / 0.05) 10px,
       rgb(0 0 0 / 0.05) 20px
     );
-    cursor: not-allowed !important;
+    cursor: not-allowed;
 
     @media (hover: hover) {
       &:hover {

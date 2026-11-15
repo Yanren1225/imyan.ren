@@ -6,7 +6,7 @@
     class?: string
   }
 
-  const themes: Theme[] = ['auto', 'light', 'dark']
+  const THEMES: Theme[] = ['auto', 'light', 'dark']
   const defaultLabels: ThemeLabels = {
     auto: 'Auto',
     light: 'Light',
@@ -16,23 +16,46 @@
 
   let { labels = {}, class: className = '' }: Props = $props()
   let theme = $state<Theme>('auto')
+  let systemDark = $state(false)
+
+  const paint = (mode: Theme, dark: boolean) => {
+    const root = document.documentElement
+    root.dataset.themeMode = mode
+    root.dataset.theme = mode === 'auto' ? (dark ? 'dark' : 'light') : mode
+  }
 
   const applyTheme = (nextTheme: Theme) => {
     theme = nextTheme
 
-    if (nextTheme === 'auto') {
-      delete document.documentElement.dataset.theme
-    } else {
-      document.documentElement.dataset.theme = nextTheme
+    if (typeof document !== 'undefined') {
+      paint(nextTheme, systemDark)
     }
   }
 
   const cycleTheme = () => {
-    const currentIndex = themes.indexOf(theme)
-    applyTheme(themes[(currentIndex + 1) % themes.length])
+    const currentIndex = THEMES.indexOf(theme)
+    applyTheme(THEMES[(currentIndex + 1) % THEMES.length])
   }
 
   const getLabel = (key: keyof ThemeLabels) => labels[key] ?? defaultLabels[key]
+
+  $effect(() => {
+    if (typeof window === 'undefined') return
+
+    const media = window.matchMedia('(prefers-color-scheme: dark)')
+    systemDark = media.matches
+    theme = 'auto'
+    paint('auto', media.matches)
+
+    const onSystemChange = () => {
+      systemDark = media.matches
+      if (theme === 'auto') paint('auto', media.matches)
+    }
+
+    media.addEventListener('change', onSystemChange)
+
+    return () => media.removeEventListener('change', onSystemChange)
+  })
 </script>
 
 <button

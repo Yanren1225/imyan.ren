@@ -4,6 +4,7 @@
   let part1 = $state('')
   let part2 = $state('')
   let part3 = $state('')
+  let typing = $state(true)
 
   const getParts = () => {
     const l = i18n.locale
@@ -19,6 +20,16 @@
     part1 = ''
     part2 = ''
     part3 = ''
+    typing = true
+
+    // 用户要求减少动态效果时直接给出完整文案，光标常亮不闪
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      part1 = p1
+      part2 = p2
+      part3 = p3
+      typing = false
+      return
+    }
 
     let charIndex = 0
     const totalLength = p1.length + p2.length + p3.length
@@ -38,6 +49,7 @@
         charIndex++
       } else {
         clearInterval(interval)
+        typing = false
       }
     }, 100)
 
@@ -47,22 +59,17 @@
 
 <div class="font-outfit" id="hero">
   <div class="box">
-    <!-- JS 启用时显示打字效果 -->
+    <!-- JS 启用时显示打字效果。span 之间不能留空白：pre-line 会把换行渲染成空格，把句号和光标挤开 -->
     <p class="typewriter-text" style="white-space: pre-line">
-      <span>{part1}</span>
-      <span class="font-bold">{part2}</span>
-      <span>{part3}</span>
-      <span class="cursor-blink">_</span>
+      <span>{part1}</span><span class="font-bold">{part2}</span><span>{part3}</span><span
+        class="caret"
+        aria-hidden="true"
+      ><span class="caret-bar" class:blink={!typing}></span></span>
     </p>
     <!-- JS 禁用时显示静态内容 -->
     <noscript>
       <p class="static-text" style="white-space: pre-line">
-        <span>{i18n.t.hey},</span>
-        <br />
-        <span>{i18n.t.im}{i18n.locale === 'en' ? ' ' : ''}</span>
-        <span class="font-bold">{i18n.t.yanren}</span>
-        <span>.</span>
-        <span class="cursor-blink">_</span>
+        <span>{i18n.t.hey},</span><br /><span>{i18n.t.im}{i18n.locale === 'en' ? ' ' : ''}</span><span class="font-bold">{i18n.t.yanren}</span><span>.</span>
       </p>
     </noscript>
   </div>
@@ -86,20 +93,9 @@
       color: var(--c-text);
 
       & .font-bold {
+        position: relative;
+        display: inline-block;
         color: var(--c-text-hover);
-
-        @media (prefers-color-scheme: dark) {
-          text-shadow:
-            0 0 5px var(--c-neon),
-            0 0 15px var(--c-neon),
-            0 0 30px var(--c-neon);
-          animation: neon-flicker 15s linear infinite;
-        }
-
-        @media (prefers-color-scheme: light) {
-          position: relative;
-          animation: glitch-anim 4s infinite;
-        }
       }
     }
 
@@ -137,9 +133,22 @@
     }
   }
 
-  @keyframes blink {
-    0%,
-    100% {
+  /* 站内主题（html[data-theme]）决定 hero 动效：
+     深色走霓虹闪烁，浅色走故障抖动；媒体查询只留给禁用 JS 的 noscript 兜底 */
+  :global(html[data-theme='dark']) #hero .font-bold {
+    text-shadow:
+      0 0 5px var(--c-neon),
+      0 0 15px var(--c-neon),
+      0 0 30px var(--c-neon);
+    animation: neon-flicker 15s linear infinite;
+  }
+
+  :global(html[data-theme='light']) #hero .font-bold {
+    animation: glitch-anim 4s infinite;
+  }
+
+  @keyframes caret-blink {
+    0% {
       opacity: 1;
     }
 
@@ -148,11 +157,44 @@
     }
   }
 
-  .cursor-blink {
+  /* 光标用 0 高度的锚点 + 绝对定位竖条：
+     不参与行盒计算，打字时不会把文字顶歪，也不会撑高行高 */
+  .caret {
+    position: relative;
     display: inline-block;
-    margin-left: 2px;
-    animation: blink 1s step-end infinite;
-    color: var(--c-text-hover);
+    width: 0.09em;
+    height: 0;
+    margin-left: 0.12em;
+    vertical-align: baseline;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .caret-bar {
+    position: absolute;
+    bottom: -0.09em;
+    left: 0;
+    width: 100%;
+    height: 0.82em;
+    border-radius: 0.04em;
+    background: var(--c-text-hover);
+
+    /* 打字过程中常亮，打完才开始闪，像真实终端 */
+    &.blink {
+      animation: caret-blink 1.06s step-end infinite;
+    }
+  }
+
+  :global(html[data-theme='dark']) .caret-bar {
+    box-shadow:
+      0 0 0.12em var(--c-neon),
+      0 0 0.36em rgb(from var(--c-neon) r g b / 0.55);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .caret-bar {
+      animation: none !important;
+    }
   }
 
   @keyframes movement {
